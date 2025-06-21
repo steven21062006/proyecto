@@ -55,15 +55,38 @@ function mostrarProductos() {
 // Agregar producto desde formulario
 function agregarProductoDesdeFormulario(event) {
     event.preventDefault();
+
+    const nombre = document.getElementById("productName").value.trim();
+    const categoria = document.getElementById("productCategory").value;
+    const marca = document.getElementById("productBrand").value.trim();
+    const talla = document.getElementById("productSize").value.trim();
+    const color = document.getElementById("productColor").value.trim();
+    const precioRaw = document.getElementById("productPrice").value;
+    const cantidadRaw = document.getElementById("productQuantity").value;
+    const descripcion = document.getElementById("productDescription").value.trim();
+
+    if (!nombre || !categoria || !marca || precioRaw === "" || cantidadRaw === "") {
+        alert("Por favor, completa todos los campos obligatorios.");
+        return;
+    }
+
+    const precio = parseFloat(precioRaw).toFixed(2);
+    const cantidad = parseInt(cantidadRaw);
+
+    if (isNaN(precio) || isNaN(cantidad)) {
+        alert("Precio y cantidad deben ser números válidos.");
+        return;
+    }
+
     const producto = {
-        nombre: document.getElementById("productName").value,
-        categoria: document.getElementById("productCategory").value,
-        marca: document.getElementById("productBrand").value,
-        talla: document.getElementById("productSize").value,
-        color: document.getElementById("productColor").value,
-        precio: parseFloat(document.getElementById("productPrice").value).toFixed(2),
-        cantidad: parseInt(document.getElementById("productQuantity").value),
-        descripcion: document.getElementById("productDescription").value
+        nombre,
+        categoria,
+        marca,
+        talla,
+        color,
+        precio,
+        cantidad,
+        descripcion
     };
 
     const productos = getProductos();
@@ -71,8 +94,8 @@ function agregarProductoDesdeFormulario(event) {
     guardarProductos(productos);
 
     alert("✅ Producto agregado correctamente");
-    event.target.reset();
 
+    event.target.reset();
     mostrarProductos();
     actualizarEstadisticas();
 }
@@ -120,15 +143,42 @@ function actualizarProducto(event) {
     const index = document.getElementById('productId').value;
     const productos = getProductos();
 
+    if (!productos[index]) {
+        alert("Producto no encontrado para actualizar");
+        return;
+    }
+
+    const nombre = document.getElementById('editProductName').value.trim();
+    const categoria = document.getElementById('editProductCategory').value;
+    const marca = document.getElementById('editProductBrand').value.trim();
+    const talla = document.getElementById('editProductSize').value.trim();
+    const color = document.getElementById('editProductColor').value.trim();
+    const precioRaw = document.getElementById('editProductPrice').value;
+    const cantidadRaw = document.getElementById('editProductQuantity').value;
+    const descripcion = document.getElementById('editProductDescription').value.trim();
+
+    if (!nombre || !categoria || !marca || precioRaw === "" || cantidadRaw === "") {
+        alert("Por favor, completa todos los campos obligatorios.");
+        return;
+    }
+
+    const precio = parseFloat(precioRaw).toFixed(2);
+    const cantidad = parseInt(cantidadRaw);
+
+    if (isNaN(precio) || isNaN(cantidad)) {
+        alert("Precio y cantidad deben ser números válidos.");
+        return;
+    }
+
     productos[index] = {
-        nombre: document.getElementById('editProductName').value,
-        categoria: document.getElementById('editProductCategory').value,
-        marca: document.getElementById('editProductBrand').value,
-        talla: document.getElementById('editProductSize').value,
-        color: document.getElementById('editProductColor').value,
-        precio: parseFloat(document.getElementById('editProductPrice').value).toFixed(2),
-        cantidad: parseInt(document.getElementById('editProductQuantity').value),
-        descripcion: document.getElementById('editProductDescription').value
+        nombre,
+        categoria,
+        marca,
+        talla,
+        color,
+        precio,
+        cantidad,
+        descripcion
     };
 
     guardarProductos(productos);

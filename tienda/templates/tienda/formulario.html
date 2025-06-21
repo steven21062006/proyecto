@@ -18,8 +18,8 @@
 
     <main>
         <div class="form-container">
-            <form method="POST" action="{% url 'formulario' %}">
-                {% csrf_token %}
+            <!-- Formulario sin método ni acción para manejo con JS -->
+            <form id="addProductForm" onsubmit="agregarProductoDesdeFormulario(event)">
                 <div class="form-group">
                     <label for="productName">Nombre del Producto *</label>
                     <input type="text" id="productName" name="productName" required />
@@ -80,5 +80,7 @@
             </form>
         </div>
     </main>
+
+    <script src="{% static 'tienda/script.js' %}"></script>
 </body>
 </html>
