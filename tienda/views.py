@@ -1,10 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def landing(request):
-    return render(request, 'landing.html')
+    # Renderiza la plantilla landing.html dentro de tienda/templates/tienda/
+    return render(request, "tienda/landing.html")
 
 def formulario(request):
-    return render(request, 'formulario.html')
+    # Renderiza el formulario para agregar productos
+    return render(request, "tienda/formulario.html")
 
 def listado(request):
-    return render(request, 'listado.html')
+    # Renderiza el listado o edición de productos
+    return render(request, "tienda/lisatdo.html")

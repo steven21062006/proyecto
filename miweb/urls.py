@@ -3,5 +3,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('tienda.urls')),  # <-- asegúrate de tener esta línea
+    path('', include('tienda.urls')),  # Redirige al app tienda
 ]
