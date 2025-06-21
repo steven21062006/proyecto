@@ -44,7 +44,6 @@ function mostrarProductos() {
             <div class="product-price">$${prod.precio}</div>
             <div class="product-stock"><strong>Cantidad:</strong> ${prod.cantidad}</div>
             <div class="product-actions">
-                <button class="btn btn-edit" onclick="editarProducto(${index})">Editar</button>
                 <button class="btn btn-delete" onclick="eliminarProducto(${index})">Eliminar</button>
             </div>
         `;
