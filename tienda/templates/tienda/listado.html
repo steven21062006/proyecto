@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Editar Producto</title>
+    <title>Listado de Productos</title>
     <link rel="stylesheet" href="{% static 'tienda/style.css' %}" />
 </head>
 <body>
     <header>
-        <h1>Editar Producto</h1>
+        <h1>Listado de Productos</h1>
         <nav>
             <a href="{% url 'landing' %}" class="nav-link">Inventario</a>
             <a href="{% url 'formulario' %}" class="nav-link">Agregar Producto</a>
@@ -17,8 +17,19 @@
     </header>
 
     <main>
-        <div class="form-container">
-            <form id="editProductForm" onsubmit="updateProduct(event)">
+        <!-- Contenedor donde se mostrarán las tarjetas de productos -->
+        <div id="productGrid" class="product-grid"></div>
+
+        <!-- Mensaje cuando no hay productos -->
+        <div id="noProducts" class="no-products" style="display:none;">
+            <h3>No hay productos para mostrar</h3>
+            <a href="{% url 'formulario' %}" class="btn btn-primary">Agregar Producto</a>
+        </div>
+
+        <!-- Formulario oculto para editar producto -->
+        <div class="form-container" id="editFormContainer" style="display:none;">
+            <h2>Editar Producto</h2>
+            <form id="editProductForm" onsubmit="actualizarProducto(event)">
                 <input type="hidden" id="productId" name="productId" />
 
                 <div class="form-group">
@@ -68,7 +79,7 @@
                 </div>
 
                 <div class="form-actions">
-                    <button type="button" onclick="cancelEdit()" class="btn btn-secondary">Cancelar</button>
+                    <button type="button" onclick="cancelarEdicion()" class="btn btn-secondary">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Actualizar</button>
                 </div>
             </form>
@@ -76,11 +87,6 @@
     </main>
 
     <script src="{% static 'tienda/script.js' %}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            loadProductForEdit();
-        });
-    </script>
 </body>
 </html>
 

@@ -18,7 +18,8 @@
 
     <main>
         <div class="form-container">
-            <form id="addProductForm" onsubmit="addProduct(event)">
+            <form method="POST" action="{% url 'formulario' %}">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="productName">Nombre del Producto *</label>
                     <input type="text" id="productName" name="productName" required />
@@ -73,15 +74,11 @@
                 </div>
 
                 <div class="form-actions">
-                    <button type="button" onclick="resetForm()" class="btn btn-secondary">Reiniciar</button>
+                    <button type="reset" class="btn btn-secondary">Reiniciar</button>
                     <button type="submit" class="btn btn-primary">Agregar</button>
                 </div>
             </form>
         </div>
     </main>
-
-    <script src="{% static 'tienda/script.js' %}"></script>
 </body>
 </html>
-
-

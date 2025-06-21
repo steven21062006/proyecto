@@ -1,20 +1,46 @@
 from django.shortcuts import render, redirect
 
 def landing(request):
-    # Aquí cargas los productos desde tu base de datos o contexto
-    productos = []  # ejemplo: carga real de productos
+    # Carga los productos guardados en sesión (o lista vacía si no hay)
+    productos = request.session.get('productos', [])
     context = {'productos': productos}
     return render(request, 'tienda/landing.html', context)
 
 def formulario(request):
     if request.method == 'POST':
-        # Aquí procesas los datos del formulario para guardar producto
-        # Luego rediriges al inventario
+        # Obtener productos guardados en sesión
+        productos = request.session.get('productos', [])
+
+        # Crear nuevo producto con datos del formulario
+        producto = {
+            'id': request.session.get('next_id', 1),
+            'name': request.POST.get('productName'),
+            'category': request.POST.get('productCategory'),
+            'brand': request.POST.get('productBrand'),
+            'size': request.POST.get('productSize'),
+            'color': request.POST.get('productColor'),
+            'price': float(request.POST.get('productPrice', 0)),
+            'quantity': int(request.POST.get('productQuantity', 0)),
+            'description': request.POST.get('productDescription'),
+        }
+
+        # Añadir producto a la lista
+        productos.append(producto)
+
+        # Guardar la lista actualizada en sesión
+        request.session['productos'] = productos
+
+        # Actualizar el siguiente ID
+        request.session['next_id'] = producto['id'] + 1
+
+        # Redirigir a inventario
         return redirect('landing')
+
+    # Si es GET, mostrar formulario
     return render(request, 'tienda/formulario.html')
 
 def listado(request):
-    # Puedes usar esta vista para mostrar todos los productos si quieres
-    productos = []  # ejemplo
+    productos = request.session.get('productos', [])
     context = {'productos': productos}
     return render(request, 'tienda/listado.html', context)
+

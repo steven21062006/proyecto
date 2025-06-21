@@ -1,4 +1,4 @@
-<{% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,34 +36,53 @@
         <div class="stats">
             <div class="stat-card">
                 <h3>Total de Productos</h3>
-                <span id="totalProducts">0</span>
+                <span id="totalProducts">{{ productos|length }}</span>
             </div>
             <div class="stat-card">
                 <h3>Bajo Stock</h3>
-                <span id="lowStockItems">0</span>
+                <span id="lowStockItems">
+                    {% with productos|dictsort:"cantidad" as sorted_productos %}
+                        {% for p in sorted_productos %}
+                            {% if p.cantidad < 5 %}
+                                {{ forloop.counter }}
+                            {% endif %}
+                        {% empty %}
+                            0
+                        {% endfor %}
+                    {% endwith %}
+                </span>
             </div>
             <div class="stat-card">
                 <h3>Valor Total</h3>
-                <span id="totalValue">$0.00</span>
+                <span id="totalValue">
+                    ${{ productos|sum:"precio" }}
+                </span>
             </div>
         </div>
 
         <div class="product-grid" id="productGrid">
-            {% for producto in productos %}
-                <div class="product-item">
-                    <h2>{{ producto.nombre }}</h2>
-                    <!-- Aquí puedes mostrar más datos del producto -->
-                </div>
-            {% empty %}
+            {% if productos %}
+                {% for producto in productos %}
+                    <div class="product-item">
+                        <h2>{{ producto.nombre }}</h2>
+                        <p>Categoría: {{ producto.categoria }}</p>
+                        <p>Marca: {{ producto.marca }}</p>
+                        <p>Precio: ${{ producto.precio }}</p>
+                        <p>Cantidad: {{ producto.cantidad }}</p>
+                        <!-- Añade más detalles si quieres -->
+                    </div>
+                {% endfor %}
+            {% else %}
                 <div id="noProducts" class="no-products">
                     <h3>No se encontraron productos</h3>
                     <p>¡Comienza agregando tu primer producto!</p>
                     <a href="{% url 'formulario' %}" class="btn btn-primary">Agregar Producto</a>
                 </div>
-            {% endfor %}
+            {% endif %}
         </div>
     </main>
 
     <script src="{% static 'tienda/script.js' %}"></script>
 </body>
 </html>
+
