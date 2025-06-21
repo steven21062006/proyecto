@@ -1,28 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Editar Producto</title>
-    <link rel="stylesheet" href="/static/tienda/style.css">
+    <link rel="stylesheet" href="{% static 'tienda/style.css' %}" />
 </head>
 <body>
     <header>
         <h1>Editar Producto</h1>
         <nav>
-            <a href="/landing" class="nav-link">Inventario</a>
-            <a href="/formulario" class="nav-link">Agregar Producto</a>
+            <a href="{% url 'landing' %}" class="nav-link">Inventario</a>
+            <a href="{% url 'formulario' %}" class="nav-link">Agregar Producto</a>
         </nav>
     </header>
 
     <main>
         <div class="form-container">
             <form id="editProductForm" onsubmit="updateProduct(event)">
-                <input type="hidden" id="productId" name="productId">
+                <input type="hidden" id="productId" name="productId" />
 
                 <div class="form-group">
                     <label for="editProductName">Nombre del Producto *</label>
-                    <input type="text" id="editProductName" name="productName" required>
+                    <input type="text" id="editProductName" name="productName" required />
                 </div>
 
                 <div class="form-group">
@@ -38,27 +39,27 @@
 
                 <div class="form-group">
                     <label for="editProductBrand">Marca *</label>
-                    <input type="text" id="editProductBrand" name="productBrand" required>
+                    <input type="text" id="editProductBrand" name="productBrand" required />
                 </div>
 
                 <div class="form-group">
                     <label for="editProductSize">Talla</label>
-                    <input type="text" id="editProductSize" name="productSize">
+                    <input type="text" id="editProductSize" name="productSize" />
                 </div>
 
                 <div class="form-group">
                     <label for="editProductColor">Color</label>
-                    <input type="text" id="editProductColor" name="productColor">
+                    <input type="text" id="editProductColor" name="productColor" />
                 </div>
 
                 <div class="form-group">
                     <label for="editProductPrice">Precio *</label>
-                    <input type="number" id="editProductPrice" name="productPrice" required>
+                    <input type="number" id="editProductPrice" name="productPrice" step="0.01" required />
                 </div>
 
                 <div class="form-group">
                     <label for="editProductQuantity">Cantidad *</label>
-                    <input type="number" id="editProductQuantity" name="productQuantity" required>
+                    <input type="number" id="editProductQuantity" name="productQuantity" required />
                 </div>
 
                 <div class="form-group">
@@ -74,7 +75,7 @@
         </div>
     </main>
 
-    <script src="/static/tienda/script.js"></script>
+    <script src="{% static 'tienda/script.js' %}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             loadProductForEdit();
@@ -82,3 +83,4 @@
     </script>
 </body>
 </html>
+

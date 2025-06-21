@@ -1,24 +1,25 @@
+<{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Inventario de Ropa Deportiva</title>
-    <link rel="stylesheet" href="/static/tienda/style.css">
+    <link rel="stylesheet" href="{% static 'tienda/style.css' %}" />
 </head>
 <body>
     <header>
         <h1>Inventario de Ropa Deportiva</h1>
         <nav>
-            <a href="/landing" class="nav-link active">Inventario</a>
-            <a href="/formulario" class="nav-link">Agregar Producto</a>
+            <a href="{% url 'landing' %}" class="nav-link active">Inventario</a>
+            <a href="{% url 'formulario' %}" class="nav-link">Agregar Producto</a>
         </nav>
     </header>
 
     <main>
         <div class="controls">
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Buscar productos...">
+                <input type="text" id="searchInput" placeholder="Buscar productos..." />
                 <button onclick="searchProducts()">Buscar</button>
             </div>
             <div class="filter-container">
@@ -47,16 +48,22 @@
             </div>
         </div>
 
-        <div class="product-grid" id="productGrid"></div>
-
-        <div id="noProducts" class="no-products" style="display: none;">
-            <h3>No se encontraron productos</h3>
-            <p>¡Comienza agregando tu primer producto!</p>
-            <a href="/formulario" class="btn btn-primary">Agregar Producto</a>
+        <div class="product-grid" id="productGrid">
+            {% for producto in productos %}
+                <div class="product-item">
+                    <h2>{{ producto.nombre }}</h2>
+                    <!-- Aquí puedes mostrar más datos del producto -->
+                </div>
+            {% empty %}
+                <div id="noProducts" class="no-products">
+                    <h3>No se encontraron productos</h3>
+                    <p>¡Comienza agregando tu primer producto!</p>
+                    <a href="{% url 'formulario' %}" class="btn btn-primary">Agregar Producto</a>
+                </div>
+            {% endfor %}
         </div>
     </main>
 
-    <script src="/static/tienda/script.js"></script>
+    <script src="{% static 'tienda/script.js' %}"></script>
 </body>
 </html>
-
