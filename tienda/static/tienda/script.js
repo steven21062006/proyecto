@@ -8,19 +8,21 @@ function guardarProductos(productos) {
     localStorage.setItem("productos", JSON.stringify(productos));
 }
 
-// Mostrar productos en el contenedor
+// Mostrar productos en el contenedor de la landing
 function mostrarProductos() {
     const productos = getProductos();
     const contenedor = document.getElementById("productGrid");
     const noProducts = document.getElementById("noProducts");
 
+    if (!contenedor) return;
+
     contenedor.innerHTML = "";
 
     if (productos.length === 0) {
-        noProducts.style.display = "block";
+        if (noProducts) noProducts.style.display = "block";
         return;
     } else {
-        noProducts.style.display = "none";
+        if (noProducts) noProducts.style.display = "none";
     }
 
     productos.forEach((prod, index) => {
@@ -50,7 +52,7 @@ function mostrarProductos() {
     });
 }
 
-// Agregar producto desde formulario (formulario separado)
+// Agregar producto desde formulario
 function agregarProductoDesdeFormulario(event) {
     event.preventDefault();
     const producto = {
@@ -71,22 +73,23 @@ function agregarProductoDesdeFormulario(event) {
     alert("✅ Producto agregado correctamente");
     event.target.reset();
 
-    // Opcional: redirigir a listado o actualizar vista si estás en la misma página
-    if (document.getElementById("productGrid")) {
-        mostrarProductos();
-    }
+    mostrarProductos();
+    actualizarEstadisticas();
 }
 
-// Eliminar producto por índice
+// Eliminar producto
 function eliminarProducto(index) {
     if (!confirm("¿Seguro que quieres eliminar este producto?")) return;
+
     const productos = getProductos();
     productos.splice(index, 1);
     guardarProductos(productos);
+
     mostrarProductos();
+    actualizarEstadisticas();
 }
 
-// Mostrar formulario de edición con datos del producto seleccionado
+// Mostrar formulario de edición
 function editarProducto(index) {
     const productos = getProductos();
     const producto = productos[index];
@@ -107,15 +110,14 @@ function editarProducto(index) {
 
 // Cancelar edición
 function cancelarEdicion() {
-    document.getElementById('editFormContainer').style.display = 'none';
+    const formContainer = document.getElementById('editFormContainer');
+    if (formContainer) formContainer.style.display = 'none';
 }
 
-// Actualizar producto editado
+// Actualizar producto
 function actualizarProducto(event) {
     event.preventDefault();
     const index = document.getElementById('productId').value;
-    if (index === "") return alert("Índice no válido");
-
     const productos = getProductos();
 
     productos[index] = {
@@ -126,23 +128,110 @@ function actualizarProducto(event) {
         color: document.getElementById('editProductColor').value,
         precio: parseFloat(document.getElementById('editProductPrice').value).toFixed(2),
         cantidad: parseInt(document.getElementById('editProductQuantity').value),
-        descripcion: document.getElementById('editProductDescription').value,
+        descripcion: document.getElementById('editProductDescription').value
     };
 
     guardarProductos(productos);
-    alert("Producto actualizado correctamente");
+    alert("✅ Producto actualizado");
     cancelarEdicion();
     mostrarProductos();
+    actualizarEstadisticas();
 }
 
-// Al cargar la página, mostrar productos y agregar listener al formulario de agregar producto (si existe)
-document.addEventListener("DOMContentLoaded", () => {
-    if (document.getElementById("productGrid")) {
-        mostrarProductos();
+// Estadísticas
+function actualizarEstadisticas() {
+    const productos = getProductos();
+
+    const total = productos.length;
+    const bajoStock = productos.filter(p => p.cantidad < 5).length;
+    const valorTotal = productos.reduce((acc, p) => acc + (parseFloat(p.precio) * p.cantidad), 0);
+
+    if (document.getElementById("totalProducts")) {
+        document.getElementById("totalProducts").textContent = total;
     }
+    if (document.getElementById("lowStockItems")) {
+        document.getElementById("lowStockItems").textContent = bajoStock;
+    }
+    if (document.getElementById("totalValue")) {
+        document.getElementById("totalValue").textContent = `$${valorTotal.toFixed(2)}`;
+    }
+}
+
+// Buscar productos por nombre
+function buscarProductos() {
+    const query = document.getElementById("searchInput").value.toLowerCase();
+    const productos = getProductos().filter(p =>
+        p.nombre.toLowerCase().includes(query)
+    );
+
+    renderizarBusqueda(productos);
+    actualizarEstadisticas();
+}
+
+// Filtrar productos por categoría
+function filtrarProductos() {
+    const filtro = document.getElementById("categoryFilter").value;
+    const productos = getProductos();
+
+    const filtrados = filtro ? productos.filter(p => p.categoria === filtro) : productos;
+    renderizarBusqueda(filtrados);
+    actualizarEstadisticas();
+}
+
+// Renderizar resultado filtrado/buscado
+function renderizarBusqueda(productos) {
+    const contenedor = document.getElementById("productGrid");
+    const noProducts = document.getElementById("noProducts");
+
+    if (!contenedor) return;
+    contenedor.innerHTML = "";
+
+    if (productos.length === 0) {
+        if (noProducts) noProducts.style.display = "block";
+        return;
+    } else {
+        if (noProducts) noProducts.style.display = "none";
+    }
+
+    productos.forEach((prod, index) => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+            <div class="product-header">
+                <div>
+                    <h2 class="product-title">${prod.nombre}</h2>
+                    <div class="product-brand">${prod.marca}</div>
+                </div>
+                <div class="product-category">${prod.categoria}</div>
+            </div>
+            <div class="product-details">
+                <div class="product-detail"><strong>Talla:</strong> ${prod.talla || '-'}</div>
+                <div class="product-detail"><strong>Color:</strong> ${prod.color || '-'}</div>
+                <div class="product-detail"><strong>Descripción:</strong> ${prod.descripcion || '-'}</div>
+            </div>
+            <div class="product-price">$${prod.precio}</div>
+            <div class="product-stock"><strong>Cantidad:</strong> ${prod.cantidad}</div>
+            <div class="product-actions">
+                <button class="btn btn-edit" onclick="editarProducto(${index})">Editar</button>
+                <button class="btn btn-delete" onclick="eliminarProducto(${index})">Eliminar</button>
+            </div>
+        `;
+        contenedor.appendChild(card);
+    });
+}
+
+// Inicialización
+document.addEventListener("DOMContentLoaded", () => {
+    mostrarProductos();
+    actualizarEstadisticas();
 
     const formAgregar = document.getElementById("addProductForm");
     if (formAgregar) {
         formAgregar.addEventListener("submit", agregarProductoDesdeFormulario);
+    }
+
+    const formEditar = document.getElementById("editProductForm");
+    if (formEditar) {
+        formEditar.addEventListener("submit", actualizarProducto);
     }
 });
