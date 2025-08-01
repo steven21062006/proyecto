@@ -43,7 +43,9 @@ urlpatterns = [
         # Auto deportivo (subasta especial)
     path('auto-deportivo/', subastas.detalle_auto_deportivo, name='detalle_auto_deportivo'),
     path('api/pujas/auto-deportivo/', subastas.procesar_puja_auto, name='pujar_auto'),
-
+    #apple watch
+    path('apple-watch/', subastas.apple_watch, name='apple_watch'),
+    path('api/pujas/apple-watch/', subastas.procesar_puja_apple, name='pujar_apple'),
 ]
 
 if settings.DEBUG:

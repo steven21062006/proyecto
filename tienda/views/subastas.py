@@ -51,6 +51,53 @@ def procesar_puja_auto(request):
         'message': 'Método no permitido'
     }, status=405)
 
+
+#apple watch
+def apple_watch(request):
+    # Datos estáticos para el auto deportivo
+    context = {
+        'user': request.user,
+        'subasta': {
+            'titulo': 'Apple Watch Series 9',
+            'descripcion': 'Reloj exclusivo - Edición Limitada',
+            'precio_inicial': 25000,
+            'fecha_fin': '2023-12-31 23:59:59',
+            'slug': 'apple-watch'
+        }
+    }
+    return render(request, 'tienda/subastas/apple_watch.html', context)
+
+@login_required
+def procesar_puja_apple(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            monto = float(data.get('monto'))
+            
+            # Aquí iría la lógica para guardar en base de datos
+            # Ejemplo simplificado:
+            nueva_puja = {
+                'usuario': request.user.username,
+                'monto': monto,
+                'fecha': timezone.now().strftime("%d/%m/%Y %H:%M")
+            }
+            
+            return JsonResponse({
+                'success': True,
+                'nueva_puja': nueva_puja
+            })
+        except Exception as e:
+            return JsonResponse({
+                'success': False,
+                'message': str(e)
+            }, status=400)
+    
+    return JsonResponse({
+        'success': False,
+        'message': 'Método no permitido'
+    }, status=405)
+
+
 def lista_subastas(request):
     subastas = Subasta.objects.filter(
         estado='ACTIVA',

@@ -1903,3 +1903,4 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is
 "GET /static/img/auto-motor.jpg HTTP/1.1" 404 1981
 "GET /static/js/main.js HTTP/1.1" 404 1957
 "GET /static/img/auto-detalle.jpg HTTP/1.1" 404 1987
+Watching for file changes with StatReloader
