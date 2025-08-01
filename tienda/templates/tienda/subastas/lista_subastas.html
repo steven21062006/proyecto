@@ -1,0 +1,12 @@
+{% extends 'tienda/base.html' %}
+
+{% block content %}
+<h1>Subastas Activas</h1>
+{% for subasta in subastas %}
+    <div class="subasta">
+        <h3><a href="{% url 'detalle_subasta' subasta.slug %}">{{ subasta.titulo }}</a></h3>
+        <p>Precio actual: ${{ subasta.precio_actual }}</p>
+        <p>Termina en: {{ subasta.fecha_finalizacion|timeuntil }}</p>
+    </div>
+{% endfor %}
+{% endblock %}

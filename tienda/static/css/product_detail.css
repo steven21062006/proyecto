@@ -1,0 +1,160 @@
+/* tienda/static/css/product-detail.css */
+
+/* Estructura principal */
+.product-detail {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Contenedor del producto */
+.product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+/* Imagen del producto */
+.product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-right: 1px solid #eee;
+}
+
+/* Información del producto */
+.product-info {
+    padding: 2rem;
+}
+
+.product-info h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #e74c3c;
+    margin: 1.5rem 0;
+}
+
+.price strong {
+    font-weight: 700;
+}
+
+.time-left {
+    font-size: 1.1rem;
+    color: #3498db;
+    margin-bottom: 2rem;
+}
+
+.time-left strong {
+    font-weight: 600;
+}
+
+/* Formulario de puja */
+.bid-form {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.bid-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.bid-form input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s;
+}
+
+.bid-form input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Historial de pujas */
+.bid-history {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bid-history h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+}
+
+.bid-history ul {
+    list-style: none;
+    padding: 0;
+}
+
+.bid-history li {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bid-history li:last-child {
+    border-bottom: none;
+}
+
+.bid-history strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-image {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-info {
+        padding: 1.5rem;
+    }
+    
+    .bid-form {
+        padding: 1rem;
+    }
+    
+    .bid-history {
+        padding: 1.5rem;
+    }
+}

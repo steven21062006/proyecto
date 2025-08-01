@@ -1,0 +1,28 @@
+{% extends 'tienda/base.html' %}
+
+{% block title %}Contacto - SubastasPro{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <div class="container">
+        <h2>Contacto</h2>
+        <div class="contact-content">
+            <p>¿Tienes preguntas? Contáctanos a través del siguiente formulario:</p>
+            
+            <form method="post" class="contact-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="nombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Tu email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

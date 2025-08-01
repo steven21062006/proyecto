@@ -1,0 +1,19 @@
+{% extends 'tienda/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Crear Nueva Subasta</h2>
+    <form method="post" enctype="multipart/form-data">  <!-- ¡IMPORTANTE! enctype -->
+        {% csrf_token %}
+        
+        {{ subasta_form.as_p }}
+        
+        <div class="form-group">
+            <label>Imágenes adicionales:</label>
+            <input type="file" name="imagenes" class="form-control" multiple>  <!-- Campo manual -->
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Publicar</button>
+    </form>
+</div>
+{% endblock %}

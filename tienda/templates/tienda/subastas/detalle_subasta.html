@@ -1,0 +1,32 @@
+{% extends 'tienda/base.html' %}
+
+{% block content %}
+<div class="subasta-detalle">
+    <!-- Info básica de la subasta -->
+    <h1>{{ subasta.titulo }}</h1>
+    <img src="{{ subasta.imagen_principal.url }}" alt="{{ subasta.titulo }}">
+    <p>{{ subasta.descripcion }}</p>
+    <p>Precio actual: ${{ subasta.precio_actual }}</p>
+    <p>Termina en: {{ subasta.fecha_finalizacion|timeuntil }}</p>
+
+    <!-- Formulario de puja (solo si está activa) -->
+    {% if subasta.estado == 'ACTIVA' %}
+    <div class="puja-form">
+        <h3>Hacer una puja</h3>
+        <form method="post" action="{% url 'crear_puja' subasta.id %}">
+            {% csrf_token %}
+            {{ puja_form.as_p }}
+            <button type="submit">Pujar</button>
+        </form>
+    </div>
+    {% endif %}
+
+    <!-- Lista de pujas anteriores -->
+    <div class="pujas">
+        <h3>Historial de pujas</h3>
+        {% for puja in subasta.pujas.all %}
+            <p>{{ puja.usuario.username }} - ${{ puja.monto }} ({{ puja.fecha }})</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

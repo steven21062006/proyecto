@@ -1,18 +1,40 @@
 from pathlib import Path
+import os
 
-# Ruta base del proyecto
+# Configuración básica
 BASE_DIR = Path(__file__).resolve().parent.parent
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-clave-temporal-solo-para-desarrollo')
+DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'True'
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '*').split(',')
 
-# Llave secreta (NO la uses en producción tal cual)
-SECRET_KEY = 'django-insecure-fh*+ftlt72ng*k#7e$-b@b5-iq#9aturisl%5)&lz$woqx!g-y'
+# Configuración de seguridad (solo en producción)
+if not DEBUG:
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
-# ✅ Activado para desarrollo local
-DEBUG = True
+# Configuración de autenticación
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 
-# ✅ Hosts permitidos para pruebas
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+LOGIN_URL = 'tienda:login'
+LOGIN_REDIRECT_URL = 'tienda:inicio'
+LOGOUT_REDIRECT_URL = 'tienda:inicio'
 
-# Apps instaladas
+# Configuración de emails
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = os.getenv('EMAIL_HOST')
+    EMAIL_PORT = os.getenv('EMAIL_PORT', 587)
+    EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True'
+    EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+# Aplicaciones instaladas
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,12 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tienda',  # Tu app registrada aquí
+    'whitenoise.runserver_nostatic',  # Para desarrollo con Whitenoise
+    'tienda.apps.TiendaConfig',
 ]
 
 # Middlewares
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -34,64 +58,112 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Configuración de URLs
 ROOT_URLCONF = 'miweb.urls'
 
-# Plantillas HTML
+# Configuración de templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # Puedes agregar rutas aquí si usas templates fuera de la app
-        'APP_DIRS': True,  # Habilita búsqueda en tienda/templates/
+        'DIRS': [
+            os.path.join(BASE_DIR, 'tienda/templates'),
+        ],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'tienda.context_processors.categorias_globales',
+            ],
+            'builtins': [
+                'tienda.templatetags.subasta_tags',
             ],
         },
     },
 ]
 
-# WSGI
-WSGI_APPLICATION = 'miweb.wsgi.application'
-
-# Base de datos SQLite
+# Base de datos
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME', 'proyecto'),
+        'USER': os.getenv('DB_USER', 'postgres'),
+        'PASSWORD': os.getenv('DB_PASSWORD', '21062006'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
 
-# Validadores de contraseña (puedes dejarlos por defecto)
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+# Configuración de archivos estáticos y multimedia
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'tienda/static'),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Configuración para subastas
+SUBASTA_CONFIG = {
+    'MIN_PUJA_INCREMENT': 1.00,  # Incremento mínimo para pujas
+    'COMISION': 0.05,  # 5% de comisión
+    'DURACION_DEFAULT': 7,  # Días por defecto para subastas
+}
 
 # Internacionalización
-LANGUAGE_CODE = 'es'  # Español
-
-TIME_ZONE = 'America/Guayaquil'  # Zona horaria Ecuador
-
+LANGUAGE_CODE = 'es-ec'
+TIME_ZONE = 'America/Guayaquil'
 USE_I18N = True
+USE_L10N = True
 USE_TZ = True
 
-# Archivos estáticos (CSS, JS)
-STATIC_URL = '/static/'
-
-# Campo por defecto para claves primarias
+# Modelo por defecto para campos auto
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuración de sesiones
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_AGE = 1209600  # 2 semanas en segundos
+SESSION_COOKIE_NAME = 'subasta_session'
+
+# Configuración de logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'debug.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+        'tienda': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
+    },
+}
+
+# Configuración de caché
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+        'TIMEOUT': 300,  # 5 minutos
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}
 

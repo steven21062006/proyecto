@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SubastasPro</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body>
+    <header class="auth-header">
+        <h1>¡Bienvenido a SubastasPro!</h1>
+        <p>Donde cada oferta cuenta</p>
+    </header>
+
+    <div class="login-container">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <h1>Iniciar Sesión</h1>
+        <form action="{% url 'tienda:login' %}" method="post">
+            {% csrf_token %}
+            
+            <div class="input-group">
+                <label for="username">Nombre de usuario</label>
+                <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </form>
+        
+        
+    </div>
+</body>
+</html>

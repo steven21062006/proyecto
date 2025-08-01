@@ -1,8 +1,45 @@
 from django.urls import path
-from . import views
+from .views.auth import login_view
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import (
+    views,
+    auth,
+    productos,
+    pujas,
+    subastas
+)
+
+app_name = 'tienda'
 
 urlpatterns = [
-    path('', views.landing, name='landing'),           # Página principal - inventario
-    path('formulario/', views.formulario, name='formulario'),  # Formulario agregar producto
-    path('listado/', views.listado, name='listado'),   # Listado de productos (opcional)
+    # Vistas principales
+    path('', views.inicio, name='inicio'),
+    path('acerca-de/', views.acerca_de, name='acerca_de'),
+    path('contacto/', views.contacto, name='contacto'),
+    
+    # Autenticación
+    path('login/', login_view, name='login'),
+    path('logout/', auth.logout_view, name='logout'),
+    path('registro/', auth.register_view, name='registro'),
+    
+    # Productos
+    path('productos/', productos.lista_productos, name='lista_productos'),
+    path('productos/<slug:categoria_slug>/', productos.lista_productos, name='productos_por_categoria'),
+    path('producto/<int:id>/<slug:slug>/', productos.detalle_producto, name='detalle_producto'),
+    
+    # Pujas
+    path('pujar/<int:producto_id>/', pujas.hacer_puja, name='hacer_puja'),
+    path('mis-pujas/', pujas.mis_pujas, name='mis_pujas'),
+    
+    # Subastas (Nuevas URLs)
+    path('subastas/', subastas.lista_subastas, name='lista_subastas'),
+    path('subastas/nueva/', subastas.crear_subasta, name='crear_subasta'),
+    path('subastas/<slug:slug>/', subastas.detalle_subasta, name='detalle_subasta'),
+    path('subastas/<slug:slug>/finalizar/', subastas.finalizar_subasta, name='finalizar_subasta'),
+    path('mis-subastas/', subastas.mis_subastas, name='mis_subastas'),
 ]
+
+# Solo en desarrollo: servir archivos multimedia
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
