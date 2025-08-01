@@ -29,8 +29,8 @@ class PujaAppleWatch(models.Model):
     
     class Meta:
         ordering = ['-fecha']
-        verbose_name = 'Puja Auto Deportivo'
-        verbose_name_plural = 'Pujas Auto Deportivo'
+        verbose_name = 'Puja Apple Watch'
+        verbose_name_plural = 'Pujas Apple Watch'
     
     def __str__(self):
         return f"{self.usuario.username} - ${self.monto}"
