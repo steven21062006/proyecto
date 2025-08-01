@@ -844,3 +844,6 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'password_reset' not found. 'password_reset' is not a valid view function or pattern name.
 "GET /login/ HTTP/1.1" 500 121017
+"GET /login/ HTTP/1.1" 200 1269
+"GET /static/css/auth.css HTTP/1.1" 200 3374
+"GET /login/ HTTP/1.1" 200 1269
