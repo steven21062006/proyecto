@@ -1,0 +1,263 @@
+{% extends 'tienda/base.html' %}
+
+{% block content %}
+<div class="container my-4">
+    <!-- Encabezado -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="display-4">Auto Deportivo de Lujo</h1>
+            <p class="lead">Vehículo exclusivo - Edición Limitada</p>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="row">
+        <!-- Galería de imágenes -->
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <img src="/static/img/subastas/auto-deportivo.jpg" class="card-img-top" alt="Auto Deportivo">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="/static/img/auto-interior.jpg" class="img-thumbnail" alt="Interior">
+                        </div>
+                        <div class="col-4">
+                            <img src="/static/img/auto-motor.jpg" class="img-thumbnail" alt="Motor">
+                        </div>
+                        <div class="col-4">
+                            <img src="/static/img/auto-detalle.jpg" class="img-thumbnail" alt="Detalle">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Especificaciones técnicas -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Especificaciones Técnicas</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><strong>Marca:</strong> Deportivo Elite</li>
+                                <li><strong>Modelo:</strong> GT-R 2023</li>
+                                <li><strong>Motor:</strong> V6 3.0L Twin-Turbo</li>
+                                <li><strong>Potencia:</strong> 450 HP</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><strong>Transmisión:</strong> Automática 8 velocidades</li>
+                                <li><strong>Kilometraje:</strong> 5,200 km</li>
+                                <li><strong>Color:</strong> Rojo Racing</li>
+                                <li><strong>Ubicación:</strong> Ciudad de México</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de subasta -->
+        <div class="col-lg-6">
+            <div class="card sticky-top mb-4" style="top: 20px;">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">Información de la Subasta</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="fw-bold">Precio inicial:</span>
+                        <span>$25,000 USD</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="fw-bold">Puja actual:</span>
+                        <span class="text-success fw-bold" id="current-bid">$25,000 USD</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="fw-bold">Incremento mínimo:</span>
+                        <span>$500 USD</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="fw-bold">Tiempo restante:</span>
+                        <span class="text-danger fw-bold" id="countdown">3d 4h 22m</span>
+                    </div>
+
+                    {% if user.is_authenticated %}
+                    <form id="bid-form" class="mb-4">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="bid-amount" 
+                                   min="25500" step="500" value="25500" required>
+                            <button class="btn btn-danger" type="submit">Pujar ahora</button>
+                        </div>
+                        <small class="text-muted">La próxima puja mínima es $25,500</small>
+                    </form>
+                    {% else %}
+                    
+                    {% endif %}
+
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle"></i> Esta subasta finaliza el 31/12/2023 a las 23:59
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Historial de pujas -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">Historial de Pujas</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Monto</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bid-history">
+                                <!-- Ejemplo de pujas estáticas -->
+                                <tr>
+                                    <td>JuanPerez</td>
+                                    <td class="text-success">$25,000</td>
+                                    <td>15/11/2023</td>
+                                    <td>14:30:45</td>
+                                </tr>
+                                <!-- Las pujas dinámicas se insertarán aquí -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Descripción detallada -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Descripción Completa</h5>
+                </div>
+                <div class="card-body">
+                    <p>Presentamos este exclusivo Auto Deportivo GT-R 2023, un vehículo de alta gama con motor V6 3.0L Twin-Turbo que entrega 450 HP de potencia. Con sólo 5,200 km recorridos, este ejemplar se encuentra en estado impecable.</p>
+                    
+                    <h6 class="mt-4">Características destacadas:</h6>
+                    <ul>
+                        <li>Sistema de tracción integral inteligente</li>
+                        <li>Asientos deportivos en cuero premium con calefacción</li>
+                        <li>Sistema de sonido Bose premium de 12 bocinas</li>
+                        <li>Pantalla táctil de 10" con navegación</li>
+                        <li>Frenos Brembo de alto rendimiento</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">Historial del vehículo:</h6>
+                    <p>Vehículo de un solo dueño, mantenimiento siempre en agencia certificada, sin accidentes reportados. Incluye todos los manuales y llaves originales.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Contador regresivo
+function updateCountdown() {
+    const endDate = new Date("2023-12-31T23:59:59").getTime();
+    const now = new Date().getTime();
+    const distance = endDate - now;
+    
+    if (distance < 0) {
+        document.getElementById('countdown').textContent = "SUBASTA FINALIZADA";
+        document.getElementById('bid-form')?.setAttribute('disabled', 'disabled');
+        return;
+    }
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+// Sistema de pujas
+document.addEventListener('DOMContentLoaded', function() {
+    // Iniciar contador
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+    // Manejar envío de puja
+    const bidForm = document.getElementById('bid-form');
+    if (bidForm) {
+        bidForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const bidAmount = parseFloat(document.getElementById('bid-amount').value);
+            const currentBid = parseFloat(document.getElementById('current-bid').textContent.replace(/[^0-9.]/g, ''));
+            
+            if (bidAmount <= currentBid) {
+                alert(`Debes pujar más de $${currentBid}`);
+                return;
+            }
+            
+            // Simular envío al servidor (en producción sería una llamada AJAX real)
+            fetch('/api/pujar/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    monto: bidAmount,
+                    subasta_id: 1 // ID de esta subasta especial
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Actualizar interfaz
+                    document.getElementById('current-bid').textContent = `$${bidAmount} USD`;
+                    
+                    // Agregar al historial
+                    const now = new Date();
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td>{{ user.username }}</td>
+                        <td class="text-success">$${bidAmount}</td>
+                        <td>${now.toLocaleDateString()}</td>
+                        <td>${now.toLocaleTimeString()}</td>
+                    `;
+                    document.getElementById('bid-history').prepend(newRow);
+                    
+                    // Actualizar mínimo para próxima puja
+                    document.getElementById('bid-amount').min = bidAmount + 500;
+                    document.getElementById('bid-amount').value = bidAmount + 500;
+                    document.querySelector('#bid-form small').textContent = 
+                        `La próxima puja mínima es $${bidAmount + 500}`;
+                    
+                    // Mostrar notificación
+                    alert('¡Puja registrada con éxito!');
+                } else {
+                    alert(data.message || 'Error al procesar la puja');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al conectar con el servidor');
+            });
+        });
+    }
+});
+</script>
+{% endblock %}

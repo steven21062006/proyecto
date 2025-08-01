@@ -31,18 +31,21 @@
 </div>
 
 <main class="main-content">
-<h2>Vehículos</h2><div class='auction-list'>
-
-        <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Auto+Deportivo" alt="Auto Deportivo">
-          <div class="auction-details">
+<h2>Vehículos</h2>
+<div class='auction-list'>
+    <div class="auction-item">
+        <img src="/static/img/subastas/auto-deportivo.jpg" alt="Auto Deportivo">
+        <div class="auction-details">
             <h3>Auto Deportivo</h3>
             <p class="description">Vehículo de alta gama, motor V6, velocidad y estilo garantizados.</p>
             <p class="price">$25,000</p>
             <p class="time-left">Tiempo restante: 3d 4h</p>
-            <button class="btn">Ver detalles</button>
-          </div>
+            <a href="{% url 'tienda:detalle_auto_deportivo' %}" class="btn">Ver detalles</a>
         </div>
+    </div>
+</div>
+
+</div>
         
         <div class="auction-item">
           <img src="https://via.placeholder.com/250?text=Moto+Honda+XR+150" alt="Moto Honda XR 150">

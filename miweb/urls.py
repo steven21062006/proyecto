@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('tienda.urls')),  # Todas las URLs de la app tienda
+    path('', include('tienda.urls', namespace='tienda')),  # Todas las URLs de la app tienda
     
 ]
 

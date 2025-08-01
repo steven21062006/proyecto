@@ -4,6 +4,52 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from tienda.models import Subasta, Puja, ImagenSubasta  # Import absoluto
 from tienda.forms import SubastaForm, PujaForm, MultipleImagenSubastaForm  # Import absoluto
+import json
+from django.http import JsonResponse
+
+def detalle_auto_deportivo(request):
+    # Datos estáticos para el auto deportivo
+    context = {
+        'user': request.user,
+        'subasta': {
+            'titulo': 'Auto Deportivo de Lujo',
+            'descripcion': 'Vehículo exclusivo - Edición Limitada',
+            'precio_inicial': 25000,
+            'fecha_fin': '2023-12-31 23:59:59',
+            'slug': 'auto-deportivo'
+        }
+    }
+    return render(request, 'tienda/subastas/detalle_auto_deportivo.html', context)
+
+@login_required
+def procesar_puja_auto(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            monto = float(data.get('monto'))
+            
+            # Aquí iría la lógica para guardar en base de datos
+            # Ejemplo simplificado:
+            nueva_puja = {
+                'usuario': request.user.username,
+                'monto': monto,
+                'fecha': timezone.now().strftime("%d/%m/%Y %H:%M")
+            }
+            
+            return JsonResponse({
+                'success': True,
+                'nueva_puja': nueva_puja
+            })
+        except Exception as e:
+            return JsonResponse({
+                'success': False,
+                'message': str(e)
+            }, status=400)
+    
+    return JsonResponse({
+        'success': False,
+        'message': 'Método no permitido'
+    }, status=405)
 
 def lista_subastas(request):
     subastas = Subasta.objects.filter(

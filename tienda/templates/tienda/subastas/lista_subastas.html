@@ -1,12 +1,71 @@
-{% extends 'tienda/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-<h1>Subastas Activas</h1>
-{% for subasta in subastas %}
-    <div class="subasta">
-        <h3><a href="{% url 'detalle_subasta' subasta.slug %}">{{ subasta.titulo }}</a></h3>
-        <p>Precio actual: ${{ subasta.precio_actual }}</p>
-        <p>Termina en: {{ subasta.fecha_finalizacion|timeuntil }}</p>
+<div class="container mt-4">
+    <h2 class="mb-4">Subastas Activas</h2>
+    
+    <div class="row">
+        <!-- Ejemplo para tu auto deportivo -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="/media/subastas/auto-deportivo.jpg" class="card-img-top" alt="Auto Deportivo">
+                <div class="card-body">
+                    <h5 class="card-title">Auto Deportivo</h5>
+                    <p class="card-text">Vehículo de alta gama, motor V6, velocidad y estilo garantizados.</p>
+                    <p class="h4">$25,000</p>
+                    <p class="text-muted">Tiempo restante: <span class="countdown" data-end="2023-12-31 23:59:59">3d 4h</span></p>
+                    <a href="{% url 'detalle_subasta' 1 %}" class="btn btn-primary">Ver detalles</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Aquí irían otras subastas dinámicas -->
+        {% for subasta in subastas %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{{ subasta.imagen.url }}" class="card-img-top" alt="{{ subasta.titulo }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ subasta.titulo }}</h5>
+                    <p class="card-text">{{ subasta.descripcion|truncatechars:100 }}</p>
+                    <p class="h4">${{ subasta.puja_actual|default:subasta.precio_inicial }}</p>
+                    <p class="text-muted">Tiempo restante: <span class="countdown" data-end="{{ subasta.fecha_fin|date:'Y-m-d H:i:s' }}">{{ subasta.fecha_fin|timeuntil }}</span></p>
+                    <a href="{% url 'detalle_subasta' subasta.id %}" class="btn btn-primary">Ver detalles</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-{% endfor %}
+</div>
+
+{% block scripts %}
+<script>
+// Script para el contador regresivo en la lista
+document.addEventListener('DOMContentLoaded', function() {
+    const countdownElements = document.querySelectorAll('.countdown');
+    
+    countdownElements.forEach(el => {
+        const endDate = new Date(el.dataset.end).getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = endDate - now;
+            
+            if (distance < 0) {
+                el.innerHTML = "Finalizada";
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            
+            el.innerHTML = `${days}d ${hours}h ${minutes}m`;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 60000); // Actualiza cada minuto
+    });
+});
+</script>
+{% endblock %}
 {% endblock %}

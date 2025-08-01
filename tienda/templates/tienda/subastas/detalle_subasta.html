@@ -1,32 +1,199 @@
-{% extends 'tienda/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-<div class="subasta-detalle">
-    <!-- Info básica de la subasta -->
-    <h1>{{ subasta.titulo }}</h1>
-    <img src="{{ subasta.imagen_principal.url }}" alt="{{ subasta.titulo }}">
-    <p>{{ subasta.descripcion }}</p>
-    <p>Precio actual: ${{ subasta.precio_actual }}</p>
-    <p>Termina en: {{ subasta.fecha_finalizacion|timeuntil }}</p>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/media/subastas/auto-deportivo.jpg" class="img-fluid rounded" alt="Auto Deportivo">
+        </div>
+        <div class="col-md-6">
+            <h1>Auto Deportivo</h1>
+            <p class="lead">Vehículo de alta gama, motor V6, velocidad y estilo garantizados.</p>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Detalles de la Subasta</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Precio inicial:</span>
+                            <strong>$25,000</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Puja actual:</span>
+                            <strong id="puja-actual">$25,000</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Tiempo restante:</span>
+                            <strong class="countdown" data-end="2023-12-31 23:59:59">3d 4h 22m</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Ubicación:</span>
+                            <strong>Ciudad de México</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-    <!-- Formulario de puja (solo si está activa) -->
-    {% if subasta.estado == 'ACTIVA' %}
-    <div class="puja-form">
-        <h3>Hacer una puja</h3>
-        <form method="post" action="{% url 'crear_puja' subasta.id %}">
-            {% csrf_token %}
-            {{ puja_form.as_p }}
-            <button type="submit">Pujar</button>
-        </form>
+            {% if user.is_authenticated %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Realizar Puja</h4>
+                    <form id="form-puja" method="post" action="/pujar/">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <input type="number" class="form-control" id="monto-puja" 
+                                   name="monto" min="25001" step="100" required>
+                            <button class="btn btn-primary" type="submit">Pujar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-warning">
+                <a href="{% url 'login' %}?next={% url 'detalle_subasta' 1 %}" class="alert-link">Inicia sesión</a> para poder pujar.
+            </div>
+            {% endif %}
+        </div>
     </div>
-    {% endif %}
 
-    <!-- Lista de pujas anteriores -->
-    <div class="pujas">
-        <h3>Historial de pujas</h3>
-        {% for puja in subasta.pujas.all %}
-            <p>{{ puja.usuario.username }} - ${{ puja.monto }} ({{ puja.fecha }})</p>
-        {% endfor %}
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Historial de Pujas</h4>
+                </div>
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush" id="lista-pujas">
+                        <!-- Ejemplo de pujas estáticas -->
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>UsuarioEjemplo</strong>
+                                <small class="text-muted ms-2">20/11/2023 14:30</small>
+                            </div>
+                            <span class="badge bg-primary rounded-pill">$25,000</span>
+                        </li>
+                        <!-- Las pujas dinámicas aparecerán aquí -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Especificaciones técnicas -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Especificaciones Técnicas</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><strong>Motor:</strong> V6 3.0L Turbo</li>
+                                <li><strong>Potencia:</strong> 450 HP</li>
+                                <li><strong>Transmisión:</strong> Automática 8 velocidades</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><strong>Año:</strong> 2022</li>
+                                <li><strong>Kilometraje:</strong> 12,500 km</li>
+                                <li><strong>Color:</strong> Rojo Ferrari</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+{% block scripts %}
+<script>
+// Contador regresivo
+document.addEventListener('DOMContentLoaded', function() {
+    const endDate = new Date("2023-12-31T23:59:59").getTime();
+    
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
+        
+        if (distance < 0) {
+            document.querySelector('.countdown').textContent = "Subasta finalizada";
+            document.getElementById('form-puja')?.setAttribute('disabled', 'disabled');
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.querySelector('.countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Sistema de pujas en tiempo real (simulado)
+    const formPuja = document.getElementById('form-puja');
+    if (formPuja) {
+        formPuja.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const monto = parseFloat(document.getElementById('monto-puja').value);
+            const pujaActual = parseFloat(document.getElementById('puja-actual').textContent.replace('$', ''));
+            
+            if (monto <= pujaActual) {
+                alert(`Debes pujar más de $${pujaActual}`);
+                return;
+            }
+            
+            // Simular envío al servidor
+            fetch(formPuja.action, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `monto=${monto}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Actualizar la interfaz
+                    document.getElementById('puja-actual').textContent = `$${monto}`;
+                    
+                    // Agregar a la lista de pujas
+                    const ahora = new Date();
+                    const fechaStr = ahora.toLocaleDateString() + ' ' + ahora.toLocaleTimeString().slice(0,5);
+                    
+                    const nuevaPuja = document.createElement('li');
+                    nuevaPuja.className = 'list-group-item d-flex justify-content-between align-items-center';
+                    nuevaPuja.innerHTML = `
+                        <div>
+                            <strong>{{ user.username }}</strong>
+                            <small class="text-muted ms-2">${fechaStr}</small>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">$${monto}</span>
+                    `;
+                    
+                    document.getElementById('lista-pujas').prepend(nuevaPuja);
+                    document.getElementById('monto-puja').value = '';
+                    document.getElementById('monto-puja').min = monto + 1;
+                } else {
+                    alert(data.message || 'Error al procesar la puja');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al conectar con el servidor');
+            });
+        });
+    }
+});
+</script>
+{% endblock %}
 {% endblock %}

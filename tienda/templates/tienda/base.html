@@ -14,18 +14,18 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <h1><a href="{% url 'inicio' %}">SubastasPro</a></h1>
+                <h1><a href="{% url 'tienda:inicio' %}">SubastasPro</a></h1>
             </div>
             <nav class="nav">
                 <ul>
-                    <li><a href="{% url 'inicio' %}" class="{% if request.path == '/' %}active{% endif %}">Inicio</a></li>
-                    <li><a href="{% url 'lista_productos' %}" class="{% if 'productos' in request.path %}active{% endif %}">Subastas</a></li>
+                    <li><a href="{% url 'tienda:inicio' %}" class="{% if request.path == '/' %}active{% endif %}">Inicio</a></li>
+                    <li><a href="{% url 'tienda:lista_productos' %}" class="{% if 'subastas' in request.path %}active{% endif %}">Subastas</a></li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'mis_pujas' %}" class="{% if 'mis-pujas' in request.path %}active{% endif %}">Mis Pujas</a></li>
-                        <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                        <li><a href="{% url 'tienda:mis_pujas' %}" class="{% if 'mis-pujas' in request.path %}active{% endif %}">Mis Pujas</a></li>
+                        <li><a href="{% url 'tienda:logout' %}">Cerrar Sesión</a></li>
                     {% else %}
-                        <li><a href="{% url 'login' %}" class="{% if 'login' in request.path %}active{% endif %}">Iniciar Sesión</a></li>
-                        <li><a href="{% url 'registro' %}" class="btn-registro">Registrarse</a></li>
+                        <li><a href="{% url 'tienda:login' %}" class="{% if 'login' in request.path %}active{% endif %}">Iniciar Sesión</a></li>
+                        <li><a href="{% url 'tienda:registro' %}" class="btn-registro">Registrarse</a></li>
                     {% endif %}
                 </ul>
             </nav>
@@ -62,9 +62,9 @@
                 <div class="footer-section">
                     <h3>Enlaces Rápidos</h3>
                     <ul>
-                        <li><a href="{% url 'inicio' %}">Inicio</a></li>
-                        <li><a href="{% url 'lista_productos' %}">Subastas</a></li>
-                        <li><a href="{% url 'acerca_de' %}">Acerca de</a></li>
+                        <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
+                        <li><a href="{% url 'tienda:lista_productos' %}">Subastas</a></li>
+                        <li><a href="{% url 'tienda:acerca_de' %}">Acerca de</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
