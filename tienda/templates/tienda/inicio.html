@@ -31,7 +31,7 @@
 </div>
 
 <main class="main-content">
-<h2>Vehículos</h2>
+<h2>Vehículos</h2><div class='auction-list'>
 <div class='auction-list'>
     <div class="auction-item">
         <img src="/static/img/subastas/auto-deportivo.jpg" alt="Auto Deportivo">
@@ -45,21 +45,22 @@
     </div>
 </div>
 
-</div>
-        
+
+      <div class='auction-list'> 
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Moto+Honda+XR+150" alt="Moto Honda XR 150">
+          <img src="/static/img/subastas/moto_honda.jpg" alt="Moto Honda XR 150">
           <div class="auction-details">
             <h3>Moto Honda XR 150</h3>
             <p class="description">Motocicleta todo terreno ideal para ciudad o campo.</p>
             <p class="price">$3,800</p>
             <p class="time-left">Tiempo restante: 2d 12h</p>
-            <button class="btn">Ver detalles</button>
+            <a href="{% url 'tienda:detalle_auto_deportivo' %}" class="btn">Ver detalles</a>
           </div>
         </div>
-        
+      </div>
+      <div class='auction-list'>
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Camioneta+Toyota+4x4" alt="Camioneta Toyota 4x4">
+          <img src="/static/img/subastas/toyota_4.jpg" alt="Camioneta Toyota 4x4">
           <div class="auction-details">
             <h3>Camioneta Toyota 4x4</h3>
             <p class="description">Perfecta para viajes largos, resistente y cómoda.</p>
@@ -68,9 +69,10 @@
             <button class="btn">Ver detalles</button>
           </div>
         </div>
-        
+      </div>
+      <div class='auction-list'>
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Bicicleta+Eléctrica" alt="Bicicleta Eléctrica">
+          <img src="/static/img/subastas/bici_ele.jpg" alt="Bicicleta Eléctrica">
           <div class="auction-details">
             <h3>Bicicleta Eléctrica</h3>
             <p class="description">Transporte ecológico con batería recargable.</p>
@@ -79,9 +81,10 @@
             <button class="btn">Ver detalles</button>
           </div>
         </div>
-        
+      </div>
+      <div class='auction-list'>
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Auto+Usado+Aveo" alt="Auto Usado Aveo">
+          <img src="/static/img/subastas/aveo_usado.jpg" alt="Auto Usado Aveo">
           <div class="auction-details">
             <h3>Auto Usado Aveo</h3>
             <p class="description">Compacto, económico y en buen estado.</p>
@@ -90,9 +93,11 @@
             <button class="btn">Ver detalles</button>
           </div>
         </div>
-        
+      </div>
+      
+      <div class='auction-list'>
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Scooter+Eléctrico" alt="Scooter Eléctrico">
+          <img src="/static/img/subastas/scooter_el.jpg" alt="Scooter Eléctrico">
           <div class="auction-details">
             <h3>Scooter Eléctrico</h3>
             <p class="description">Práctico, silencioso y económico para ciudad.</p>
@@ -101,9 +106,10 @@
             <button class="btn">Ver detalles</button>
           </div>
         </div>
-        
+      </div>
+      <div class='auction-list'>
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Pick-Up+Chevrolet" alt="Pick-Up Chevrolet">
+          <img src="/static/img/subastas/chevrolet_pick.jpg" alt="Pick-Up Chevrolet">
           <div class="auction-details">
             <h3>Pick-Up Chevrolet</h3>
             <p class="description">Camioneta potente para trabajo pesado.</p>
@@ -112,11 +118,13 @@
             <button class="btn">Ver detalles</button>
           </div>
         </div>
-        </div>
+      </div>
+    </div>
+  </div>
 <h2>Tecnología</h2><div class='auction-list'>
 
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Laptop+HP+15"" alt="Laptop HP 15"">
+          <img src="/static/img/subastas/laptop_hp.jpg" alt="Laptop HP 15">
           <div class="auction-details">
             <h3>Laptop HP 15"</h3>
             <p class="description">Portátil rápida y confiable para trabajo o estudio.</p>
@@ -127,9 +135,9 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Smartphone+Samsung+S21" alt="Smartphone Samsung S21">
+          <img src="/static/img/subastas/s_25.jpg" alt="Smartphone Samsung S21">
           <div class="auction-details">
-            <h3>Smartphone Samsung S21</h3>
+            <h3>Smartphone Samsung S25 Ultra</h3>
             <p class="description">Pantalla AMOLED y excelente rendimiento.</p>
             <p class="price">$620</p>
             <p class="time-left">Tiempo restante: 2d 11h</p>
@@ -138,7 +146,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Tablet+Android+10"" alt="Tablet Android 10"">
+          <img src="/static/img/subastas/tablet_14.jpg" alt="Tablet Android 10">
           <div class="auction-details">
             <h3>Tablet Android 10"</h3>
             <p class="description">Ideal para leer, navegar y ver películas.</p>
@@ -149,7 +157,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Monitor+Curvo+27"" alt="Monitor Curvo 27"">
+          <img src="/static/img/subastas/monitor_27.jpg" alt="Monitor Curvo 27">
           <div class="auction-details">
             <h3>Monitor Curvo 27"</h3>
             <p class="description">Diseño envolvente para juegos y trabajo.</p>
@@ -160,7 +168,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Auriculares+Bluetooth" alt="Auriculares Bluetooth">
+          <img src="/static/img/subastas/auriculares_blu.jpg" alt="Auriculares Bluetooth">
           <div class="auction-details">
             <h3>Auriculares Bluetooth</h3>
             <p class="description">Sonido nítido y batería duradera.</p>
@@ -171,7 +179,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Smartwatch+Xiaomi" alt="Smartwatch Xiaomi">
+          <img src="/static/img/subastas/smart_xiaomi.jpg" alt="Smartwatch Xiaomi">
           <div class="auction-details">
             <h3>Smartwatch Xiaomi</h3>
             <p class="description">Monitoriza salud y recibe notificaciones.</p>
@@ -182,7 +190,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Disco+Duro+SSD+1TB" alt="Disco Duro SSD 1TB">
+          <img src="/static/img/subastas/disco_duro.jpg" alt="Disco Duro SSD 1TB">
           <div class="auction-details">
             <h3>Disco Duro SSD 1TB</h3>
             <p class="description">Velocidad rápida para almacenamiento seguro.</p>
@@ -195,7 +203,7 @@
 <h2>Juegos</h2><div class='auction-list'>
 
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Consola+PS5" alt="Consola PS5">
+          <img src="/static/img/subastas/ps5_con.jpg" alt="Consola PS5">
           <div class="auction-details">
             <h3>Consola PS5</h3>
             <p class="description">La mejor experiencia de juego actual.</p>
@@ -206,7 +214,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Xbox+Series+X" alt="Xbox Series X">
+          <img src="/static/img/subastas/xbox_Series.jpg" alt="Xbox Series X">
           <div class="auction-details">
             <h3>Xbox Series X</h3>
             <p class="description">Potencia de última generación para jugar.</p>
@@ -217,7 +225,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=FIFA+25+PS5" alt="FIFA 25 PS5">
+          <img src="/static/img/subastas/fc_25.jpg" alt="FIFA 25 PS5">
           <div class="auction-details">
             <h3>FIFA 25 PS5</h3>
             <p class="description">Juego de fútbol con gráficos realistas.</p>
@@ -228,7 +236,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Silla+Gamer+RGB" alt="Silla Gamer RGB">
+          <img src="/static/img/subastas/silla_gamer.jpg" alt="Silla Gamer RGB">
           <div class="auction-details">
             <h3>Silla Gamer RGB</h3>
             <p class="description">Comodidad y estilo para jugar horas.</p>
@@ -239,7 +247,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Control+PS5" alt="Control PS5">
+          <img src="/static/img/subastas/control_ps5.jpg" alt="Control PS5">
           <div class="auction-details">
             <h3>Control PS5</h3>
             <p class="description">Mando inalámbrico con vibración háptica.</p>
@@ -250,7 +258,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Teclado+Mecánico+RGB" alt="Teclado Mecánico RGB">
+          <img src="/static/img/subastas/teclado_meca.jpg" alt="Teclado Mecánico RGB">
           <div class="auction-details">
             <h3>Teclado Mecánico RGB</h3>
             <p class="description">Ideal para gamers y programadores.</p>
@@ -261,7 +269,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Headset+Gamer+Logitech" alt="Headset Gamer Logitech">
+          <img src="/static/img/subastas/head_gamer.jpg" alt="Headset Gamer Logitech">
           <div class="auction-details">
             <h3>Headset Gamer Logitech</h3>
             <p class="description">Audio envolvente para tus partidas.</p>
@@ -274,7 +282,7 @@
 <h2>Casas</h2><div class='auction-list'>
 
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Casa+de+Campo" alt="Casa de Campo">
+          <img src="/static/img/subastas/casa_campo.jpg" alt="Casa de Campo">
           <div class="auction-details">
             <h3>Casa de Campo</h3>
             <p class="description">Casa amplia con jardín y aire puro.</p>
@@ -285,7 +293,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Apartamento+Centro" alt="Apartamento Centro">
+          <img src="/static/img/subastas/casa_centro.jpg" alt="Apartamento Centro">
           <div class="auction-details">
             <h3>Apartamento Centro</h3>
             <p class="description">Ubicación céntrica, ideal para parejas.</p>
@@ -296,7 +304,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Casa+de+Playa" alt="Casa de Playa">
+          <img src="/static/img/subastas/casa_playa.jpg" alt="Casa de Playa">
           <div class="auction-details">
             <h3>Casa de Playa</h3>
             <p class="description">Frente al mar, vista espectacular.</p>
@@ -307,7 +315,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Casa+Minimalista" alt="Casa Minimalista">
+          <img src="/static/img/subastas/casa_mina.jpg" alt="Casa Minimalista">
           <div class="auction-details">
             <h3>Casa Minimalista</h3>
             <p class="description">Diseño moderno, luz natural y amplitud.</p>
@@ -318,7 +326,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Departamento+Amoblado" alt="Departamento Amoblado">
+          <img src="/static/img/subastas/departamento_amobla.jpg" alt="Departamento Amoblado">
           <div class="auction-details">
             <h3>Departamento Amoblado</h3>
             <p class="description">Listo para vivir, totalmente equipado.</p>
@@ -329,7 +337,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Casa+Rural+Moderna" alt="Casa Rural Moderna">
+          <img src="/static/img/subastas/casa_rural.jpg" alt="Casa Rural Moderna">
           <div class="auction-details">
             <h3>Casa Rural Moderna</h3>
             <p class="description">Fusión entre lo rústico y lo moderno.</p>
@@ -340,7 +348,7 @@
         </div>
         
         <div class="auction-item">
-          <img src="https://via.placeholder.com/250?text=Loft+Urbano" alt="Loft Urbano">
+          <img src="/static/img/subastas/loft_urbano.jpg" alt="Loft Urbano">
           <div class="auction-details">
             <h3>Loft Urbano</h3>
             <p class="description">Estilo industrial en zona exclusiva.</p>
