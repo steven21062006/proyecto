@@ -1,20 +1,75 @@
-/* tienda/static/css/auth.css */
+/* auth.css - Estilo adaptado con tonos vino y rosa suaves, formato similar */
 
 /* Estilos base */
 body {
-    background-color: #f8f9fa;
+    background-color: #fff0f4; /* Fondo rosa suave (más claro que fbe9eb) */
     font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    color: #343a40;
+    color: #3a1a2a; /* Gris oscuro con matiz vino */
+}
+
+/* Header igual a style.css */
+.header {
+  background-color: #800020; /* rojo vino sólido */
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 2px;
+  user-select: none;
+}
+
+.header .nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header .nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Línea animada debajo igual que en style.css */
+.header .nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: #ff5e95;
+  transition: width 0.3s ease;
+}
+
+.header .nav ul li a:hover::after,
+.header .nav ul li a:focus::after {
+  width: 100%;
 }
 
 /* Header de autenticación */
 .auth-header {
-    background: linear-gradient(135deg, #2c3e50, #3498db);
+    background: linear-gradient(135deg, #800020, #d01b3f); /* rojo vino degradado */
     color: white;
     text-align: center;
     padding: 3rem 1rem;
@@ -29,24 +84,33 @@ body {
 
 .auth-header p {
     font-size: 1.2rem;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 /* Contenedor principal */
 .login-container {
     max-width: 450px;
     width: 90%;
-    margin: 0 auto 3rem;
+    margin: auto auto 3rem auto;
     padding: 2rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    background: #fff0f4; /* rosa muy suave */
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(208, 27, 63, 0.15); /* sombra rojo vino suave */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Centrar verticalmente el contenedor */
+body > .login-container {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .login-container h1 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #2c3e50;
+    color: #800020;
     font-size: 1.8rem;
 }
 
@@ -65,31 +129,31 @@ form {
 
 .input-group label {
     font-weight: 600;
-    color: #495057;
+    color: #800020;
     font-size: 0.95rem;
 }
 
 .input-group input {
     padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    border: 1px solid #f5c1cc;
+    border-radius: 8px;
     font-size: 1rem;
     transition: all 0.3s ease;
 }
 
 .input-group input:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    border-color: #d01b3f;
+    box-shadow: 0 0 0 3px rgba(208, 27, 63, 0.2);
     outline: none;
 }
 
 /* Botones */
 .btn-primary {
-    background-color: #3498db;
-    color: white;
+    background-color: #d01b3f;
+    color: #ffffff;
     border: none;
     padding: 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -98,7 +162,7 @@ form {
 }
 
 .btn-primary:hover {
-    background-color: #2980b9;
+    background-color: #800020;
     transform: translateY(-2px);
 }
 
@@ -109,7 +173,7 @@ form {
 
 .alert {
     padding: 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     margin-bottom: 1rem;
     font-size: 0.9rem;
 }
@@ -131,18 +195,18 @@ form {
     text-align: center;
     margin-top: 2rem;
     font-size: 0.9rem;
-    color: #6c757d;
+    color: #800020;
 }
 
 .auth-footer a {
-    color: #3498db;
+    color: #d01b3f;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .auth-footer a:hover {
-    color: #1a5276;
+    color: #800020;
     text-decoration: underline;
 }
 
@@ -155,13 +219,31 @@ form {
     .auth-header {
         padding: 2rem 1rem;
     }
-    
+
     .auth-header h1 {
         font-size: 2rem;
     }
-    
+
     .login-container {
         padding: 1.5rem;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .header .nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+    }
+
+    .header .nav ul li a {
+        padding: 10px 15px;
     }
 }
 
@@ -180,4 +262,64 @@ form {
     animation: spin 1s ease-in-out infinite;
     margin-right: 8px;
     vertical-align: middle;
+}
+
+/* Formulario en dos columnas para registro */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: nowrap;
+}
+
+.input-group {
+  flex-basis: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Select con estilo vino y rosa suave */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #d01b3f; /* vino fuerte */
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+select:hover,
+select:focus {
+  background-color: #800020; /* vino oscuro */
+  outline: none;
+}
+
+/* Botón submit full width */
+.btn-primary {
+  width: 100%;
+}
+
+/* Validación visual para confirmación de contraseña (opcional, si agregas JS) */
+.input-group input.invalid {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.3);
+}
+
+/* Responsive para móviles: columnas a vertical */
+@media (max-width: 576px) {
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .input-group {
+    flex-basis: 100%;
+  }
 }

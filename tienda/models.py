@@ -4,38 +4,6 @@ from django.utils import timezone
 from django.core.validators import MinValueValidator
 from django.utils.text import slugify
 from django.urls import reverse
-from django.contrib.auth.models import User
-
-class PujaAutoDeportivo(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    monto = models.DecimalField(max_digits=10, decimal_places=2)
-    fecha = models.DateTimeField(auto_now_add=True)
-
-    
-    class Meta:
-        ordering = ['-fecha']
-        verbose_name = 'Puja Auto Deportivo'
-        verbose_name_plural = 'Pujas Auto Deportivo'
-    
-    def __str__(self):
-        return f"{self.usuario.username} - ${self.monto}"
-
-#apple watch
-class PujaAppleWatch(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    monto = models.DecimalField(max_digits=10, decimal_places=2)
-    fecha = models.DateTimeField(auto_now_add=True)
-
-    
-    class Meta:
-        ordering = ['-fecha']
-        verbose_name = 'Puja Apple Watch'
-        verbose_name_plural = 'Pujas Apple Watch'
-    
-    def __str__(self):
-        return f"{self.usuario.username} - ${self.monto}"
-
-
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100, unique=True)
@@ -59,6 +27,29 @@ class Categoria(models.Model):
     def get_absolute_url(self):
         return reverse('subastas_por_categoria', args=[self.slug])
 
+
+class Producto(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.TextField()
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    imagen = models.ImageField(upload_to='productos/', blank=True, null=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    disponible = models.BooleanField(default=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    destacado = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = 'Producto'
+        verbose_name_plural = 'Productos'
+        ordering = ['-fecha_creacion']
+    
+    def __str__(self):
+        return self.nombre
+    
+    def get_absolute_url(self):
+        return reverse('detalle_producto', args=[self.id])
+
+
 class Subasta(models.Model):
     ESTADO_CHOICES = [
         ('ACTIVA', 'Activa'),
@@ -72,26 +63,12 @@ class Subasta(models.Model):
     descripcion = models.TextField()
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, related_name='subastas')
     imagen_principal = models.ImageField(upload_to='subastas/')
-    precio_inicial = models.DecimalField(
-        max_digits=10, 
-        decimal_places=2,
-        validators=[MinValueValidator(0.01)]
-    )
-    precio_actual = models.DecimalField(
-        max_digits=10, 
-        decimal_places=2,
-        validators=[MinValueValidator(0.01)]
-    )
+    precio_inicial = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.01)])
+    precio_actual = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.01)])
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_finalizacion = models.DateTimeField()
     estado = models.CharField(max_length=10, choices=ESTADO_CHOICES, default='ACTIVA')
-    ganador = models.ForeignKey(
-        User, 
-        on_delete=models.SET_NULL, 
-        null=True, 
-        blank=True, 
-        related_name='subastas_ganadas'
-    )
+    ganador = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='subastas_ganadas')
     
     class Meta:
         verbose_name = 'Subasta'
@@ -108,17 +85,15 @@ class Subasta(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.titulo)
-            # Asegurar que el slug sea único
             original_slug = self.slug
             counter = 1
             while Subasta.objects.filter(slug=self.slug).exists():
                 self.slug = f"{original_slug}-{counter}"
                 counter += 1
         
-        if not self.pk:  # Solo para nuevas subastas
+        if not self.pk:
             self.precio_actual = self.precio_inicial
         
-        # Actualizar estado si la fecha de finalización ha pasado
         if self.fecha_finalizacion < timezone.now() and self.estado == 'ACTIVA':
             self.estado = 'FINALIZADA'
             ultima_puja = self.pujas.order_by('-monto').first()
@@ -145,22 +120,11 @@ class Subasta(models.Model):
             return self.imagen_principal.url
         return '/static/img/default_subasta.jpg'
 
+
 class Puja(models.Model):
-    subasta = models.ForeignKey(
-        Subasta, 
-        on_delete=models.CASCADE, 
-        related_name='pujas'
-    )
-    usuario = models.ForeignKey(
-        User, 
-        on_delete=models.CASCADE, 
-        related_name='pujas'
-    )
-    monto = models.DecimalField(
-        max_digits=10, 
-        decimal_places=2,
-        validators=[MinValueValidator(0.01)]
-    )
+    subasta = models.ForeignKey(Subasta, on_delete=models.CASCADE, related_name='pujas')
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='pujas')
+    monto = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.01)])
     fecha = models.DateTimeField(auto_now_add=True)
     
     class Meta:
@@ -173,39 +137,15 @@ class Puja(models.Model):
         return f"Puja de ${self.monto} en {self.subasta.titulo}"
     
     def save(self, *args, **kwargs):
-        # Validar que el monto sea mayor que el precio actual
         if self.monto <= self.subasta.precio_actual:
             raise ValueError("El monto de la puja debe ser mayor al precio actual")
-        
         super().save(*args, **kwargs)
-        
-        # Actualizar el precio actual de la subasta
         self.subasta.precio_actual = self.monto
         self.subasta.save()
 
-class ImagenSubasta(models.Model):
-    subasta = models.ForeignKey(
-        Subasta, 
-        on_delete=models.CASCADE, 
-        related_name='imagenes_adicionales'
-    )
-    imagen = models.ImageField(upload_to='subastas/adicionales/')
-    orden = models.PositiveIntegerField(default=0)
-    
-    class Meta:
-        verbose_name = 'Imagen de subasta'
-        verbose_name_plural = 'Imágenes de subastas'
-        ordering = ['orden']
-    
-    def __str__(self):
-        return f"Imagen {self.id} para {self.subasta.titulo}"
 
 class ComentarioSubasta(models.Model):
-    subasta = models.ForeignKey(
-        Subasta, 
-        on_delete=models.CASCADE, 
-        related_name='comentarios'
-    )
+    subasta = models.ForeignKey(Subasta, on_delete=models.CASCADE, related_name='comentarios')
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     texto = models.TextField()
     fecha = models.DateTimeField(auto_now_add=True)
@@ -217,36 +157,3 @@ class ComentarioSubasta(models.Model):
     
     def __str__(self):
         return f"Comentario de {self.usuario.username} en {self.subasta.titulo}"
-    
-class Producto(models.Model):
-    nombre = models.CharField(max_length=100)
-    descripcion = models.TextField()
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
-    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
-    imagen = models.ImageField(upload_to='productos/', blank=True, null=True)
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
-    disponible = models.BooleanField(default=True)
-    
-    class Meta:
-        verbose_name = 'Producto'
-        verbose_name_plural = 'Productos'
-        ordering = ['-fecha_creacion']
-    
-    def __str__(self):
-        return self.nombre
-    
-    def get_absolute_url(self):
-        return reverse('detalle_producto', args=[self.id])
-    
-class Producto(models.Model):
-    nombre = models.CharField(max_length=100)
-    descripcion = models.TextField()
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
-    imagen = models.ImageField(upload_to='productos/')
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    disponible = models.BooleanField(default=True)
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
-    destacado = models.BooleanField(default=False)  # ✅ AGREGADO
-
-    def __str__(self):
-        return self.nombre

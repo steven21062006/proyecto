@@ -46,6 +46,13 @@ urlpatterns = [
     #apple watch
     path('apple-watch/', subastas.apple_watch, name='apple_watch'),
     path('api/pujas/apple-watch/', subastas.procesar_puja_apple, name='pujar_apple'),
+
+    path('motocicletas/', views.moto, name='moto'),
+    #yamaha
+    path('yamaha-moto/', subastas.yamaha, name='yamaha'),
+    path('api/pujas/yamaha-moto/', subastas.procesar_puja_yamaha, name='pujar_yamaha'),
+  
+
 ]
 
 if settings.DEBUG:

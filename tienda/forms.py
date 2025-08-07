@@ -3,8 +3,19 @@ from django.core.validators import MinValueValidator
 from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Subasta, Puja, ComentarioSubasta, ImagenSubasta, Categoria
+from .models import Subasta, Puja, ComentarioSubasta, Categoria
 from django.forms.widgets import ClearableFileInput
+
+from .models import ComentarioMoto
+
+class ComentarioMotoForm(forms.ModelForm):
+    class Meta:
+        model = ComentarioMoto
+        fields = ['texto']
+        widgets = {
+            'texto': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Escribe tu comentario...'})
+        }
+
 
 class ContactoForm(forms.Form):
     nombre = forms.CharField(max_length=100)

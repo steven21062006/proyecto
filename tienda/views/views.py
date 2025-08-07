@@ -54,3 +54,6 @@ def lista_categorias(request):
     return render(request, 'tienda/categorias/lista.html', {
         'categorias': categorias
     })
+
+def moto(request):
+    return render(request, 'tienda/subastas/moto.html')
