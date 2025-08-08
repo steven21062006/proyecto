@@ -52,3 +52,6 @@ def mis_pujas(request):
     """
     pujas = Puja.objects.filter(usuario=request.user).select_related('producto').order_by('-fecha')
     return render(request, 'tienda/pujas/mis_pujas.html', {'pujas': pujas})
+
+
+

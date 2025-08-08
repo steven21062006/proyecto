@@ -10,8 +10,9 @@ from .models import ComentarioMoto
 
 class ComentarioMotoForm(forms.ModelForm):
     class Meta:
+        
         model = ComentarioMoto
-        fields = ['texto']
+        fields = ['comentario']
         widgets = {
             'texto': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Escribe tu comentario...'})
         }
@@ -81,17 +82,7 @@ class MultipleImagenSubastaForm(forms.Form):
         super().__init__(*args, **kwargs)
         
 
-class ImagenSubastaForm(forms.ModelForm):
-    class Meta:
-        model = ImagenSubasta
-        fields = ['imagen', 'orden']
-        widgets = {
-            'imagen': forms.ClearableFileInput(attrs={'class': 'form-control'}),
-            'orden': forms.NumberInput(attrs={
-                'class': 'form-control',
-                'min': 0
-            })
-        }
+
 class PujaForm(forms.ModelForm):
     class Meta:
         model = Puja

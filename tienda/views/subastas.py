@@ -5,62 +5,72 @@ from django.contrib import messages
 from django.http import JsonResponse
 import json
 
-from tienda.models import Producto, Puja, Comentario, Subasta, ImagenSubasta
+from tienda.models import Producto, Puja, ComentarioMoto, Subasta
 from tienda.forms import SubastaForm, PujaForm, MultipleImagenSubastaForm
+
+
 
 
 def detalle_yamaha(request):
     producto = get_object_or_404(Producto, nombre="Yamaha R3")
+    subasta = get_object_or_404(Subasta, producto=producto)
 
-    comentarios = Comentario.objects.filter(producto=producto).order_by('-fecha')
-    pujas = Puja.objects.filter(producto=producto).order_by('-monto')
+    mensaje_puja = None
+    mensaje_comentario = None
+
+    if request.method == "POST":
+        if 'monto' in request.POST:
+            try:
+                monto = float(request.POST['monto'])
+                puja_actual = Puja.objects.filter(subasta=subasta).order_by('-monto').first()
+                precio_actual = puja_actual.monto if puja_actual else producto.precio
+
+                if monto <= precio_actual:
+                    mensaje_puja = "El monto debe ser mayor que la puja actual."
+                else:
+                    Puja.objects.create(
+                        usuario=request.user,
+                        subasta=subasta,
+                        monto=monto,
+                        fecha=timezone.now()
+                    )
+                    mensaje_puja = "Puja registrada correctamente!"
+            except Exception:
+                mensaje_puja = "Monto inválido."
+
+        elif 'comentario' in request.POST:
+            texto = request.POST.get('comentario', '').strip()
+            if texto:
+                ComentarioMoto.objects.create(
+                    producto=producto,
+                    nombre=request.user.username,
+                    comentario=texto,
+                    fecha=timezone.now()
+                )
+                mensaje_comentario = "Comentario agregado."
+            else:
+                mensaje_comentario = "No puedes enviar un comentario vacío."
+
+    comentarios = ComentarioMoto.objects.filter(producto=producto).order_by('-fecha')
+    pujas = Puja.objects.filter(subasta=subasta).order_by('-monto')
 
     context = {
         'producto': producto,
         'comentarios': comentarios,
         'pujas': pujas,
         'user': request.user,
+        'mensaje_puja': mensaje_puja,
+        'mensaje_comentario': mensaje_comentario,
     }
     return render(request, 'tienda/subastas/yamaha.html', context)
 
 
-@login_required
-def procesar_puja_yamaha(request):
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            monto = float(data.get('monto'))
-            producto = Producto.objects.get(nombre="Yamaha R3")
-
-            # Obtener la puja más alta actual para el producto
-            puja_max = Puja.objects.filter(producto=producto).order_by('-monto').first()
-            precio_actual = puja_max.monto if puja_max else producto.precio
-
-            if monto <= precio_actual:
-                return JsonResponse({'success': False, 'message': 'El monto debe ser mayor que la puja actual'}, status=400)
-
-            nueva_puja = Puja.objects.create(
-                producto=producto,
-                usuario=request.user,
-                monto=monto,
-                fecha=timezone.now()
-            )
-
-            return JsonResponse({
-                'success': True,
-                'nueva_puja': {
-                    'usuario': nueva_puja.usuario.username,
-                    'monto': float(nueva_puja.monto),
-                    'fecha': nueva_puja.fecha.strftime("%d/%m/%Y %H:%M")
-                }
-            })
-        except Exception as e:
-            return JsonResponse({'success': False, 'message': str(e)}, status=400)
-
-    return JsonResponse({'success': False, 'message': 'Método no permitido'}, status=405)
 
 
-@login_required
+
+
+
+
 def procesar_comentario_yamaha(request):
     if request.method == 'POST':
         try:
@@ -71,7 +81,7 @@ def procesar_comentario_yamaha(request):
 
             producto = Producto.objects.get(nombre="Yamaha R3")
 
-            nuevo_comentario = Comentario.objects.create(
+            nuevo_comentario = ComentarioMoto.objects.create(
                 producto=producto,
                 usuario=request.user,
                 texto=texto,
@@ -231,11 +241,8 @@ def crear_subasta(request):
             subasta.precio_actual = subasta.precio_inicial
             subasta.save()
 
-            for imagen in request.FILES.getlist('imagenes'):
-                ImagenSubasta.objects.create(
-                    subasta=subasta,
-                    imagen=imagen
-                )
+            
+                
 
             messages.success(request, '¡Subasta creada con éxito!')
             return redirect('detalle_subasta', slug=subasta.slug)

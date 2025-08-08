@@ -114,7 +114,7 @@
     <div class="row mt-4">
       <!-- Imagen -->
       <div class="col-md-6">
-        <img src="yamaha.jpg" alt="Yamaha R3" class="product-img">
+        <img src="/static/img/subastas/moto_honda.jpg" alt="Yamaha R3" class="product-img">
       </div>
 
       <!-- Detalles -->
@@ -128,8 +128,9 @@
         <div class="auction-info">
           <span><strong>Fecha de inicio:</strong> 01/08/2025</span>
           <span><strong>Fecha de finalización:</strong> 08/08/2025</span>
-          <span><strong>Puja actual:</strong> $4,250</span>
-          <span><strong>Número de pujas:</strong> 7</span>
+          <span><strong>Puja actual:</strong> ${{ puja_actual }}</span>
+          <span><strong>Número de pujas:</strong> {{ total_pujas }}</span>
+
         </div>
 
         <!-- Barra de progreso -->
@@ -142,6 +143,9 @@
         <button class="btn btn-pujar" data-bs-toggle="modal" data-bs-target="#pujarModal">
           💸 Pujar Ahora
         </button>
+         {% if mensaje %}
+               <div class="alert alert-info mt-3">{{ mensaje }}</div>
+         {% endif %}
       </div>
     </div>
 
@@ -154,13 +158,15 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
           </div>
           <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="pujaMonto" class="form-label">Monto de la Puja ($)</label>
-                <input type="number" class="form-control" id="pujaMonto" placeholder="Ej: 4300">
-              </div>
-              <button type="submit" class="btn btn-warning w-100">Enviar Puja</button>
+            <form method="POST" action="{% url 'tienda:yamaha' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                 <label for="pujaMonto" class="form-label">Monto de la Puja ($)</label>
+                 <input type="number" class="form-control" id="pujaMonto" name="monto" placeholder="Ej: 4300" required>
+                </div>
+                <button type="submit" class="btn btn-warning w-100">Enviar Puja</button>
             </form>
+
           </div>
         </div>
       </div>

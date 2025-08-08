@@ -49,9 +49,12 @@ urlpatterns = [
 
     path('motocicletas/', views.moto, name='moto'),
     #yamaha
-    path('yamaha-moto/', subastas.yamaha, name='yamaha'),
-    path('api/pujas/yamaha-moto/', subastas.procesar_puja_yamaha, name='pujar_yamaha'),
-  
+    
+  # Añade estas dos líneas en la sección de Yamaha para comentarios y pujas vía API
+    
+    path('yamaha-moto/', subastas.detalle_yamaha, name='yamaha'),
+
+
 
 ]
 
