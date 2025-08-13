@@ -7097,3 +7097,253 @@ Watching for file changes with StatReloader
 "GET /static/tienda/js/main.js HTTP/1.1" 404 1978
 "POST /subastas/moto-123/ HTTP/1.1" 200 8294
 "GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9944
+"GET /static/js/main.js HTTP/1.1" 404 1957
+"GET /static/img/subastas/lamborcito.jpg HTTP/1.1" 200 6213
+"GET /static/img/subastas/ford.jpg HTTP/1.1" 200 35473
+"GET /static/img/subastas/bici.jpg HTTP/1.1" 200 10178
+"GET /static/img/subastas/laptop.jpeg HTTP/1.1" 200 121664
+"GET /static/img/subastas/motocicleta.jpg HTTP/1.1" 200 13444
+"GET /static/img/subastas/iphone.jpg HTTP/1.1" 200 101432
+"GET /static/css/style.css HTTP/1.1" 200 15900
+"GET /static/img/subastas/periferico.jpg HTTP/1.1" 200 54222
+"GET /static/img/subastas/tablet.png HTTP/1.1" 200 120012
+"GET /static/img/subastas/nintendo.jpg HTTP/1.1" 200 33913
+"GET /static/img/subastas/csgo.jpg HTTP/1.1" 200 14282
+"GET /static/img/subastas/accesorio.png HTTP/1.1" 200 22645
+"GET /static/img/subastas/nvidia.jpg HTTP/1.1" 200 81671
+"GET /static/img/subastas/campo.jpg HTTP/1.1" 200 158907
+"GET /static/img/subastas/mansion.jpg HTTP/1.1" 200 34256
+"GET /static/img/subastas/nike.jpg HTTP/1.1" 200 6369
+"GET /static/img/subastas/watch.jpg HTTP/1.1" 200 115438
+"GET /static/img/subastas/gucci.png HTTP/1.1" 200 54082
+"GET /static/img/subastas/urbano.jpeg HTTP/1.1" 200 583008
+"GET /static/img/subastas/playa.jpeg HTTP/1.1" 200 169927
+"GET /static/img/subastas/perfume.jpg HTTP/1.1" 200 5922
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 7925
+"GET /motos/ HTTP/1.1" 200 2833
+"GET /media/productos/Yamaha_R3.jpg HTTP/1.1" 200 38240
+"GET /media/productos/playa.jpeg HTTP/1.1" 200 169927
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 8408
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8408
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8408
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8408
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8408
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8408
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8408
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+C:\Users\ricar\OneDrive\Imágenes\proyecto_progra\proyecto\tienda\views\subastas.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ricar\OneDrive\Imágenes\proyecto_progra\proyecto\tienda\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ricar\OneDrive\Imágenes\proyecto_progra\proyecto\tienda\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9944
+"GET /static/js/main.js HTTP/1.1" 404 1957
+"GET /motos/ HTTP/1.1" 200 2833
+Internal Server Error: /subastas/yamaha-r3/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\proyecto_progra\proyecto\tienda\views\subastas.py", line 117, in detalle_subasta
+    return render(request, 'tienda/subastas/detalle_subasta.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 320: 'static', expected 'endblock'. Did you forget to register or load this tag?
+"GET /subastas/yamaha-r3/ HTTP/1.1" 500 199279
+Internal Server Error: /subastas/yamaha-r3/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\proyecto_progra\proyecto\tienda\views\subastas.py", line 117, in detalle_subasta
+    return render(request, 'tienda/subastas/detalle_subasta.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 519, in parse
+    self.extend_nodelist(nodelist, compiled_result, token)
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 540, in extend_nodelist
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: {% extends 'tienda/base.html' %} must be the first tag in 'tienda/subastas/detalle_subasta.html'.
+"GET /subastas/yamaha-r3/ HTTP/1.1" 500 155775
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 8441
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8441
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8441
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8441
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8441
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9944
+"GET /static/js/main.js HTTP/1.1" 200 2961
+"GET /motos/ HTTP/1.1" 200 2833
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 8441
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8441
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8441
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8595
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8595
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8595
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8595
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8596
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 8596
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 10521
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 10521
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 10521
+C:\Users\ricar\OneDrive\Imágenes\proyecto_progra\proyecto\tienda\views\subastas.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ricar\OneDrive\Imágenes\proyecto_progra\proyecto\tienda\views\subastas.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 10521
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+Internal Server Error: /subastas/yamaha-r3/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\proyecto_progra\proyecto\tienda\views\subastas.py", line 95, in detalle_subasta
+    puja_form = PujaForm(request.POST, subasta=subasta)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\proyecto_progra\proyecto\tienda\forms.py", line 103, in __init__
+    MinValueValidator(self.subasta.precio_actual + 0.01)
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'decimal.Decimal' and 'float'
+"POST /subastas/yamaha-r3/ HTTP/1.1" 500 75116
+C:\Users\ricar\OneDrive\Imágenes\proyecto_progra\proyecto\tienda\forms.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 10521
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 84
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 10686
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9944
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 9944
+"GET /motos/ HTTP/1.1" 200 2833
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 10686
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 84
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 10892
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978

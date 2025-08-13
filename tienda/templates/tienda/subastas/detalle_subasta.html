@@ -1,8 +1,8 @@
 {% extends 'tienda/base.html' %}
+{% load static %}
 
 {% block extra_css %}
 <style>
-/* Contenedor principal en detalle de producto/subasta */
 .product-detail-container {
   display: flex;
   gap: 2rem;
@@ -252,6 +252,7 @@
     max-height: 180px;
   }
 }
+
 </style>
 {% endblock %}
 
@@ -268,23 +269,23 @@
      <h4>Detalles de la Subasta</h4>
      <ul>
       <li><span>Precio inicial:</span> <strong>${{ subasta.precio_inicial }}</strong></li>
-      <li><span><strong>Puja actual:</strong> ${{ puja_actual }}</span></li>
+      <li><span>Puja actual:</span> <strong id="puja-actual">${{ subasta.precio_actual }}</strong></li>
       <li><span>Tiempo restante:</span> 
        <strong class="countdown" data-end="{{ subasta.fecha_finalizacion|date:'c' }}"></strong>
       </li>
-      <li><span><strong>Fecha de inicio:</strong> {{ subasta.fecha_inicio|date:"d/m/Y H:i:s" }}</span></li>
-      <li><span><strong>Fecha de finalización:</strong> {{ subasta.fecha_finalizacion|date:"d/m/Y H:i:s" }}</span></li>
+      <li><span>Fecha de inicio:</span> {{ subasta.fecha_inicio|date:"d/m/Y H:i:s" }}</li>
+      <li><span>Fecha de finalización:</span> {{ subasta.fecha_finalizacion|date:"d/m/Y H:i:s" }}</li>
      </ul>
     </div>
-
 
     {% if user.is_authenticated %}
     <div class="bid-form">
       <h4>Realizar Puja</h4>
-      <form method="post" action="">
+      <form method="post" id="form-puja" action="">
         {% csrf_token %}
-        {{ puja_form.as_p }}
-        <button type="submit">Pujar</button>
+        <label for="monto-puja" class="form-label">Monto de la Puja ($)</label>
+        <input type="number" class="form-control" id="monto-puja" name="monto" placeholder="Ej: 4300" required>
+        <button type="submit" class="btn btn-warning w-100 mt-2">Enviar Puja</button>
       </form>
     </div>
     {% else %}
@@ -298,7 +299,7 @@
 <div class="container mt-4">
   <div class="bid-history">
     <h4>Historial de Pujas</h4>
-    <ul>
+    <ul id="lista-pujas">
       {% for puja in pujas %}
       <li>
         <span class="username">{{ puja.usuario.username }}</span>
@@ -315,33 +316,80 @@
 
 {% block extra_js %}
 <script>
-// Contador regresivo
 document.addEventListener('DOMContentLoaded', function() {
+  // --- Contador regresivo ---
   const countdownElem = document.querySelector('.countdown');
   const endDateStr = countdownElem?.dataset.end;
-  if (!endDateStr) return;
-
-  const endDate = new Date(endDateStr).getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = endDate - now;
-
-    if (distance < 0) {
-      countdownElem.textContent = "Subasta finalizada";
-      return;
+  if (endDateStr) {
+    const endDate = new Date(endDateStr).getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = endDate - now;
+      if (distance < 0) {
+        countdownElem.textContent = "Subasta finalizada";
+        document.getElementById('form-puja')?.setAttribute('disabled', 'disabled');
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownElem.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    countdownElem.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   }
 
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  // --- Manejo de puja en tiempo real ---
+  const formPuja = document.getElementById('form-puja');
+  if (formPuja) {
+    formPuja.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const montoInput = document.getElementById('monto-puja');
+      const monto = parseFloat(montoInput.value);
+      const pujaActualElem = document.getElementById('puja-actual');
+      const pujaActual = parseFloat(pujaActualElem.textContent.replace(/\$/g,''));
+      if (monto <= pujaActual) {
+        alert(`Debes pujar más de $${pujaActual}`);
+        return;
+      }
+
+      // Enviar al servidor vía fetch
+      fetch("", {
+        method: "POST",
+        headers: {
+          'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: `monto=${monto}`
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Actualizar precio
+          pujaActualElem.textContent = `$${data.nuevo_precio}`;
+          // Agregar a historial
+          const lista = document.getElementById('lista-pujas');
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="username">${data.usuario}</span>
+                          <small class="timestamp ms-2">${new Date().toLocaleString()}</small>
+                          <span class="badge bg-primary rounded-pill">$${data.nuevo_precio}</span>`;
+          lista.prepend(li);
+          // Limpiar input y actualizar mínimo
+          montoInput.value = "";
+          montoInput.min = parseFloat(data.nuevo_precio) + 1;
+        } else {
+          alert(data.message || "Error al procesar la puja");
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Error al conectar con el servidor");
+      });
+    });
+  }
 });
 </script>
 {% endblock %}
+

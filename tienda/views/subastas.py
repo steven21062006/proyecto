@@ -8,6 +8,33 @@ import json
 from tienda.models import Producto, Puja, ComentarioMoto, Subasta
 from tienda.forms import SubastaForm, PujaForm, MultipleImagenSubastaForm
 
+from django.http import JsonResponse
+from django.utils.timezone import now
+
+def procesar_puja(request, subasta_id):
+    if request.method != 'POST':
+        return JsonResponse({'success': False, 'error': 'Método no permitido'}, status=405)
+
+    subasta = get_object_or_404(Subasta, id=subasta_id)
+    form = PujaForm(request.POST, subasta=subasta)
+    if form.is_valid():
+        puja = form.save(commit=False)
+        puja.subasta = subasta
+        puja.usuario = request.user
+        puja.save()
+
+        # Actualiza el precio actual
+        subasta.precio_actual = puja.monto
+        subasta.save()
+
+        return JsonResponse({
+            'success': True,
+            'usuario': request.user.username,
+            'monto': puja.monto,
+            'fecha': now().strftime("%d/%m/%Y %H:%M")
+        })
+    else:
+        return JsonResponse({'success': False, 'error': 'Datos inválidos'}, status=400)
 
 
 
@@ -58,43 +85,49 @@ def lista_subastas(request):
     })
 
 
-#@login_required(login_url='tienda:login')
+
 def detalle_subasta(request, slug):
     subasta = get_object_or_404(Subasta, slug=slug)
-    puja_form = None
-
-    # Solo permitir pujar si está activa y el usuario no es el creador
-    if subasta.estado == 'ACTIVA' and subasta.usuario != request.user:
-        if request.method == 'POST':
-            puja_form = PujaForm(request.POST, subasta=subasta)
-            if puja_form.is_valid():
-                puja = puja_form.save(commit=False)
-                if puja.monto <= subasta.precio_actual:
-                    messages.error(request, f'El monto debe ser mayor al precio actual (${subasta.precio_actual})')
-                else:
-                    puja.subasta = subasta
-                    puja.usuario = request.user
-                    puja.save()
-                    subasta.precio_actual = puja.monto
-                    subasta.save()
-                    messages.success(request, '¡Puja realizada con éxito!')
-                    return redirect('tienda:detalle_subasta', slug=subasta.slug)
-        else:
-            puja_form = PujaForm(subasta=subasta)
-    else:
-        # Si no puede pujar, no mostrar formulario
-        puja_form = None
-
     pujas = subasta.pujas.all().order_by('-fecha')
+
+    # Manejo de AJAX para registrar puja
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        puja_form = PujaForm(request.POST, subasta=subasta)
+        if puja_form.is_valid():
+            puja = puja_form.save(commit=False)
+            if puja.monto <= subasta.precio_actual:
+                return JsonResponse({
+                    'success': False,
+                    'message': f'El monto debe ser mayor al precio actual (${subasta.precio_actual})'
+                })
+            puja.subasta = subasta
+            puja.usuario = request.user
+            puja.save()
+
+            # Actualiza precio actual
+            subasta.precio_actual = puja.monto
+            subasta.save()
+
+            return JsonResponse({
+                'success': True,
+                'usuario': request.user.username,
+                'monto': puja.monto,
+                'fecha': puja.fecha.strftime("%d/%m/%Y %H:%M")
+            })
+        else:
+            return JsonResponse({'success': False, 'message': 'Datos inválidos'}, status=400)
+
+    # Vista normal para renderizado HTML
+    puja_form = PujaForm(subasta=subasta) if subasta.estado == 'ACTIVA' and subasta.usuario != request.user else None
 
     return render(request, 'tienda/subastas/detalle_subasta.html', {
         'subasta': subasta,
         'pujas': pujas,
         'puja_form': puja_form,
         'puja_actual': subasta.precio_actual,
-        'total_pujas': pujas.count(),
         'usuario_autenticado': request.user.is_authenticated,
     })
+
 
 
 @login_required

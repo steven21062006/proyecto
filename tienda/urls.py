@@ -51,6 +51,8 @@ urlpatterns = [
     
     path('motos/', views.lista_motos, name='lista_motos'),
     path('', views.inicio, name='inicio'),
+    path('api/pujas/<int:subasta_id>/', subastas.procesar_puja, name='procesar_puja'),
+
 
 
 

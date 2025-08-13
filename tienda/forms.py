@@ -83,6 +83,9 @@ class MultipleImagenSubastaForm(forms.Form):
         
 
 
+from decimal import Decimal
+from .models import Puja
+
 class PujaForm(forms.ModelForm):
     class Meta:
         model = Puja
@@ -99,10 +102,11 @@ class PujaForm(forms.ModelForm):
         self.subasta = kwargs.pop('subasta', None)
         super().__init__(*args, **kwargs)
         if self.subasta:
+            min_monto = self.subasta.precio_actual + Decimal('0.01')
             self.fields['monto'].validators.append(
-                MinValueValidator(self.subasta.precio_actual + 0.01)
+                MinValueValidator(min_monto)
             )
-            self.fields['monto'].widget.attrs['min'] = float(self.subasta.precio_actual) + 0.01
+            self.fields['monto'].widget.attrs['min'] = str(min_monto)
     
     def clean_monto(self):
         monto = self.cleaned_data['monto']
@@ -111,6 +115,7 @@ class PujaForm(forms.ModelForm):
                 f"El monto debe ser mayor al precio actual (${self.subasta.precio_actual:.2f})"
             )
         return monto
+
 
 class ComentarioForm(forms.ModelForm):
     class Meta:
