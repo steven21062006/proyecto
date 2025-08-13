@@ -11,67 +11,7 @@ from tienda.forms import SubastaForm, PujaForm, MultipleImagenSubastaForm
 
 
 
-def detalle_yamaha(request):
-    producto = get_object_or_404(Producto, nombre="Yamaha R3")
-    subasta = get_object_or_404(Subasta, producto=producto)
-
-    mensaje_puja = None
-    mensaje_comentario = None
-
-    if request.method == "POST":
-        if 'monto' in request.POST:
-            try:
-                monto = float(request.POST['monto'])
-                puja_actual = Puja.objects.filter(subasta=subasta).order_by('-monto').first()
-                precio_actual = puja_actual.monto if puja_actual else producto.precio
-
-                if monto <= precio_actual:
-                    mensaje_puja = "El monto debe ser mayor que la puja actual."
-                else:
-                    Puja.objects.create(
-                        usuario=request.user,
-                        subasta=subasta,
-                        monto=monto,
-                        fecha=timezone.now()
-                    )
-                    mensaje_puja = "Puja registrada correctamente!"
-            except Exception:
-                mensaje_puja = "Monto inválido."
-
-        elif 'comentario' in request.POST:
-            texto = request.POST.get('comentario', '').strip()
-            if texto:
-                ComentarioMoto.objects.create(
-                    producto=producto,
-                    nombre=request.user.username,
-                    comentario=texto,
-                    fecha=timezone.now()
-                )
-                mensaje_comentario = "Comentario agregado."
-            else:
-                mensaje_comentario = "No puedes enviar un comentario vacío."
-
-    comentarios = ComentarioMoto.objects.filter(producto=producto).order_by('-fecha')
-    pujas = Puja.objects.filter(subasta=subasta).order_by('-monto')
-
-    context = {
-        'producto': producto,
-        'comentarios': comentarios,
-        'pujas': pujas,
-        'user': request.user,
-        'mensaje_puja': mensaje_puja,
-        'mensaje_comentario': mensaje_comentario,
-    }
-    return render(request, 'tienda/subastas/yamaha.html', context)
-
-
-
-
-
-
-
-
-def procesar_comentario_yamaha(request):
+def procesar_comentario_subasta(request, slug):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -79,12 +19,15 @@ def procesar_comentario_yamaha(request):
             if not texto:
                 return JsonResponse({'success': False, 'message': 'El comentario no puede estar vacío'}, status=400)
 
-            producto = Producto.objects.get(nombre="Yamaha R3")
+            # Buscar la subasta por slug
+            subasta = get_object_or_404(Subasta, slug=slug)
+            producto = subasta.producto
 
+            # Crear comentario asociado al producto
             nuevo_comentario = ComentarioMoto.objects.create(
                 producto=producto,
                 usuario=request.user,
-                texto=texto,
+                comentario=texto,
                 fecha=timezone.now()
             )
 
@@ -92,7 +35,7 @@ def procesar_comentario_yamaha(request):
                 'success': True,
                 'nuevo_comentario': {
                     'usuario': nuevo_comentario.usuario.username,
-                    'texto': nuevo_comentario.texto,
+                    'comentario': nuevo_comentario.comentario,
                     'fecha': nuevo_comentario.fecha.strftime("%d/%m/%Y %H:%M")
                 }
             })
@@ -102,88 +45,6 @@ def procesar_comentario_yamaha(request):
     return JsonResponse({'success': False, 'message': 'Método no permitido'}, status=405)
 
 
-def detalle_auto_deportivo(request):
-    context = {
-        'user': request.user,
-        'subasta': {
-            'titulo': 'Auto Deportivo de Lujo',
-            'descripcion': 'Vehículo exclusivo - Edición Limitada',
-            'precio_inicial': 25000,
-            'fecha_fin': '2023-12-31 23:59:59',
-            'slug': 'auto-deportivo'
-        }
-    }
-    return render(request, 'tienda/subastas/detalle_auto_deportivo.html', context)
-
-
-def procesar_puja_auto(request):
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            monto = float(data.get('monto'))
-
-            nueva_puja = {
-                'usuario': request.user.username,
-                'monto': monto,
-                'fecha': timezone.now().strftime("%d/%m/%Y %H:%M")
-            }
-
-            return JsonResponse({
-                'success': True,
-                'nueva_puja': nueva_puja
-            })
-        except Exception as e:
-            return JsonResponse({
-                'success': False,
-                'message': str(e)
-            }, status=400)
-
-    return JsonResponse({
-        'success': False,
-        'message': 'Método no permitido'
-    }, status=405)
-
-
-def apple_watch(request):
-    context = {
-        'user': request.user,
-        'subasta': {
-            'titulo': 'Apple Watch Series 9',
-            'descripcion': 'Reloj exclusivo - Edición Limitada',
-            'precio_inicial': 25000,
-            'fecha_fin': '2023-12-31 23:59:59',
-            'slug': 'apple-watch'
-        }
-    }
-    return render(request, 'tienda/subastas/apple_watch.html', context)
-
-
-def procesar_puja_apple(request):
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            monto = float(data.get('monto'))
-
-            nueva_puja = {
-                'usuario': request.user.username,
-                'monto': monto,
-                'fecha': timezone.now().strftime("%d/%m/%Y %H:%M")
-            }
-
-            return JsonResponse({
-                'success': True,
-                'nueva_puja': nueva_puja
-            })
-        except Exception as e:
-            return JsonResponse({
-                'success': False,
-                'message': str(e)
-            }, status=400)
-
-    return JsonResponse({
-        'success': False,
-        'message': 'Método no permitido'
-    }, status=405)
 
 
 def lista_subastas(request):
@@ -197,35 +58,42 @@ def lista_subastas(request):
     })
 
 
+#@login_required(login_url='tienda:login')
 def detalle_subasta(request, slug):
     subasta = get_object_or_404(Subasta, slug=slug)
     puja_form = None
 
+    # Solo permitir pujar si está activa y el usuario no es el creador
     if subasta.estado == 'ACTIVA' and subasta.usuario != request.user:
         if request.method == 'POST':
             puja_form = PujaForm(request.POST, subasta=subasta)
             if puja_form.is_valid():
                 puja = puja_form.save(commit=False)
-                puja.subasta = subasta
-                puja.usuario = request.user
-                puja.save()
-
-                subasta.precio_actual = puja.monto
-                subasta.save()
-
-                messages.success(request, '¡Puja realizada con éxito!')
-                return redirect('detalle_subasta', slug=subasta.slug)
+                if puja.monto <= subasta.precio_actual:
+                    messages.error(request, f'El monto debe ser mayor al precio actual (${subasta.precio_actual})')
+                else:
+                    puja.subasta = subasta
+                    puja.usuario = request.user
+                    puja.save()
+                    subasta.precio_actual = puja.monto
+                    subasta.save()
+                    messages.success(request, '¡Puja realizada con éxito!')
+                    return redirect('tienda:detalle_subasta', slug=subasta.slug)
         else:
             puja_form = PujaForm(subasta=subasta)
+    else:
+        # Si no puede pujar, no mostrar formulario
+        puja_form = None
 
-    imagenes = subasta.imagenes_adicionales.all().order_by('orden')
     pujas = subasta.pujas.all().order_by('-fecha')
 
     return render(request, 'tienda/subastas/detalle_subasta.html', {
         'subasta': subasta,
-        'imagenes': imagenes,
         'pujas': pujas,
-        'puja_form': puja_form
+        'puja_form': puja_form,
+        'puja_actual': subasta.precio_actual,
+        'total_pujas': pujas.count(),
+        'usuario_autenticado': request.user.is_authenticated,
     })
 
 
@@ -284,3 +152,6 @@ def finalizar_subasta(request, slug):
         messages.warning(request, 'La subasta ya estaba finalizada')
 
     return redirect('detalle_subasta', slug=subasta.slug)
+
+
+

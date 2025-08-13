@@ -29,7 +29,7 @@ urlpatterns = [
     path('producto/<int:id>/<slug:slug>/', productos.detalle_producto, name='detalle_producto'),
 
     # Pujas
-    path('pujar/<int:producto_id>/', pujas.hacer_puja, name='hacer_puja'),
+    
     path('mis-pujas/', pujas.mis_pujas, name='mis_pujas'),
 
     # Subastas
@@ -39,20 +39,19 @@ urlpatterns = [
     path('subastas/<slug:slug>/finalizar/', subastas.finalizar_subasta, name='finalizar_subasta'),
     path('mis-subastas/', subastas.mis_subastas, name='mis_subastas'),
 
-    # Auto deportivo (subasta especial)
-        # Auto deportivo (subasta especial)
-    path('auto-deportivo/', subastas.detalle_auto_deportivo, name='detalle_auto_deportivo'),
-    path('api/pujas/auto-deportivo/', subastas.procesar_puja_auto, name='pujar_auto'),
-    #apple watch
-    path('apple-watch/', subastas.apple_watch, name='apple_watch'),
-    path('api/pujas/apple-watch/', subastas.procesar_puja_apple, name='pujar_apple'),
+    
 
     path('motocicletas/', views.moto, name='moto'),
     #yamaha
     
   # Añade estas dos líneas en la sección de Yamaha para comentarios y pujas vía API
     
-    path('yamaha-moto/', subastas.detalle_yamaha, name='yamaha'),
+    #path('yamaha-moto/', subastas.detalle_yamaha, name='yamaha'),
+    path('subasta/<slug:slug>/comentario/', subastas.procesar_comentario_subasta, name='procesar_comentario_subasta'),
+    
+    path('motos/', views.lista_motos, name='lista_motos'),
+    path('', views.inicio, name='inicio'),
+
 
 
 

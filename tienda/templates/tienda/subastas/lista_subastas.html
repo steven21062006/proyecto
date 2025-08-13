@@ -37,6 +37,31 @@
     </div>
 </div>
 
+<h3>Comentarios</h3>
+
+{% if user.is_authenticated %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Agregar comentario</button>
+  </form>
+{% else %}
+  <p><a href="{% url 'tienda:login' %}?next={{ request.path }}">Inicia sesión</a> para comentar.</p>
+{% endif %}
+
+<ul>
+  {% for comentario in comentarios %}
+    <li>
+      <strong>{{ comentario.usuario.username }}</strong> 
+      <small>{{ comentario.fecha|date:"d/m/Y H:i" }}</small>
+      <p>{{ comentario.contenido }}</p>
+    </li>
+  {% empty %}
+    <li>No hay comentarios aún.</li>
+  {% endfor %}
+</ul>
+
+
 {% block scripts %}
 <script>
 // Script para el contador regresivo en la lista

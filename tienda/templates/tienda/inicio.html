@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BLACK PANTHER - Plataforma de Subastas</title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="{% static 'js/main.js' %}"></script>
+
 </head>
 <body>
 
@@ -13,11 +15,11 @@
   <h1>BLACK PANTHER</h1>
   <nav class="nav">
     <ul>
-      <li><a href="{% url 'tienda:inicio' %}"">Inicio</a></li>
+      <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
       <li><a href="#">Subastas</a></li>
       <li><a href="#">Mis Subastas</a></li>
-      <li><a href="#">Contacto</a></li>
-      <li><a href="{% url 'tienda:registro' %}"">Crear Usuario</a></li>
+      <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
+      <li><a href="{% url 'tienda:registro' %}">Crear Usuario</a></li>
       <li><a href="{% url 'tienda:login' %}">Iniciar Sesión</a></li>
     </ul>
   </nav>
@@ -29,243 +31,242 @@
   <button class="btn-primary">Explorar Subastas</button>
 </div>
 
-<!-- ... (inicio sin cambios) -->
-
 <main class="main-content">
 
-<h2>Vehículos</h2><div class='auction-list'>
+  <!-- Categoría: Vehículos -->
+  <h2>Vehículos</h2>
+  <div class='auction-list'>
+    <div class="auction-item">
+      <img src="/static/img/subastas/lamborcito.jpg" alt="Vehículos Deportivos">
+      <div class="auction-details">
+        <h3>Vehículos Deportivos</h3>
+        <p class="description">Descubre autos potentes, aerodinámicos y de alto rendimiento para los amantes de la velocidad.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/motocicleta.jpg" alt="Motocicletas Urbanas">
+      <div class="auction-details">
+        <h3>Motocicletas Urbanas</h3>
+        <p class="description">Motocicletas ideales para ciudad, eficientes y fáciles de maniobrar.</p>
+        <a href="{% url 'tienda:lista_motos' %}" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/ford.jpg" alt="Camionetas y SUV">
+      <div class="auction-details">
+        <h3>Camionetas y SUV</h3>
+        <p class="description">Vehículos espaciosos y robustos, ideales para familias y terrenos difíciles.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/bici.jpg" alt="Movilidad Ecológica">
+      <div class="auction-details">
+        <h3>Movilidad Ecológica</h3>
+        <p class="description">Opciones eléctricas como bicicletas o scooters para una vida más verde.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    
+  </div>
 
-  <div class="auction-item">
-    <img src="/static/img/subastas/auto-deportivo.jpg" alt="Auto Deportivo">
-    <div class="auction-details">
-      <h3>Auto Deportivo</h3>
-      <p class="description">Vehículo de alta gama, motor V6, velocidad y estilo garantizados.</p>
-      <p class="price">$25,000</p>
-      <p class="time-left">Tiempo restante: 3d 4h</p>
-      <a href="{% url 'tienda:detalle_auto_deportivo' %}" class="btn">Ver detalles</a>
+  <!-- Categoría: Tecnología -->
+  <h2>Tecnología</h2>
+  <div class='auction-list'>
+    <div class="auction-item">
+      <img src="/static/img/subastas/laptop.jpeg" alt="Laptops y Portátiles">
+      <div class="auction-details">
+        <h3>Laptops y Portátiles</h3>
+        <p class="description">Computadoras ligeras y potentes para trabajo, estudio o entretenimiento.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/iphone.jpg" alt="Smartphones">
+      <div class="auction-details">
+        <h3>Smartphones</h3>
+        <p class="description">Dispositivos móviles de última generación con tecnología avanzada.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/tablet.png" alt="Tablets y Lectores">
+      <div class="auction-details">
+        <h3>Tablets y Lectores</h3>
+        <p class="description">Ideales para leer, ver contenido multimedia y navegar.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/periferico.jpg" alt="Periféricos">
+      <div class="auction-details">
+        <h3>Periféricos</h3>
+        <p class="description">Monitores, teclados y otros accesorios para tu setup.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
     </div>
   </div>
 
-  <div class="auction-item">
-    <img src="/static/img/subastas/moto_honda.jpg" alt="Moto Honda XR 150">
-    <div class="auction-details">
-      <h3>Moto Honda XR 150</h3>
-      <p class="description">Motocicleta todo terreno ideal para ciudad o campo.</p>
-      <p class="price">$3,800</p>
-      <p class="time-left">Tiempo restante: 2d 12h</p>
-      <a href="{% url 'tienda:moto' %}" class="btn">Ver detalles</a>
+  <!-- Categoría: Juegos -->
+  <h2>Juegos</h2>
+  <div class='auction-list'>
+    <div class="auction-item">
+      <img src="/static/img/subastas/nintendo.jpg" alt="Consolas de Videojuegos">
+      <div class="auction-details">
+        <h3>Consolas de Videojuegos</h3>
+        <p class="description">PlayStation, Xbox y más para una experiencia de juego inolvidable.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/nvidia.jpg" alt="Consolas de Alta Gama">
+      <div class="auction-details">
+        <h3>Consolas de Alta Gama</h3>
+        <p class="description">Máximo rendimiento y gráficos impresionantes en cada juego.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/csgo.jpg" alt="Videojuegos Populares">
+      <div class="auction-details">
+        <h3>Videojuegos Populares</h3>
+        <p class="description">Los títulos más buscados del mercado: FIFA, Call of Duty y más.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/accesorio.png" alt="Accesorios Gamer">
+      <div class="auction-details">
+        <h3>Accesorios Gamer</h3>
+        <p class="description">Sillas, audífonos y otros complementos para tus sesiones de juego.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
     </div>
   </div>
 
-  <div class="auction-item">
-    <img src="/static/img/subastas/toyota_4.jpg" alt="Camioneta Toyota 4x4">
-    <div class="auction-details">
-      <h3>Camioneta Toyota 4x4</h3>
-      <p class="description">Perfecta para viajes largos, resistente y cómoda.</p>
-      <p class="price">$18,500</p>
-      <p class="time-left">Tiempo restante: 4d 1h</p>
-      <button class="btn">Ver detalles</button>
+  <!-- Categoría: Casas -->
+  <h2>Casas</h2>
+  <div class='auction-list'>
+    <div class="auction-item">
+      <img src="/static/img/subastas/campo.jpg" alt="Casas de Campo">
+      <div class="auction-details">
+        <h3>Casas de Campo</h3>
+        <p class="description">Viviendas alejadas de la ciudad, rodeadas de naturaleza y tranquilidad.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/urbano.jpeg" alt="Departamentos Urbanos">
+      <div class="auction-details">
+        <h3>Departamentos Urbanos</h3>
+        <p class="description">Ubicaciones céntricas para una vida activa en la ciudad.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/playa.jpeg" alt="Casas en la Playa">
+      <div class="auction-details">
+        <h3>Casas en la Playa</h3>
+        <p class="description">Vistas al mar y ambiente relajado para vivir o vacacionar.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/mansion.jpg" alt="Casas Modernas">
+      <div class="auction-details">
+        <h3>Casas Modernas</h3>
+        <p class="description">Diseños minimalistas y funcionales con tecnología integrada.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
     </div>
   </div>
 
-  <div class="auction-item">
-    <img src="/static/img/subastas/bici_ele.jpg" alt="Bicicleta Eléctrica">
-    <div class="auction-details">
-      <h3>Bicicleta Eléctrica</h3>
-      <p class="description">Transporte ecológico con batería recargable.</p>
-      <p class="price">$1,200</p>
-      <p class="time-left">Tiempo restante: 1d 7h</p>
-      <button class="btn">Ver detalles</button>
+  <!-- Categoría: Marcas -->
+  <h2>Marcas</h2>
+  <div class='auction-list'>
+    <div class="auction-item">
+      <img src="/static/img/subastas/watch.jpg" alt="Tecnología Apple">
+      <div class="auction-details">
+        <h3>Tecnología Apple</h3>
+        <p class="description">Smartwatches, iPhones y más con diseño e innovación premium.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/nike.jpg" alt="Ropa Deportiva Nike">
+      <div class="auction-details">
+        <h3>Ropa Deportiva Nike</h3>
+        <p class="description">Zapatillas, ropa y accesorios con estilo y confort.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/gucci.png" alt="Moda de Lujo">
+      <div class="auction-details">
+        <h3>Moda de Lujo</h3>
+        <p class="description">Accesorios exclusivos de marcas como Louis Vuitton, Gucci y más.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
+    </div>
+    <div class="auction-item">
+      <img src="/static/img/subastas/perfume.jpg" alt="Perfumería de Marca">
+      <div class="auction-details">
+        <h3>Perfumería de Marca</h3>
+        <p class="description">Fragancias elegantes y originales para cada ocasión.</p>
+        <a href="#" class="btn">Ver productos</a>
+      </div>
     </div>
   </div>
-</div>
-
-<h2>Tecnología</h2><div class='auction-list'>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/laptop_hp.jpg" alt="Laptop HP 15">
-    <div class="auction-details">
-      <h3>Laptop HP 15"</h3>
-      <p class="description">Portátil rápida y confiable para trabajo o estudio.</p>
-      <p class="price">$850</p>
-      <p class="time-left">Tiempo restante: 1d 2h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/s_25.jpg" alt="Smartphone Samsung S21">
-    <div class="auction-details">
-      <h3>Smartphone Samsung S25 Ultra</h3>
-      <p class="description">Pantalla AMOLED y excelente rendimiento.</p>
-      <p class="price">$620</p>
-      <p class="time-left">Tiempo restante: 2d 11h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/tablet_14.jpg" alt="Tablet Android 10">
-    <div class="auction-details">
-      <h3>Tablet Android 10"</h3>
-      <p class="description">Ideal para leer, navegar y ver películas.</p>
-      <p class="price">$250</p>
-      <p class="time-left">Tiempo restante: 3d 6h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/monitor_27.jpg" alt="Monitor Curvo 27">
-    <div class="auction-details">
-      <h3>Monitor Curvo 27"</h3>
-      <p class="description">Diseño envolvente para juegos y trabajo.</p>
-      <p class="price">$370</p>
-      <p class="time-left">Tiempo restante: 1d 14h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-</div>
-
-<h2>Juegos</h2><div class='auction-list'>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/ps5_con.jpg" alt="Consola PS5">
-    <div class="auction-details">
-      <h3>Consola PS5</h3>
-      <p class="description">La mejor experiencia de juego actual.</p>
-      <p class="price">$780</p>
-      <p class="time-left">Tiempo restante: 2d 10h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/xbox_Series.jpg" alt="Xbox Series X">
-    <div class="auction-details">
-      <h3>Xbox Series X</h3>
-      <p class="description">Potencia de última generación para jugar.</p>
-      <p class="price">$720</p>
-      <p class="time-left">Tiempo restante: 3d 8h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/fc_25.jpg" alt="FIFA 25 PS5">
-    <div class="auction-details">
-      <h3>FIFA 25 PS5</h3>
-      <p class="description">Juego de fútbol con gráficos realistas.</p>
-      <p class="price">$60</p>
-      <p class="time-left">Tiempo restante: 1d 6h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/silla_gamer.jpg" alt="Silla Gamer RGB">
-    <div class="auction-details">
-      <h3>Silla Gamer RGB</h3>
-      <p class="description">Comodidad y estilo para jugar horas.</p>
-      <p class="price">$140</p>
-      <p class="time-left">Tiempo restante: 2d 20h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-</div>
-
-<h2>Casas</h2><div class='auction-list'>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/casa_campo.jpg" alt="Casa de Campo">
-    <div class="auction-details">
-      <h3>Casa de Campo</h3>
-      <p class="description">Casa amplia con jardín y aire puro.</p>
-      <p class="price">$85,000</p>
-      <p class="time-left">Tiempo restante: 5d 1h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/casa_centro.jpg" alt="Apartamento Centro">
-    <div class="auction-details">
-      <h3>Apartamento Centro</h3>
-      <p class="description">Ubicación céntrica, ideal para parejas.</p>
-      <p class="price">$65,000</p>
-      <p class="time-left">Tiempo restante: 4d 6h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/casa_playa.jpg" alt="Casa de Playa">
-    <div class="auction-details">
-      <h3>Casa de Playa</h3>
-      <p class="description">Frente al mar, vista espectacular.</p>
-      <p class="price">$120,000</p>
-      <p class="time-left">Tiempo restante: 6d 2h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/casa_mina.jpg" alt="Casa Minimalista">
-    <div class="auction-details">
-      <h3>Casa Minimalista</h3>
-      <p class="description">Diseño moderno, luz natural y amplitud.</p>
-      <p class="price">$70,000</p>
-      <p class="time-left">Tiempo restante: 3d 11h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-</div>
-
-<h2>Marcas</h2><div class='auction-list'>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/apple_imagen.jpg" alt="Apple Watch Series 9">
-    <div class="auction-details">
-      <h3>Apple Watch Series 9</h3>
-      <p class="description">Reloj inteligente con sensores avanzados.</p>
-      <p class="price">$399</p>
-      <p class="time-left">Tiempo restante: 2d 5h</p>
-      <a href="{% url 'tienda:apple_watch' %}" class="btn">Ver detalles</a>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/nike_air1.jpg" alt="Zapatillas Nike Air Max">
-    <div class="auction-details">
-      <h3>Zapatillas Nike Air Max</h3>
-      <p class="description">Comodidad y estilo para el día a día.</p>
-      <p class="price">$150</p>
-      <p class="time-left">Tiempo restante: 3d 4h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/bolso_vui.jpg" alt="Bolso Louis Vuitton">
-    <div class="auction-details">
-      <h3>Bolso Louis Vuitton</h3>
-      <p class="description">Diseño exclusivo de alta costura.</p>
-      <p class="price">$950</p>
-      <p class="time-left">Tiempo restante: 5d 6h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-
-  <div class="auction-item">
-    <img src="/static/img/subastas/perfume_dior.jpg" alt="Perfume Dior Sauvage">
-    <div class="auction-details">
-      <h3>Perfume Dior Sauvage</h3>
-      <p class="description">Aroma elegante y duradero.</p>
-      <p class="price">$110</p>
-      <p class="time-left">Tiempo restante: 1d 18h</p>
-      <button class="btn">Ver detalles</button>
-    </div>
-  </div>
-</div>
 
 </main>
+
+<!-- FOOTER COMPLETO -->
+<footer class="main-footer">
+  <div class="footer-top">
+    <div class="footer-logo">
+      <h3>BLACK PANTHER</h3>
+      <p>Subastas exclusivas, tecnología, vehículos y lujo al alcance de todos.</p>
+      <p><strong>Visítanos</strong> en nuestras oficinas o contáctanos por nuestras redes.</p>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Oficina Quito</h4>
+        <p>La Magdalena, Quito - Ecuador</p>
+        <p>pmsalazare@puce.edu.ec</p>
+        <p>+593 97 971 0437</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>BLACK PANTHER</h4>
+        <ul>
+          <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
+          <li><a href="#">Subastas</a></li>
+          <li><a href="#">Mis Subastas</a></li>
+          <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>¿Quiénes Somos?</h4>
+        <p>Unimos innovación y oportunidad para crear la mejor experiencia en subastas digitales.</p>
+        <h4>Idiomas Sitio</h4>
+        <p>🌐 🇪🇸 🇺🇸 🇫🇷</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Conéctate con nosotros: 
+      <a href="#">FACEBOOK</a> - 
+      <a href="https://www.instagram.com/matezepam">INSTAGRAM</a> - 
+      <a href="#">TIKTOK</a> - 
+      <a href="https://wa.me/+5930979710437">WHATSAPP</a>
+    </p>
+    <p>© BLACK PANTHER | Todos los derechos reservados | 2025</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -2,87 +2,110 @@
 {% load static %}
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}BLACK PANTHER - Plataforma de Subastas Online{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-    {% block extra_css %}{% endblock %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}BLACK PANTHER - Plataforma de Subastas Online{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+  {% block extra_css %}{% endblock %}
+
 </head>
 <body>
-    <!-- Header/Navbar -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1><a href="{% url 'tienda:inicio' %}">BLACK PANTHER</a></h1>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="{% url 'tienda:inicio' %}" class="{% if request.path == '/' %}active{% endif %}">Inicio</a></li>
-                    <li><a href="{% url 'tienda:lista_productos' %}" class="{% if 'subastas' in request.path %}active{% endif %}">Subastas</a></li>
-                    {% if user.is_authenticated %}
-                        <li><a href="{% url 'tienda:mis_pujas' %}" class="{% if 'mis-pujas' in request.path %}active{% endif %}">Mis Pujas</a></li>
-                        <li><a href="{% url 'tienda:logout' %}">Cerrar Sesión</a></li>
-                    {% else %}
-                        <li><a href="{% url 'tienda:login' %}" class="{% if 'login' in request.path %}active{% endif %}">Iniciar Sesión</a></li>
-                        <li><a href="{% url 'tienda:registro' %}" class="btn-registro">Registrarse</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
+
+  <!-- Header/Navbar -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><a href="{% url 'tienda:inicio' %}">BLACK PANTHER</a></h1>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li>
+            <a href="{% url 'tienda:inicio' %}" class="{% if request.path == '/' %}active{% endif %}">
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'tienda:lista_productos' %}" class="{% if 'subastas' in request.path %}active{% endif %}">
+              Subastas
+            </a>
+          </li>
+          {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'tienda:mis_pujas' %}" class="{% if 'mis-pujas' in request.path %}active{% endif %}">
+                Mis Pujas
+              </a>
+            </li>
+            <li><a href="{% url 'tienda:logout' %}">Cerrar Sesión</a></li>
+          {% else %}
+            <li>
+              <a href="{% url 'tienda:login' %}" class="{% if 'login' in request.path %}active{% endif %}">
+                Iniciar Sesión
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'tienda:registro' %}" class="btn btn-primary" style="padding:0.5rem 1.3rem; border-radius:40px;">
+                Registrarse
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main-content container">
+    {% block messages %}
+      {% if messages %}
+      <div class="messages-container" style="margin-bottom: 1rem;">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block content %}
+    <!-- Contenido específico -->
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-logo">
+        <h3>SubastasPro</h3>
+        <p>La mejor plataforma de subastas online en Latinoamérica.</p>
+      </div>
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>Enlaces Rápidos</h4>
+          <ul>
+            <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'tienda:lista_productos' %}">Subastas</a></li>
+            <li><a href="{% url 'tienda:acerca_de' %}">Acerca de</a></li>
+          </ul>
         </div>
-    </header>
-
-    <!-- Contenido principal -->
-    <main class="main-content">
-        {% block messages %}
-            {% if messages %}
-            <div class="messages-container">
-                {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    {{ message }}
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}
-        {% endblock %}
-
-        {% block content %}
-        <!-- El contenido específico de cada página se insertará aquí -->
-        {% endblock %}
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>SubastasPro</h3>
-                    <p>La mejor plataforma de subastas online en Latinoamérica.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-                        <li><a href="{% url 'tienda:lista_productos' %}">Subastas</a></li>
-                        <li><a href="{% url 'tienda:acerca_de' %}">Acerca de</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Términos y condiciones</a></li>
-                        <li><a href="#">Política de privacidad</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; {% now "Y" %} SubastasPro. Todos los derechos reservados.</p>
-            </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+          </ul>
         </div>
-    </footer>
+      </div>
+    </div>
 
-    <!-- Scripts -->
-    <script src="{% static 'js/main.js' %}"></script>
-    {% block extra_js %}{% endblock %}
+    <div class="footer-bottom">
+      <p>&copy; {% now "Y" %} BlackPanther.</p>
+    </div>
+  </footer>
+
+  Scripts 
+  <script src="{% static 'tienda/js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
 </body>
 </html>

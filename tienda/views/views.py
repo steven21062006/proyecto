@@ -53,3 +53,16 @@ def lista_categorias(request):
 
 def moto(request):
     return render(request, 'tienda/subastas/moto.html')
+
+
+def lista_motos(request):
+    motos = Subasta.objects.filter(
+        producto__categoria__nombre__icontains='moto',  # asumiendo que la categoría se llama algo así
+        estado='ACTIVA',
+        fecha_finalizacion__gt=timezone.now()
+    ).order_by('-fecha_inicio')
+
+    return render(request, 'tienda/subastas/lista_motos.html', {
+        'motos': motos
+    })
+

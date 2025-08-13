@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from tienda.models import Producto, Puja, Categoria  # Importación absoluta
 from tienda.forms import PujaForm  # Importación absoluta
 
+
 def lista_productos(request, categoria_slug=None):
     """
     Vista para mostrar la lista de productos, filtrada por categoría si se especifica
@@ -64,3 +65,6 @@ def detalle_producto(request, id, slug):
         'form': form,
     }
     return render(request, 'tienda/productos/detalle.html', context)
+
+
+

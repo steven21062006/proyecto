@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,19 +27,19 @@
     .product-img {
       width: 100%;
       border-radius: 15px;
-      border: 3px solid #e6b800;
+      border: 3px solid #e0dfdb;
       box-shadow: 0 0 15px #e6b80088;
     }
 
     .price {
       font-size: 2rem;
       font-weight: bold;
-      color: #e6b800;
+      color: #d2d2d2;
       margin-top: 1rem;
     }
 
     .btn-pujar {
-      background-color: #e6b800;
+      background-color: #dad9d5;
       color: #000;
       font-weight: bold;
       width: 100%;
@@ -48,7 +50,7 @@
     }
 
     .btn-pujar:hover {
-      background-color: #fff000;
+      background-color: #dfdedc;
       transform: scale(1.05);
     }
 
@@ -71,7 +73,7 @@
     }
 
     .progress-bar {
-      background-color: #e6b800;
+      background-color: #949494;
     }
 
     .volver a {
@@ -81,15 +83,15 @@
 
     .btn-volver {
       background-color: transparent;
-      border: 2px solid #e6b800;
-      color: #e6b800;
+      border: 2px solid #dddcd9;
+      color: #dcdbd7;
       font-weight: bold;
       border-radius: 10px;
       padding: 12px 30px;
     }
 
     .btn-volver:hover {
-      background-color: #e6b800;
+      background-color: #d5d4d0;
       color: #000;
       transform: scale(1.05);
     }
@@ -114,7 +116,7 @@
     <div class="row mt-4">
       <!-- Imagen -->
       <div class="col-md-6">
-        <img src="/static/img/subastas/moto_honda.jpg" alt="Yamaha R3" class="product-img">
+        <img src="/static/img/subastas/Yamaha_R3.jpg" alt="Yamaha R3" class="product-img">
       </div>
 
       <!-- Detalles -->
@@ -123,21 +125,30 @@
           La Yamaha R3 es una motocicleta urbana ligera y deportiva, diseñada para ofrecer un manejo ágil en la ciudad. Con estética agresiva y gran rendimiento, es ideal para quienes buscan estilo y velocidad en un mismo vehículo.
         </p>
 
-        <div class="price">$3,999</div>
+        <div class="price">${{ puja_actual }}</div>
 
         <div class="auction-info">
-          <span><strong>Fecha de inicio:</strong> 01/08/2025</span>
-          <span><strong>Fecha de finalización:</strong> 08/08/2025</span>
-          <span><strong>Puja actual:</strong> ${{ puja_actual }}</span>
-          <span><strong>Número de pujas:</strong> {{ total_pujas }}</span>
+         <span><strong>Fecha de inicio:</strong> {{ subasta.fecha_inicio|date:"d/m/Y H:i:s" }}</span>
+         <span><strong>Fecha de finalización:</strong> {{ subasta.fecha_finalizacion|date:"d/m/Y H:i:s" }}</span>
+         <span><strong>Puja actual:</strong> ${{ puja_actual }}</span>
+         <span><strong>Número de pujas:</strong> {{ total_pujas }}</span>
 
         </div>
 
-        <!-- Barra de progreso -->
-        <label class="mt-3">Tiempo restante</label>
-        <div class="progress">
-          <div class="progress-bar" style="width: 50%;">4 días restantes</div>
-        </div>
+
+    <label class="mt-3">Tiempo restante</label>
+    <div class="progress" style="max-width: 300px;">
+     <div class="progress-bar" id="barraTiempo" style="width: 100%;">
+      <span id="tiempoRestante">Calculando...</span>
+     </div>
+    </div>
+
+
+     <div id="fechasSubasta" 
+     data-fecha-inicio="{{ subasta.fecha_inicio|date:'c' }}" 
+     data-fecha-fin="{{ subasta.fecha_finalizacion|date:'c' }}" 
+     style="display:none;"></div>
+
 
         <!-- Botón de pujar -->
         <button class="btn btn-pujar" data-bs-toggle="modal" data-bs-target="#pujarModal">
@@ -205,6 +216,17 @@
       {% endfor %}
     </div>
   </div>
+
+  <script src="{% static 'js/contador_subasta.js' %}"></script>
+   <script>
+     document.addEventListener('DOMContentLoaded', function() {
+    const fechasDiv = document.getElementById('fechasSubasta');
+    const fechaInicioStr = fechasDiv.getAttribute('data-fecha-inicio');
+    const fechaFinStr = fechasDiv.getAttribute('data-fecha-fin');
+    iniciarContador(fechaInicioStr, fechaFinStr);
+     });
+   </script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
