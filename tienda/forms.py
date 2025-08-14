@@ -171,3 +171,49 @@ class BusquedaForm(forms.Form):
             raise forms.ValidationError("El precio mínimo no puede ser mayor al precio máximo")
         
         return cleaned_data
+    
+
+
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from .models import Perfil
+
+class CustomUserCreationForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=True, label='Primer nombre')
+    last_name = forms.CharField(max_length=30, required=True, label='Primer apellido')
+    email = forms.EmailField(max_length=254, required=True, label='Correo electrónico')
+
+    # Campos extra para Perfil
+    telefono = forms.CharField(max_length=20, required=False, label='Número de teléfono')
+    pais = forms.CharField(max_length=50, required=True, label='País')
+    tipo_usuario = forms.ChoiceField(
+        choices=[
+            ('usuario', 'Usuario'),
+            ('superusuario', 'Superusuario')
+        ],
+        required=True,
+        label='¿Quieres ser un Usuario o Superusuario?'
+    )
+
+    class Meta:
+        model = User
+        fields = (
+            'username', 'first_name', 'last_name', 'email', 
+            'password1', 'password2', 
+            'telefono', 'pais', 'tipo_usuario'
+        )
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+            # Crear perfil asociado
+            Perfil.objects.create(
+                user=user,
+                telefono=self.cleaned_data['telefono'],
+                pais=self.cleaned_data['pais'],
+                tipo_usuario=self.cleaned_data['tipo_usuario']
+            )
+        return user

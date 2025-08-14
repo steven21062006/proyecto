@@ -159,13 +159,8 @@ def crear_subasta(request):
 
 @login_required
 def mis_subastas(request):
-    subastas = Subasta.objects.filter(
-        usuario=request.user
-    ).order_by('-fecha_creacion')
-
-    return render(request, 'tienda/subastas/mis_subastas.html', {
-        'subastas': subastas
-    })
+    subastas = Subasta.objects.filter(pujas__usuario=request.user).distinct()
+    return render(request, 'tienda/subastas/mis_subastas.html', {'subastas': subastas})
 
 
 @login_required

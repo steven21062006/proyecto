@@ -32,8 +32,8 @@
           </li>
           {% if user.is_authenticated %}
             <li>
-              <a href="{% url 'tienda:mis_pujas' %}" class="{% if 'mis-pujas' in request.path %}active{% endif %}">
-                Mis Pujas
+              <a href="{% url 'tienda:mis_subastas' %}" class="{% if 'mis-subastas' in request.path %}active{% endif %}">
+                Mis Subastas
               </a>
             </li>
             <li><a href="{% url 'tienda:logout' %}">Cerrar Sesión</a></li>
@@ -86,6 +86,7 @@
           <ul>
             <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
             <li><a href="{% url 'tienda:lista_productos' %}">Subastas</a></li>
+            <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
             <li><a href="{% url 'tienda:acerca_de' %}">Acerca de</a></li>
           </ul>
         </div>

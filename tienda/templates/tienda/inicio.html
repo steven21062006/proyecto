@@ -14,14 +14,21 @@
 <header class="header">
   <h1>BLACK PANTHER</h1>
   <nav class="nav">
-    <ul>
-      <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-      <li><a href="#">Subastas</a></li>
-      <li><a href="#">Mis Subastas</a></li>
-      <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
+   <ul>
+    <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
+    <li><a href="#">Subastas</a></li>
+    {% if request.user.is_authenticated %}
+     <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
+    {% endif %}
+    <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
+
+    {% if request.user.is_authenticated %}
+      <li><a href="{% url 'tienda:logout' %}">Cerrar Sesión</a></li>
+    {% else %}
       <li><a href="{% url 'tienda:registro' %}">Crear Usuario</a></li>
       <li><a href="{% url 'tienda:login' %}">Iniciar Sesión</a></li>
-    </ul>
+    {% endif %}
+   </ul>
   </nav>
 </header>
 

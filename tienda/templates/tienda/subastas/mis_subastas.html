@@ -1,0 +1,23 @@
+{% extends 'tienda/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Mis Subastas</h1>
+
+<div class="auction-list">
+  {% for subasta in subastas %}
+  <div class="auction-item">
+    <img src="{{ subasta.producto.imagen.url }}" alt="{{ subasta.producto.nombre }}">
+    <div class="auction-details">
+      <h3>{{ subasta.producto.nombre }}</h3>
+      <p>{{ subasta.producto.descripcion|default:"Sin descripción" }}</p>
+      <p>Precio actual: ${{ subasta.precio_actual }}</p>
+      <p>Fecha finalización: {{ subasta.fecha_finalizacion|date:"d/m/Y H:i" }}</p>
+      <a href="{% url 'tienda:detalle_subasta' subasta.slug %}" class="btn">Ver Detalles</a>
+    </div>
+  </div>
+  {% empty %}
+    <p>No tienes subastas aún.</p>
+  {% endfor %}
+</div>
+{% endblock %}

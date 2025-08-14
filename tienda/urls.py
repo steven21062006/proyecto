@@ -1,14 +1,7 @@
 from django.urls import path
-from .views.auth import login_view
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import (
-    views,
-    auth,
-    productos,
-    pujas,
-    subastas
-)
+from .views import views, auth, productos, pujas, subastas
 
 app_name = 'tienda'
 
@@ -19,7 +12,7 @@ urlpatterns = [
     path('contacto/', views.contacto, name='contacto'),
 
     # Autenticación
-    path('login/', login_view, name='login'),
+    path('login/', auth.login_view, name='login'),
     path('logout/', auth.logout_view, name='logout'),
     path('registro/', auth.register_view, name='registro'),
 
@@ -29,34 +22,20 @@ urlpatterns = [
     path('producto/<int:id>/<slug:slug>/', productos.detalle_producto, name='detalle_producto'),
 
     # Pujas
-    
     path('mis-pujas/', pujas.mis_pujas, name='mis_pujas'),
+    path('api/pujas/<int:subasta_id>/', subastas.procesar_puja, name='procesar_puja'),
 
     # Subastas
     path('subastas/', subastas.lista_subastas, name='lista_subastas'),
     path('subastas/nueva/', subastas.crear_subasta, name='crear_subasta'),
     path('subastas/<slug:slug>/', subastas.detalle_subasta, name='detalle_subasta'),
     path('subastas/<slug:slug>/finalizar/', subastas.finalizar_subasta, name='finalizar_subasta'),
+    path('subasta/<slug:slug>/comentario/', subastas.procesar_comentario_subasta, name='procesar_comentario_subasta'),
     path('mis-subastas/', subastas.mis_subastas, name='mis_subastas'),
 
-    
-
+    # Motos
     path('motocicletas/', views.moto, name='moto'),
-    #yamaha
-    
-  # Añade estas dos líneas en la sección de Yamaha para comentarios y pujas vía API
-    
-    #path('yamaha-moto/', subastas.detalle_yamaha, name='yamaha'),
-    path('subasta/<slug:slug>/comentario/', subastas.procesar_comentario_subasta, name='procesar_comentario_subasta'),
-    
     path('motos/', views.lista_motos, name='lista_motos'),
-    path('', views.inicio, name='inicio'),
-    path('api/pujas/<int:subasta_id>/', subastas.procesar_puja, name='procesar_puja'),
-
-
-
-
-
 ]
 
 if settings.DEBUG:
