@@ -66,3 +66,4 @@ def lista_motos(request):
         'motos': motos
     })
 
+

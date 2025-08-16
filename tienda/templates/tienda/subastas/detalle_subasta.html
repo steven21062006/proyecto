@@ -285,7 +285,11 @@
         {% csrf_token %}
         <label for="monto-puja" class="form-label">Monto de la Puja ($)</label>
         <input type="number" class="form-control" id="monto-puja" name="monto" placeholder="Ej: 4300" required>
-        <button type="submit" class="btn btn-warning w-100 mt-2">Enviar Puja</button>
+        
+        <button onclick="setTimeout(() => location.reload(), 10)">
+                             Enviar Puja
+        </button>
+
       </form>
     </div>
     {% else %}
