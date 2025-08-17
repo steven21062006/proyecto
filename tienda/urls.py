@@ -15,6 +15,7 @@ urlpatterns = [
     path('login/', auth.login_view, name='login'),
     path('logout/', auth.logout_view, name='logout'),
     path('registro/', auth.register_view, name='registro'),
+    path('perfil/', auth.perfil_view, name='perfil'),  # Vista de perfil del usuario
 
     # Productos
     path('productos/', productos.lista_productos, name='lista_productos'),
@@ -34,8 +35,8 @@ urlpatterns = [
     path('mis-subastas/', subastas.mis_subastas, name='mis_subastas'),
 
     # Motos
-    path('motocicletas/', views.moto, name='moto'),
-    path('motos/', views.lista_motos, name='lista_motos'),
+    #path('motocicletas/', views.moto, name='moto'),
+    path('<str:categoria>/', views.lista_categoria, name='lista_categoria'),
 ]
 
 if settings.DEBUG:

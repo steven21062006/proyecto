@@ -16,7 +16,7 @@
   <nav class="nav">
    <ul>
     <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-    <li><a href="#">Subastas</a></li>
+    <li><a href="{% url 'tienda:lista_subastas' %}">Subastas</a></li>
     {% if request.user.is_authenticated %}
      <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
     {% endif %}
@@ -48,7 +48,7 @@
       <div class="auction-details">
         <h3>Vehículos Deportivos</h3>
         <p class="description">Descubre autos potentes, aerodinámicos y de alto rendimiento para los amantes de la velocidad.</p>
-        <a href="#" class="btn">Ver productos</a>
+        <a href="{% url 'tienda:lista_categoria' 'Vehículos Deportivos' %}" class="btn">Ver productos</a>
       </div>
     </div>
     <div class="auction-item">
@@ -56,7 +56,8 @@
       <div class="auction-details">
         <h3>Motocicletas Urbanas</h3>
         <p class="description">Motocicletas ideales para ciudad, eficientes y fáciles de maniobrar.</p>
-        <a href="{% url 'tienda:lista_motos' %}" class="btn">Ver productos</a>
+        <a href="{% url 'tienda:lista_categoria' 'Motocicletas Urbanas' %}" class="btn">Ver productos</a>
+
       </div>
     </div>
     <div class="auction-item">
@@ -86,7 +87,7 @@
       <div class="auction-details">
         <h3>Laptops y Portátiles</h3>
         <p class="description">Computadoras ligeras y potentes para trabajo, estudio o entretenimiento.</p>
-        <a href="#" class="btn">Ver productos</a>
+        <a href="{% url 'tienda:lista_categoria' 'Laptops' %}" class="btn">Ver productos</a>
       </div>
     </div>
     <div class="auction-item">
@@ -123,7 +124,7 @@
       <div class="auction-details">
         <h3>Consolas de Videojuegos</h3>
         <p class="description">PlayStation, Xbox y más para una experiencia de juego inolvidable.</p>
-        <a href="#" class="btn">Ver productos</a>
+        <a href="{% url 'tienda:lista_categoria' 'Consola de Videojuegos' %}" class="btn">Ver productos</a>
       </div>
     </div>
     <div class="auction-item">

@@ -7788,3 +7788,1352 @@ Bad Request: /subastas/yamaha-r3/
 "POST /subastas/yamaha-r3/ HTTP/1.1" 200 85
 "POST /subastas/yamaha-r3/ HTTP/1.1" 200 14939
 "GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9908
+"GET /motos/ HTTP/1.1" 200 1813
+"GET /motos/ HTTP/1.1" 200 1813
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\admin.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\views.py", line 18, in inicio
+    return render(request, 'tienda/inicio.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'lista_motos' not found. 'lista_motos' is not a valid view function or pattern name.
+"GET / HTTP/1.1" 500 123499
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\views.py", line 18, in inicio
+    return render(request, 'tienda/inicio.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'lista_motos' not found. 'lista_motos' is not a valid view function or pattern name.
+"GET / HTTP/1.1" 500 123225
+"GET / HTTP/1.1" 200 9926
+"GET /Motocicletas%20Urbanas/ HTTP/1.1" 200 191
+"GET / HTTP/1.1" 200 9926
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 4241
+"POST /admin/login/?next=/admin/ HTTP/1.1" 200 4450
+Watching for file changes with StatReloader
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 10424
+"GET / HTTP/1.1" 200 9933
+"GET /Motocicletas%20Urbanas/ HTTP/1.1" 200 191
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17397
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+Watching for file changes with StatReloader
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9933
+"GET /admin/ HTTP/1.1" 200 10424
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17397
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/producto/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/producto/ HTTP/1.1" 200 13380
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 10807
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=producto HTTP/1.1" 200 78
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=usuario HTTP/1.1" 200 75
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 229
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/subasta/add/ HTTP/1.1" 200 26762
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/subasta/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/subasta/ HTTP/1.1" 200 15521
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 11159
+"GET / HTTP/1.1" 200 9933
+"GET /Motocicletas%20Urbanas/ HTTP/1.1" 200 600
+"GET /media/productos/accesorio.png HTTP/1.1" 200 22645
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 10626
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9933
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17397
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/producto/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/producto/ HTTP/1.1" 200 13933
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 11516
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17397
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 11516
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=producto HTTP/1.1" 200 115
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=usuario HTTP/1.1" 200 75
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=usuario HTTP/1.1" 200 75
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 229
+"POST /admin/tienda/subasta/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/subasta/ HTTP/1.1" 200 16139
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 11871
+"GET / HTTP/1.1" 200 9933
+"GET / HTTP/1.1" 200 9961
+"GET /Veh%C3%ADculos%20Deportivos/ HTTP/1.1" 200 618
+"GET /media/productos/bici_fNfYepD.jpg HTTP/1.1" 200 10178
+"GET /subastas/toyota-supra/ HTTP/1.1" 200 10640
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/toyota-supra/ HTTP/1.1" 200 81
+"GET /subastas/toyota-supra/ HTTP/1.1" 200 10802
+"GET /media/productos/bici_fNfYepD.jpg HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/toyota-supra/ HTTP/1.1" 200 10802
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/toyota-supra/ HTTP/1.1" 200 10804
+"GET /media/productos/bici_fNfYepD.jpg HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/toyota-supra/ HTTP/1.1" 200 81
+"GET /subastas/toyota-supra/ HTTP/1.1" 200 11007
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9961
+"GET /admin/tienda/categoria/add/ HTTP/1.1" 200 13337
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 11871
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 13260
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/tienda/categoria/add/ HTTP/1.1" 200 13337
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 13742
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 12226
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17448
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17397
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 12226
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 261
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 261
+"GET /admin/ HTTP/1.1" 200 12226
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17397
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6764
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 12226
+"GET /admin/tienda/subasta/ HTTP/1.1" 200 15930
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 12226
+"GET /admin/tienda/categoria/5/change/ HTTP/1.1" 200 14006
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /static/admin/img/tooltag-arrowright.svg HTTP/1.1" 200 280
+"GET /admin/tienda/categoria/5/delete/ HTTP/1.1" 200 10613
+"POST /admin/tienda/categoria/5/delete/ HTTP/1.1" 302 0
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 13418
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 12537
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17397
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 340
+"GET /static/admin/js/popup_response.js HTTP/1.1" 200 532
+"GET / HTTP/1.1" 200 9961
+"POST /admin/tienda/producto/add/ HTTP/1.1" 200 17707
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /admin/tienda/producto/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/producto/ HTTP/1.1" 200 14456
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13245
+"GET /admin/tienda/producto/3/change/ HTTP/1.1" 200 17804
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/6/change/?_to_field=id HTTP/1.1" 200 14071
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13245
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 261
+"GET /admin/ HTTP/1.1" 200 13245
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=producto HTTP/1.1" 200 148
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=usuario HTTP/1.1" 200 75
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 261
+"POST /admin/tienda/subasta/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/subasta/ HTTP/1.1" 200 16737
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13596
+"GET / HTTP/1.1" 200 9969
+Internal Server Error: /Laptops/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\views.py", line 69, in lista_categoria
+    return render(request, 'tienda/subastas/lista_categoria.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'imagen' attribute has no file associated with it.
+"GET /Laptops/ HTTP/1.1" 500 146203
+"GET /admin/tienda/producto/3/change/ HTTP/1.1" 200 17804
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/producto/3/change/ HTTP/1.1" 302 0
+"GET /admin/tienda/producto/ HTTP/1.1" 200 14454
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /Laptops/ HTTP/1.1" 200 587
+"GET /media/productos/lamborcito.jpg HTTP/1.1" 200 6213
+"GET /admin/ HTTP/1.1" 200 13954
+"GET /subastas/asus-tuf/ HTTP/1.1" 200 10629
+"GET /media/productos/lamborcito.jpg HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9969
+"GET / HTTP/1.1" 200 9969
+"GET /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9962
+"GET /login/ HTTP/1.1" 200 1578
+"POST /login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9969
+Internal Server Error: /mis-subastas/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\subastas.py", line 163, in mis_subastas
+    return render(request, 'tienda/subastas/mis_subastas.html', {'subastas': subastas})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'visualizacion' not found. 'visualizacion' is not a valid view function or pattern name.
+"GET /mis-subastas/ HTTP/1.1" 500 147790
+"GET / HTTP/1.1" 200 9969
+Internal Server Error: /mis-subastas/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\subastas.py", line 163, in mis_subastas
+    return render(request, 'tienda/subastas/mis_subastas.html', {'subastas': subastas})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'perfil' not found. 'perfil' is not a valid view function or pattern name.
+"GET /mis-subastas/ HTTP/1.1" 500 161826
+"GET / HTTP/1.1" 200 9969
+Internal Server Error: /contacto/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\views.py", line 41, in contacto
+    return render(request, 'tienda/contacto.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'perfil' not found. 'perfil' is not a valid view function or pattern name.
+"GET /contacto/ HTTP/1.1" 500 156905
+"GET / HTTP/1.1" 200 9969
+Internal Server Error: /contacto/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\views.py", line 41, in contacto
+    return render(request, 'tienda/contacto.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'perfil' not found. 'perfil' is not a valid view function or pattern name.
+"GET /contacto/ HTTP/1.1" 500 138768
+"GET / HTTP/1.1" 200 9969
+Internal Server Error: /contacto/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\views.py", line 41, in contacto
+    return render(request, 'tienda/contacto.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'perfil' not found. 'perfil' is not a valid view function or pattern name.
+"GET /contacto/ HTTP/1.1" 500 138768
+Internal Server Error: /contacto/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\views.py", line 41, in contacto
+    return render(request, 'tienda/contacto.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'perfil' not found. 'perfil' is not a valid view function or pattern name.
+"GET /contacto/ HTTP/1.1" 500 138905
+Internal Server Error: /contacto/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\views.py", line 41, in contacto
+    return render(request, 'tienda/contacto.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'perfil' not found. 'perfil' is not a valid view function or pattern name.
+"GET /contacto/ HTTP/1.1" 500 138905
+"GET / HTTP/1.1" 200 9969
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9969
+"GET /mis-subastas/ HTTP/1.1" 200 2530
+"GET /media/productos/bici_fNfYepD.jpg HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9969
+Internal Server Error: /contacto/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\views.py", line 41, in contacto
+    return render(request, 'tienda/contacto.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'perfil' not found. 'perfil' is not a valid view function or pattern name.
+"GET /contacto/ HTTP/1.1" 500 138768
+"GET /contacto/ HTTP/1.1" 200 3520
+"GET /static/css/contacto.css HTTP/1.1" 404 1975
+"GET /static/img/subastas/anonimo.png HTTP/1.1" 404 1999
+"GET /static/js/contacto.js HTTP/1.1" 404 1969
+"GET / HTTP/1.1" 200 9969
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\auth.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9969
+"GET /contacto/ HTTP/1.1" 200 3561
+"GET /static/css/contacto.css HTTP/1.1" 404 1975
+"GET /static/img/subastas/anonimo.png HTTP/1.1" 404 1999
+"GET /static/js/contacto.js HTTP/1.1" 404 1969
+Internal Server Error: /perfil/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\auth.py", line 46, in perfil_view
+    return render(request, 'perfil.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: perfil.html
+"GET /perfil/ HTTP/1.1" 500 89197
+"GET / HTTP/1.1" 200 9969
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\auth.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9969
+"GET /contacto/ HTTP/1.1" 200 3561
+"GET /static/css/contacto.css HTTP/1.1" 404 1975
+"GET /static/img/subastas/anonimo.png HTTP/1.1" 404 1999
+"GET /static/js/contacto.js HTTP/1.1" 404 1969
+Internal Server Error: /perfil/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\auth.py", line 46, in perfil_view
+    return render(request, 'perfil.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: perfil.html
+"GET /perfil/ HTTP/1.1" 500 89197
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9969
+"GET /static/js/main.js HTTP/1.1" 200 2961
+"GET /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9962
+"GET /login/ HTTP/1.1" 200 1578
+"POST /login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9969
+"GET /contacto/ HTTP/1.1" 200 3561
+"GET /static/css/contacto.css HTTP/1.1" 404 1975
+"GET /static/img/subastas/anonimo.png HTTP/1.1" 404 1999
+"GET /static/js/contacto.js HTTP/1.1" 404 1969
+Internal Server Error: /perfil/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\auth.py", line 46, in perfil_view
+    return render(request, 'perfil.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: perfil.html
+"GET /perfil/ HTTP/1.1" 500 89197
+"GET /contacto/ HTTP/1.1" 200 3561
+"GET /static/css/contacto.css HTTP/1.1" 404 1975
+"GET /static/img/subastas/anonimo.png HTTP/1.1" 404 1999
+"GET /static/js/contacto.js HTTP/1.1" 404 1969
+"GET /mis-subastas/ HTTP/1.1" 200 2530
+"GET /media/productos/bici_fNfYepD.jpg HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9969
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\subastas.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 9978
+"GET /static/js/main.js HTTP/1.1" 304 0
+Internal Server Error: /subastas/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\subastas.py", line 81, in lista_subastas
+    ).order_by('-fecha_creacion')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\db\models\query.py", line 1722, in order_by
+    obj.query.add_ordering(*field_names)
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\db\models\sql\query.py", line 2291, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\db\models\sql\query.py", line 1805, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'fecha_creacion' into field. Choices are: categoria, categoria_id, comentarios, descripcion, estado, fecha_finalizacion, fecha_inicio, ganador, ganador_id, id, imagen_principal, precio_actual, precio_inicial, producto, producto_id, pujas, slug, titulo, usuario, usuario_id
+"GET /subastas/ HTTP/1.1" 500 85220
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\subastas.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /subastas/ HTTP/1.1" 200 4270
+"GET /media/productos/lamborcito.jpg HTTP/1.1" 304 0
+"GET /media/productos/bici_fNfYepD.jpg HTTP/1.1" 304 0
+"GET /media/productos/accesorio.png HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\subastas.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /subastas/ HTTP/1.1" 200 4270
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9978
+"GET /subastas/ HTTP/1.1" 200 4270
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/asus-tuf/ HTTP/1.1" 200 10629
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+Internal Server Error: /productos/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\productos.py", line 25, in lista_productos
+    return render(request, 'tienda/productos/lista.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tienda/productos/lista.html
+"GET /productos/ HTTP/1.1" 500 87332
+Internal Server Error: /productos/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\productos.py", line 25, in lista_productos
+    return render(request, 'tienda/productos/lista.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: tienda/productos/lista.html
+"GET /productos/ HTTP/1.1" 500 87469
+"GET /subastas/asus-tuf/ HTTP/1.1" 200 10627
+"GET /media/productos/lamborcito.jpg HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/ HTTP/1.1" 200 4268
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/ HTTP/1.1" 200 4268
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9978
+"GET /Motocicletas%20Urbanas/ HTTP/1.1" 200 600
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 10626
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/ HTTP/1.1" 200 4268
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9978
+"GET /Motocicletas%20Urbanas/ HTTP/1.1" 200 600
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 10626
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 81
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 10788
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/ HTTP/1.1" 200 4268
+"GET /media/productos/bici_fNfYepD.jpg HTTP/1.1" 304 0
+"GET /media/productos/accesorio.png HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9978
+"GET /Laptops/ HTTP/1.1" 200 587
+"GET /subastas/asus-tuf/ HTTP/1.1" 200 10627
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9978
+"GET /admin/ HTTP/1.1" 200 13954
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 355
+"POST /admin/tienda/producto/add/ HTTP/1.1" 200 17795
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/producto/add/ HTTP/1.1" 200 17795
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13970
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13970
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 308
+"GET /admin/ HTTP/1.1" 200 13970
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13970
+"GET /admin/tienda/categoria/6/change/ HTTP/1.1" 200 14022
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13970
+"GET /admin/tienda/categoria/7/change/ HTTP/1.1" 200 14003
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/7/delete/ HTTP/1.1" 200 10658
+"POST /admin/tienda/categoria/7/delete/ HTTP/1.1" 302 0
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 13706
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13944
+"GET /admin/tienda/categoria/add/ HTTP/1.1" 200 13337
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /Motocicletas%20Urbanas/ HTTP/1.1" 200 600
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 10788
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9978
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /Motocicletas%20Urbanas/ HTTP/1.1" 200 600
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 10788
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/yamaha-r3/ HTTP/1.1" 200 81
+"GET /subastas/yamaha-r3/ HTTP/1.1" 200 10991
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/ HTTP/1.1" 200 4268
+"GET /media/productos/lamborcito.jpg HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/asus-tuf/ HTTP/1.1" 200 10627
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9978
+"POST /admin/tienda/categoria/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 14060
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/comentariosubasta/add/ HTTP/1.1" 200 15008
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 308
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/producto/ HTTP/1.1" 200 14249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 13836
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/8/change/ HTTP/1.1" 200 14018
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 13836
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/8/change/ HTTP/1.1" 200 14018
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+Internal Server Error: /admin/r/7/8/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\admin\sites.py", line 265, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\contenttypes\views.py", line 35, in shortcut
+    absurl = get_absolute_url()
+             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\models.py", line 31, in get_absolute_url
+    return reverse('subastas_por_categoria', args=[self.slug])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'subastas_por_categoria' not found. 'subastas_por_categoria' is not a valid view function or pattern name.
+"GET /admin/r/7/8/ HTTP/1.1" 500 110524
+"GET /admin/tienda/categoria/8/change/ HTTP/1.1" 200 14018
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6782
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13957
+"POST /admin/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9971
+"GET /login/ HTTP/1.1" 200 1578
+"POST /login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 9978
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/6/change/?_to_field=id HTTP/1.1" 200 14071
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+Internal Server Error: /admin/r/7/6/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\admin\sites.py", line 265, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\contrib\contenttypes\views.py", line 35, in shortcut
+    absurl = get_absolute_url()
+             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\models.py", line 31, in get_absolute_url
+    return reverse('subastas_por_categoria', args=[self.slug])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'subastas_por_categoria' not found. 'subastas_por_categoria' is not a valid view function or pattern name.
+"GET /admin/r/7/6/ HTTP/1.1" 500 110490
+"GET /admin/tienda/categoria/6/change/?_to_field=id HTTP/1.1" 200 14071
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 308
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=producto HTTP/1.1" 200 148
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13957
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 13836
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/ HTTP/1.1" 200 10795
+"POST /admin/tienda/categoria/ HTTP/1.1" 302 0
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 13683
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13928
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 355
+"POST /admin/tienda/producto/add/ HTTP/1.1" 200 17797
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13943
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13943
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 308
+"GET /admin/ HTTP/1.1" 200 13943
+"GET /admin/ HTTP/1.1" 200 13943
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET / HTTP/1.1" 200 9978
+"GET /admin/ HTTP/1.1" 200 13943
+"GET / HTTP/1.1" 200 9978
+"GET /admin/ HTTP/1.1" 200 13943
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13943
+"GET /admin/tienda/categoria/6/change/ HTTP/1.1" 200 14022
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/6/history/ HTTP/1.1" 200 9949
+"GET /admin/ HTTP/1.1" 200 13943
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 13836
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/9/change/ HTTP/1.1" 200 14021
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/9/change/ HTTP/1.1" 302 0
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 14058
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 14007
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/1/change/?_to_field=id&_popup=1 HTTP/1.1" 200 6412
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/producto/add/ HTTP/1.1" 200 17759
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6317
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6784
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 14007
+"GET /admin/tienda/categoria/9/change/ HTTP/1.1" 200 14021
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/tienda/categoria/9/delete/ HTTP/1.1" 200 10658
+"POST /admin/tienda/categoria/9/delete/ HTTP/1.1" 302 0
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 13706
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13978
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/add/?_to_field=id&_popup=1 HTTP/1.1" 200 356
+"POST /admin/tienda/producto/add/ HTTP/1.1" 200 17793
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/producto/add/ HTTP/1.1" 200 17757
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13996
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26249
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=categoria HTTP/1.1" 200 309
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=producto HTTP/1.1" 200 148
+"GET /admin/tienda/producto/add/?_to_field=id&_popup=1 HTTP/1.1" 200 10471
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13996
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17486
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\admin.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17540
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13996
+"GET /admin/tienda/categoria/add/ HTTP/1.1" 200 13337
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/categoria/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/categoria/ HTTP/1.1" 200 14335
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 14005
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26366
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 14005
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17583
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET / HTTP/1.1" 200 9978
+"GET /static/js/main.js HTTP/1.1" 304 0
+"GET /Veh%C3%ADculos%20Deportivos/ HTTP/1.1" 200 618
+"GET /media/productos/bici_fNfYepD.jpg HTTP/1.1" 304 0
+"GET /subastas/toyota-supra/ HTTP/1.1" 200 11005
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9978
+"GET /admin/ HTTP/1.1" 200 14005
+"GET /subastas/ HTTP/1.1" 200 4268
+"GET /media/productos/lamborcito.jpg HTTP/1.1" 304 0
+"GET /media/productos/accesorio.png HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/asus-tuf/ HTTP/1.1" 200 10627
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/asus-tuf/ HTTP/1.1" 200 81
+"GET /subastas/asus-tuf/ HTTP/1.1" 200 10789
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 9978
+"GET /Motocicletas%20Urbanas/ HTTP/1.1" 200 600
+"GET /admin/tienda/categoria/add/ HTTP/1.1" 200 13337
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 14005
+"GET /admin/tienda/producto/add/ HTTP/1.1" 200 17583
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"POST /admin/tienda/producto/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/producto/ HTTP/1.1" 200 14992
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/ HTTP/1.1" 200 13998
+"GET /admin/tienda/subasta/add/ HTTP/1.1" 200 26366
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=producto HTTP/1.1" 200 179
+"GET /admin/autocomplete/?app_label=tienda&model_name=subasta&field_name=usuario HTTP/1.1" 200 75
+"POST /admin/tienda/subasta/add/ HTTP/1.1" 302 0
+"GET /admin/tienda/subasta/ HTTP/1.1" 200 17331
+"GET /admin/jsi18n/ HTTP/1.1" 200 8691
+"GET / HTTP/1.1" 200 9978
+"GET / HTTP/1.1" 200 10005
+"GET /Consola%20de%20Videojuegos/ HTTP/1.1" 200 588
+"GET /media/productos/ford.jpg HTTP/1.1" 200 35473
+"GET /subastas/play-5/ HTTP/1.1" 200 10615
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET / HTTP/1.1" 200 10005
+"GET /mis-subastas/ HTTP/1.1" 200 3212
+"GET /media/productos/lamborcito.jpg HTTP/1.1" 304 0
+"GET /media/productos/bici_fNfYepD.jpg HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/ HTTP/1.1" 200 4650
+"GET /media/productos/ford.jpg HTTP/1.1" 304 0
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"GET /subastas/asus-tuf/ HTTP/1.1" 200 10789
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978
+"POST /subastas/asus-tuf/ HTTP/1.1" 200 81
+"GET /subastas/asus-tuf/ HTTP/1.1" 200 10992
+"GET /static/tienda/js/main.js HTTP/1.1" 404 1978

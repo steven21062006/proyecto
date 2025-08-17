@@ -55,15 +55,21 @@ def moto(request):
     return render(request, 'tienda/subastas/moto.html')
 
 
-def lista_motos(request):
-    motos = Subasta.objects.filter(
-        producto__categoria__nombre__icontains='moto',  # asumiendo que la categoría se llama algo así
+from django.shortcuts import render
+from django.utils import timezone
+from tienda.models import Subasta
+
+def lista_categoria(request, categoria):
+    subastas = Subasta.objects.filter(
+        producto__categoria__nombre__icontains=categoria,
         estado='ACTIVA',
         fecha_finalizacion__gt=timezone.now()
     ).order_by('-fecha_inicio')
 
-    return render(request, 'tienda/subastas/lista_motos.html', {
-        'motos': motos
+    return render(request, 'tienda/subastas/lista_categoria.html', {
+        'subastas': subastas,
+        'categoria_nombre': categoria.replace('-', ' ').capitalize()
     })
+
 
 

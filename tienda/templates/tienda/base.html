@@ -26,7 +26,7 @@
             </a>
           </li>
           <li>
-            <a href="{% url 'tienda:lista_productos' %}" class="{% if 'subastas' in request.path %}active{% endif %}">
+            <a href="{% url 'tienda:lista_subastas' %}" class="{% if 'subastas' in request.path %}active{% endif %}">
               Subastas
             </a>
           </li>
@@ -85,7 +85,7 @@
           <h4>Enlaces Rápidos</h4>
           <ul>
             <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-            <li><a href="{% url 'tienda:lista_productos' %}">Subastas</a></li>
+            <li><a href="{% url 'tienda:lista_subastas' %}">Subastas</a></li>
             <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
             <li><a href="{% url 'tienda:acerca_de' %}">Acerca de</a></li>
           </ul>

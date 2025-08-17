@@ -39,3 +39,10 @@ def register_view(request):
 def logout_view(request):
     logout(request)
     return redirect('tienda:inicio')
+
+
+@login_required
+def perfil_view(request):
+    return render(request, 'perfil.html', {
+        'usuario': request.user
+    })

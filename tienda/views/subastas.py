@@ -78,7 +78,7 @@ def lista_subastas(request):
     subastas = Subasta.objects.filter(
         estado='ACTIVA',
         fecha_finalizacion__gt=timezone.now()
-    ).order_by('-fecha_creacion')
+    ).order_by('-fecha_inicio')
 
     return render(request, 'tienda/subastas/lista_subastas.html', {
         'subastas': subastas
@@ -180,6 +180,8 @@ def finalizar_subasta(request, slug):
         messages.warning(request, 'La subasta ya estaba finalizada')
 
     return redirect('detalle_subasta', slug=subasta.slug)
+
+
 
 
 

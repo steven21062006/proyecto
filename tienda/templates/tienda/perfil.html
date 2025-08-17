@@ -1,0 +1,128 @@
+{% extends "tienda/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="profile-container">
+  <div class="profile-header">
+    <h2>Mi Perfil</h2>
+    <p>Visualiza y edita tu información personal</p>
+  </div>
+
+  <div class="profile-main">
+    <div class="profile-sidebar">
+      <div class="profile-image">
+        {% if user.perfil.imagen %}
+          <img src="{{ user.perfil.imagen.url }}" alt="Foto de perfil">
+        {% else %}
+          <img src="{% static 'img/default-user.png' %}" alt="Foto por defecto">
+        {% endif %}
+      </div>
+      <h3>{{ user.username }}</h3>
+      <p>{{ user.email }}</p>
+      <p><strong>Nombre:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+      <a class="edit-button" href="{% url 'tienda:editar_perfil' %}">Editar perfil</a>
+    </div>
+
+    <div class="profile-details">
+      <h3>Información de la Cuenta</h3>
+      <ul>
+        <li><strong>Nombre de usuario:</strong> {{ user.username }}</li>
+        <li><strong>Correo electrónico:</strong> {{ user.email }}</li>
+        <li><strong>Nombre:</strong> {{ user.first_name }}</li>
+        <li><strong>Apellido:</strong> {{ user.last_name }}</li>
+        <li><strong>Último acceso:</strong> {{ user.last_login|date:"d M Y - H:i" }}</li>
+        <li><strong>Fecha de registro:</strong> {{ user.date_joined|date:"d M Y" }}</li>
+      </ul>
+
+      <h3>Acciones rápidas</h3>
+      <ul class="quick-actions">
+        <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
+        <li><a href="{% url 'tienda:mis_pujas' %}">Mis Pujas</a></li>
+        <li><a href="{% url 'tienda:logout' %}">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+.profile-container {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 0 10px #ccc;
+  border-radius: 12px;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.profile-sidebar {
+  flex: 1 1 250px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  padding-right: 1rem;
+}
+
+.profile-sidebar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.profile-details {
+  flex: 2 1 500px;
+}
+
+.profile-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-details li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.edit-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.quick-actions {
+  margin-top: 1rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.quick-actions li {
+  margin-bottom: 0.5rem;
+}
+
+.quick-actions a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.quick-actions a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+</style>
+{% endblock %}
