@@ -1,49 +1,9 @@
-<!DOCTYPE html>
+
+{% extends 'tienda/base.html' %}
 {% load static %}
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto - BLACK PANTHER</title>
-  <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'css/auth.css' %}">
-  <script src="{% static 'js/contacto.js' %}" defer></script>
-</head>
-<body>
 
-<header class="header">
-  <h1>BLACK PANTHER</h1>
-  <nav class="nav">
-    <ul>
-      <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-      <li><a href="#">Subastas</a></li>
 
-      {% if request.user.is_authenticated %}
-        <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
-      {% endif %}
-      
-      <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
-
-      {% if request.user.is_authenticated %}
-        <li class="user-dropdown">
-          <a href="#">
-            <img src="{% static 'img/subastas/anonimo.png'%}" alt="Usuario" class="user-icon">
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="{% url 'tienda:perfil' %}">Mi Perfil</a></li>
-            <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
-            <li><a href="{% url 'tienda:logout' %}">Cerrar Sesión</a></li>
-          </ul>
-        </li>
-      {% else %}
-        <li><a href="{% url 'tienda:registro' %}">Crear Usuario</a></li>
-        <li><a href="{% url 'tienda:login' %}">Iniciar Sesión</a></li>
-      {% endif %}
-    </ul>
-  </nav>
-</header>
-
+{% block content %}
 <main>
   <section class="contact-section">
     <div class="container">
@@ -67,51 +27,7 @@
   </section>
 </main>
 
-<footer class="main-footer">
-  <div class="footer-top">
-    <div class="footer-logo">
-      <h3>BLACK PANTHER</h3>
-      <p>Subastas exclusivas, tecnología, vehículos y lujo al alcance de todos.</p>
-      <p><strong>Visítanos</strong> en nuestras oficinas o contáctanos por nuestras redes.</p>
-    </div>
+{% endblock %}
 
-    <div class="footer-columns">
-      <div class="footer-col">
-        <h4>Oficina Quito</h4>
-        <p>La Magdalena, Quito - Ecuador</p>
-        <p>pmsalazare@puce.edu.ec</p>
-        <p>+593 97 971 0437</p>
-      </div>
 
-      <div class="footer-col">
-        <h4>BLACK PANTHER</h4>
-        <ul>
-          <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-          <li><a href="#">Subastas</a></li>
-          <li><a href="#">Mis Subastas</a></li>
-          <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
-        </ul>
-      </div>
 
-      <div class="footer-col">
-        <h4>¿Quiénes Somos?</h4>
-        <p>Unimos innovación y oportunidad para crear la mejor experiencia en subastas digitales.</p>
-        <h4>Idiomas Sitio</h4>
-        <p>🌐 🇪🇸 🇺🇸 🇫🇷</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>Conéctate con nosotros: 
-      <a href="#">FACEBOOK</a> - 
-      <a href="https://www.instagram.com/matezepam">INSTAGRAM</a> - 
-      <a href="#">TIKTOK</a> - 
-      <a href="https://wa.me/+5930979710437">WHATSAPP</a>
-    </p>
-    <p>© BLACK PANTHER | Todos los derechos reservados | 2025</p>
-  </div>
-</footer>
-
-</body>
-</html>

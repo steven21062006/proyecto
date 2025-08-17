@@ -1,112 +1,104 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{% block title %}BLACK PANTHER - Plataforma de Subastas Online{% endblock %}</title>
+  <meta charset="UTF-8">
+  <title>{% block title %}BLACK PANTHER{% endblock %}</title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+  <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+  <link rel="stylesheet" href="{% static 'css/subastas.css' %}">
   
+  <script src="{% static 'js/main.js' %}" defer></script>
   {% block extra_css %}{% endblock %}
+  {% block extra_js %}{% endblock %}
 
 </head>
 <body>
 
-  <!-- Header/Navbar -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <h1><a href="{% url 'tienda:inicio' %}">BLACK PANTHER</a></h1>
-      </div>
-      <nav class="nav">
-        <ul>
-          <li>
-            <a href="{% url 'tienda:inicio' %}" class="{% if request.path == '/' %}active{% endif %}">
-              Inicio
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'tienda:lista_subastas' %}" class="{% if 'subastas' in request.path %}active{% endif %}">
-              Subastas
-            </a>
-          </li>
-          {% if user.is_authenticated %}
-            <li>
-              <a href="{% url 'tienda:mis_subastas' %}" class="{% if 'mis-subastas' in request.path %}active{% endif %}">
-                Mis Subastas
-              </a>
-            </li>
-            <li><a href="{% url 'tienda:logout' %}">Cerrar Sesión</a></li>
-          {% else %}
-            <li>
-              <a href="{% url 'tienda:login' %}" class="{% if 'login' in request.path %}active{% endif %}">
-                Iniciar Sesión
-              </a>
-            </li>
-            <li>
-              <a href="{% url 'tienda:registro' %}" class="btn btn-primary" style="padding:0.5rem 1.3rem; border-radius:40px;">
-                Registrarse
-              </a>
-            </li>
-          {% endif %}
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Contenido principal -->
-  <main class="main-content container">
-    {% block messages %}
-      {% if messages %}
-      <div class="messages-container" style="margin-bottom: 1rem;">
-        {% for message in messages %}
-          <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-          </div>
-        {% endfor %}
-      </div>
+<header class="header">
+  <h1>BLACK PANTHER</h1>
+  <nav class="nav">
+    <ul>
+      <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
+      <li><a href="{% url 'tienda:lista_subastas' %}">Subastas</a></li>
+      {% if request.user.is_authenticated %}
+        <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
       {% endif %}
-    {% endblock %}
+      
+      <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
+      {% if not request.user.is_authenticated %}
+        <li><a href="{% url 'tienda:registro' %}">Crear Usuario</a></li>
+        <li><a href="{% url 'tienda:login' %}">Iniciar Sesión</a></li>
+      {% endif %}
+      {% if request.user.is_authenticated %}
+     <div class="user-menu">
+        <img src="{% static 'img/subastas/anonimo.png' %}" 
+         alt="Perfil" 
+         class="user-avatar"
+         id="user-avatar">
+       <div id="user-dropdown" class="dropdown-content">
+         <a href="{% url 'tienda:perfil' %}">Mi Perfil</a>
+         <a href="{% url 'tienda:logout' %}">Cerrar Sesión</a>
+       </div>
+     </div>
+{% endif %}
+    </ul>
 
-    {% block content %}
-    <!-- Contenido específico -->
-    {% endblock %}
-  </main>
+    
+  </nav>
+</header>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-top">
-      <div class="footer-logo">
-        <h3>SubastasPro</h3>
-        <p>La mejor plataforma de subastas online en Latinoamérica.</p>
-      </div>
-      <div class="footer-columns">
-        <div class="footer-col">
-          <h4>Enlaces Rápidos</h4>
-          <ul>
-            <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-            <li><a href="{% url 'tienda:lista_subastas' %}">Subastas</a></li>
-            <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
-            <li><a href="{% url 'tienda:acerca_de' %}">Acerca de</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Términos y condiciones</a></li>
-            <li><a href="#">Política de privacidad</a></li>
-          </ul>
-        </div>
-      </div>
+<main>
+  {% block content %}
+  {% endblock %}
+</main>
+
+<footer class="main-footer">
+  <div class="footer-top">
+    <div class="footer-logo">
+      <h3>BLACK PANTHER</h3>
+      <p>Subastas exclusivas, tecnología, vehículos y lujo al alcance de todos.</p>
+      <p><strong>Visítanos</strong> en nuestras oficinas o contáctanos por nuestras redes.</p>
     </div>
 
-    <div class="footer-bottom">
-      <p>&copy; {% now "Y" %} BlackPanther.</p>
-    </div>
-  </footer>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Oficina Quito</h4>
+        <p>La Magdalena, Quito - Ecuador</p>
+        <p>pmsalazare@puce.edu.ec</p>
+        <p>+593 97 971 0437</p>
+      </div>
 
-  Scripts 
-  <script src="{% static 'tienda/js/main.js' %}"></script>
-  {% block extra_js %}{% endblock %}
+      <div class="footer-col">
+        <h4>BLACK PANTHER</h4>
+        <ul>
+          <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
+          <li><a href="{% url 'tienda:lista_subastas' %}">Subastas</a></li>
+          <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
+          <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>¿Quiénes Somos?</h4>
+        <p>Unimos innovación y oportunidad para crear la mejor experiencia en subastas digitales.</p>
+        <h4>Idiomas Sitio</h4>
+        <p>🌐 🇪🇸 🇺🇸 🇫🇷</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Conéctate con nosotros: 
+      <a href="#">FACEBOOK</a> - 
+      <a href="https://www.instagram.com/matezepam">INSTAGRAM</a> - 
+      <a href="#">TIKTOK</a> - 
+      <a href="https://wa.me/+5930979710437">WHATSAPP</a>
+    </p>
+    <p>© BLACK PANTHER | Todos los derechos reservados | 2025</p>
+  </div>
+</footer>
+
 </body>
 </html>

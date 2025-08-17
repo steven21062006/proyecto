@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.http import JsonResponse
 import json
 
-from tienda.models import Producto, Puja, ComentarioMoto, Subasta
+from tienda.models import Producto, Puja, Subasta
 from tienda.forms import SubastaForm, PujaForm, MultipleImagenSubastaForm
 
 from django.http import JsonResponse
@@ -38,38 +38,7 @@ def procesar_puja(request, subasta_id):
 
 
 
-def procesar_comentario_subasta(request, slug):
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            texto = data.get('texto', '').strip()
-            if not texto:
-                return JsonResponse({'success': False, 'message': 'El comentario no puede estar vacío'}, status=400)
 
-            # Buscar la subasta por slug
-            subasta = get_object_or_404(Subasta, slug=slug)
-            producto = subasta.producto
-
-            # Crear comentario asociado al producto
-            nuevo_comentario = ComentarioMoto.objects.create(
-                producto=producto,
-                usuario=request.user,
-                comentario=texto,
-                fecha=timezone.now()
-            )
-
-            return JsonResponse({
-                'success': True,
-                'nuevo_comentario': {
-                    'usuario': nuevo_comentario.usuario.username,
-                    'comentario': nuevo_comentario.comentario,
-                    'fecha': nuevo_comentario.fecha.strftime("%d/%m/%Y %H:%M")
-                }
-            })
-        except Exception as e:
-            return JsonResponse({'success': False, 'message': str(e)}, status=400)
-
-    return JsonResponse({'success': False, 'message': 'Método no permitido'}, status=405)
 
 
 

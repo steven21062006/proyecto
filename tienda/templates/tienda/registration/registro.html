@@ -1,44 +1,6 @@
-<!DOCTYPE html>
+{% extends 'tienda/base.html' %}
 {% load static %}
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Registro - BLACK PANTHER</title>
-  <link rel="stylesheet" href="{% static 'css/auth.css' %}" />
-  
-  <script>
-    function validarFormulario(e) {
-      const pass1 = document.getElementById('id_password1');
-      const pass2 = document.getElementById('id_password2');
-      if(pass1.value !== pass2.value) {
-        e.preventDefault();
-        alert('Las contraseñas no coinciden');
-        pass1.classList.add('invalid');
-        pass2.classList.add('invalid');
-        return false;
-      } else {
-        pass1.classList.remove('invalid');
-        pass2.classList.remove('invalid');
-      }
-      return true;
-    }
-  </script>
-</head>
-<body>
-  <header class="header">
-    <h1>BLACK PANTHER</h1>
-    <nav class="nav">
-      <ul>
-        <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-        <li><a href="#">Subastas</a></li>
-        <li><a href="#">Contacto</a></li>
-        <li><a href="{% url 'tienda:registro' %}">Crear Usuario</a></li>
-        <li><a href="{% url 'tienda:login' %}">Iniciar Sesión</a></li>
-      </ul>
-    </nav>
-  </header>
-
+ {% block content %}
   <div class="login-container">
     <h1>Crear Cuenta</h1>
 
@@ -115,5 +77,23 @@
       <button type="submit" class="btn-primary">Crear Cuenta</button>
     </form>
   </div>
-</body>
-</html>
+{% endblock %}
+{% block extra_js %}
+<script>
+    function validarFormulario(e) {
+      const pass1 = document.getElementById('id_password1');
+      const pass2 = document.getElementById('id_password2');
+      if(pass1.value !== pass2.value) {
+        e.preventDefault();
+        alert('Las contraseñas no coinciden');
+        pass1.classList.add('invalid');
+        pass2.classList.add('invalid');
+        return false;
+      } else {
+        pass1.classList.remove('invalid');
+        pass2.classList.remove('invalid');
+      }
+      return true;
+    }
+  </script>
+{% endblock %}

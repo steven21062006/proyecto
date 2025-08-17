@@ -31,7 +31,7 @@ urlpatterns = [
     path('subastas/nueva/', subastas.crear_subasta, name='crear_subasta'),
     path('subastas/<slug:slug>/', subastas.detalle_subasta, name='detalle_subasta'),
     path('subastas/<slug:slug>/finalizar/', subastas.finalizar_subasta, name='finalizar_subasta'),
-    path('subasta/<slug:slug>/comentario/', subastas.procesar_comentario_subasta, name='procesar_comentario_subasta'),
+    
     path('mis-subastas/', subastas.mis_subastas, name='mis_subastas'),
 
     # Motos

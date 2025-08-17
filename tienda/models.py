@@ -167,14 +167,7 @@ class ComentarioSubasta(models.Model):
     def __str__(self):
         return f"Comentario de {self.usuario.username} en {self.subasta.titulo}"
 
-class ComentarioMoto(models.Model):
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    nombre = models.CharField(max_length=100)
-    comentario = models.TextField()
-    fecha = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.nombre}: {self.comentario[:20]}"
     
 
 from django.contrib.auth.models import User

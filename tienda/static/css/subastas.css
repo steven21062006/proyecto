@@ -1,15 +1,12 @@
-/* tienda/static/css/subastas.css */
-/* Estilos principales para el módulo de subastas */
 
-/* Contenedor principal */
 .subasta-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    font-family: inherit; /* Hereda la fuente de tu base.css */
+    font-family: inherit; 
 }
 
-/* Tarjetas de subasta */
+
 .subasta-card {
     background: var(--card-bg, #fff);
     border: 1px solid var(--border-color, #e1e1e1);
@@ -55,7 +52,7 @@
     gap: 5px;
 }
 
-/* Página de detalle */
+
 .detalle-subasta {
     display: flex;
     flex-wrap: wrap;
@@ -72,7 +69,7 @@
     min-width: 300px;
 }
 
-/* Formularios */
+
 .subasta-form {
     background: var(--form-bg, #f8f9fa);
     padding: 20px;
@@ -80,7 +77,7 @@
     margin-top: 20px;
 }
 
-/* Media Queries - Coherentes con tu responsive.css */
+
 @media (max-width: 992px) {
     .subasta-container {
         padding: 15px;
@@ -120,7 +117,7 @@
     }
 }
 
-/* Modo oscuro - Compatible con tu esquema */
+
 @media (prefers-color-scheme: dark) {
     .subasta-card {
         background-color: var(--dark-card-bg, #1e1e1e);
@@ -136,7 +133,7 @@
     }
 }
 
-/* Animaciones */
+
 @keyframes nueva-puja {
     from { background-color: rgba(42, 157, 143, 0.3); }
     to { background-color: transparent; }

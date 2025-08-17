@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin as DefaultUserAdmin
-from .models import Categoria, Producto, Subasta, Puja, ComentarioMoto, ComentarioSubasta
+from .models import Categoria, Producto, Subasta, Puja, ComentarioSubasta
 
 # Configuración del usuario
 admin.site.unregister(User)
@@ -37,6 +37,5 @@ class SubastaAdmin(admin.ModelAdmin):
 
 # Otros modelos
 admin.site.register(Puja)
-admin.site.register(ComentarioMoto)
 admin.site.register(ComentarioSubasta)
 

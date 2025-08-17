@@ -6,16 +6,7 @@ from django.contrib.auth.models import User
 from .models import Subasta, Puja, ComentarioSubasta, Categoria
 from django.forms.widgets import ClearableFileInput
 
-from .models import ComentarioMoto
 
-class ComentarioMotoForm(forms.ModelForm):
-    class Meta:
-        
-        model = ComentarioMoto
-        fields = ['comentario']
-        widgets = {
-            'texto': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Escribe tu comentario...'})
-        }
 
 
 class ContactoForm(forms.Form):

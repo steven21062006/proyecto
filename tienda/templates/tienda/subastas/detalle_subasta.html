@@ -11,7 +11,6 @@
   padding: 0 1rem;
 }
 
-/* Imagen producto */
 .product-image {
   flex: 1 1 50%;
   max-height: 400px;
@@ -33,7 +32,6 @@
   transform: scale(1.05);
 }
 
-/* Contenido texto detalle */
 .product-info {
   flex: 1 1 50%;
   display: flex;
@@ -41,7 +39,6 @@
   justify-content: space-between;
 }
 
-/* Título y descripción */
 .product-info h1 {
   font-size: 2rem;
   color: #000;
@@ -56,7 +53,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Tarjeta detalles de la subasta */
 .auction-details-card {
   background: #fff;
   border-radius: 14px;
@@ -92,48 +88,77 @@
   color: #000;
 }
 
-/* Formulario puja */
 .bid-form {
   background: #000;
   color: white;
   border-radius: 14px;
-  padding: 1.5rem;
+  padding: 1.2rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   font-weight: 600;
+  border: 1px solid #333;
 }
 
 .bid-form h4 {
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
+  color: #fff;
+  text-align: center;
 }
 
 .bid-form form {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
+  gap: 0.8rem;
+  align-items: flex-end;
+}
+
+.bid-form .form-group {
+  flex: 1;
+}
+
+.bid-form .form-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.9rem;
 }
 
 .bid-form input[type="number"] {
-  flex: 1 1 70%;
-  padding: 0.7rem 1rem;
-  border-radius: 40px;
-  border: none;
-  font-size: 1rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 2px solid #333;
+  font-size: 0.9rem;
   font-weight: 600;
+  background: #fff;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+.bid-form input[type="number"]:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.bid-form input[type="number"]::placeholder {
+  color: #999;
+  font-weight: 500;
 }
 
 .bid-form button {
-  flex: 1 1 25%;
   background-color: #fff;
   color: #000;
   font-weight: 700;
-  padding: 0.7rem 0;
-  border-radius: 40px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  height: 38px;
+  white-space: nowrap;
 }
 
 .bid-form button:hover {
@@ -141,7 +166,6 @@
   color: white;
 }
 
-/* Mensajes de alerta */
 .alert {
   border-radius: 12px;
   padding: 1rem 1.5rem;
@@ -150,7 +174,6 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* Lista de pujas */
 .bid-history {
   background: #fff;
   border-radius: 14px;
@@ -182,16 +205,12 @@
   font-size: 0.85rem;
 }
 
-/* Contador regresivo */
 .countdown {
   font-weight: 700;
   color: #000;
   font-size: 1.1rem;
 }
 
-/* --- Responsive --- */
-
-/* Tablets y pantallas medianas */
 @media (max-width: 992px) {
   .product-detail-container {
     flex-direction: column;
@@ -209,15 +228,12 @@
 
   .bid-form form {
     flex-direction: column;
-  }
-
-  .bid-form input[type="number"],
-  .bid-form button {
-    flex: 1 1 100%;
+    align-items: stretch;
   }
 
   .bid-form button {
-    margin-top: 1rem;
+    width: 100%;
+    margin-top: 0.5rem;
   }
 
   .bid-history {
@@ -225,7 +241,6 @@
   }
 }
 
-/* Móviles pequeños */
 @media (max-width: 576px) {
   .product-detail-container {
     margin: 1rem;
@@ -243,16 +258,14 @@
   .auction-details-card h4 {
     font-size: 1.2rem;
   }
-
-  .bid-form h4 {
-    font-size: 1.3rem;
-  }
-
-  .bid-history {
-    max-height: 180px;
-  }
+.user-avatar {
+  width: 40px;   
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover; 
 }
-
+}
 </style>
 {% endblock %}
 

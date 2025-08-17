@@ -1,19 +1,23 @@
-<h2>{{ categoria_nombre }}</h2>
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-  {% for subasta in subastas %}
-    <div class="col">
-      <div class="card h-100 text-white border-light">
-        <img src="{{ subasta.producto.imagen.url }}" class="card-img-top" alt="{{ subasta.producto.nombre }}" />
-        <div class="card-body">
-          <h5 class="card-title">{{ subasta.producto.nombre }}</h5>
-          <p class="card-text">{{ subasta.producto.descripcion|truncatewords:20 }}</p>
-        </div>
-        <div class="card-footer bg-transparent border-top-0">
-          <a href="{% url 'tienda:detalle_subasta' subasta.slug %}" class="btn btn-outline-light w-100">Ver Detalles</a>
+{% extends 'tienda/base.html' %}
+{% load static %}
+{% block title %}{{ categoria_nombre }} | BLACK PANTHER{% endblock %}
+
+{% block content %}
+<main class="main-content">
+  <h2>{{ categoria_nombre }}</h2>
+  <div class="auction-list">
+    {% for subasta in subastas %}
+      <div class="auction-item">
+        <img src="{{ subasta.producto.imagen.url }}" alt="{{ subasta.producto.nombre }}">
+        <div class="auction-details">
+          <h3>{{ subasta.producto.nombre }}</h3>
+          <p class="description">{{ subasta.producto.descripcion|truncatewords:20 }}</p>
+          <a href="{% url 'tienda:detalle_subasta' subasta.slug %}" class="btn">Ver Detalles</a>
         </div>
       </div>
-    </div>
-  {% empty %}
-    <p class="text-center">No hay subastas activas disponibles en esta categoría.</p>
-  {% endfor %}
-</div>
+    {% empty %}
+      <p class="text-center">No hay subastas activas disponibles en esta categoría.</p>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}

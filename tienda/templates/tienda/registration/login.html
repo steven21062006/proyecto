@@ -1,27 +1,8 @@
-<!DOCTYPE html>
+{% extends 'tienda/base.html' %}
 {% load static %}
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - BLACK PANTHER</title>
-    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
-</head>
-<body>
-    <header class="header">
-      <h1>BLACK PANTHER</h1>
-      <nav class="nav">
-        <ul>
-          <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-          <li><a href="#">Subastas</a></li>
-          <li><a href="#">Mis Subastas</a></li>
-          <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
-          <li><a href="{% url 'tienda:registro' %}"">Crear Usuario</a></li>
-          <li><a href="{% url 'tienda:login' %}">Iniciar Sesión</a></li>
-        </ul>
-      </nav>
-    </header>
 
+{% block content %}
+ <body class="auth-page">
     <div class="login-container">
         {% if messages %}
         <div class="messages">
@@ -52,5 +33,6 @@
         
         
     </div>
-</body>
-</html>
+ </body>
+ 
+{% endblock %}

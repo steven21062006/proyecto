@@ -20,7 +20,7 @@
       <h3>{{ user.username }}</h3>
       <p>{{ user.email }}</p>
       <p><strong>Nombre:</strong> {{ user.first_name }} {{ user.last_name }}</p>
-      <a class="edit-button" href="{% url 'tienda:editar_perfil' %}">Editar perfil</a>
+      <a class="edit-button" href="#">Editar perfil</a>
     </div>
 
     <div class="profile-details">
@@ -37,7 +37,7 @@
       <h3>Acciones rápidas</h3>
       <ul class="quick-actions">
         <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
-        <li><a href="{% url 'tienda:mis_pujas' %}">Mis Pujas</a></li>
+        <li><a href="{% url 'tienda:lista_subastas' %}">Subastas</a></li>
         <li><a href="{% url 'tienda:logout' %}">Cerrar sesión</a></li>
       </ul>
     </div>

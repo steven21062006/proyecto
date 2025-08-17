@@ -43,6 +43,6 @@ def logout_view(request):
 
 @login_required
 def perfil_view(request):
-    return render(request, 'perfil.html', {
+    return render(request, 'tienda/perfil.html', {
         'usuario': request.user
     })

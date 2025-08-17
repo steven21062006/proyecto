@@ -1,41 +1,12 @@
-<!DOCTYPE html>
+{% extends 'tienda/base.html' %}
 {% load static %}
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLACK PANTHER - Plataforma de Subastas</title>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <script src="{% static 'js/main.js' %}"></script>
+{% block title %}Inicio | BLACK PANTHER{% endblock %}
 
-</head>
-<body>
-
-<header class="header">
-  <h1>BLACK PANTHER</h1>
-  <nav class="nav">
-   <ul>
-    <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-    <li><a href="{% url 'tienda:lista_subastas' %}">Subastas</a></li>
-    {% if request.user.is_authenticated %}
-     <li><a href="{% url 'tienda:mis_subastas' %}">Mis Subastas</a></li>
-    {% endif %}
-    <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
-
-    {% if request.user.is_authenticated %}
-      <li><a href="{% url 'tienda:logout' %}">Cerrar Sesión</a></li>
-    {% else %}
-      <li><a href="{% url 'tienda:registro' %}">Crear Usuario</a></li>
-      <li><a href="{% url 'tienda:login' %}">Iniciar Sesión</a></li>
-    {% endif %}
-   </ul>
-  </nav>
-</header>
-
+{% block content %}
 <div class="banner">
   <h2>¡Bienvenido a BLACK PANTHER!</h2>
   <p>Explora las mejores subastas por categoría</p>
-  <button class="btn-primary">Explorar Subastas</button>
+  <a href="{% url 'tienda:lista_subastas' %}" class="btn-primary">Explorar Subastas</a>
 </div>
 
 <main class="main-content">
@@ -44,7 +15,7 @@
   <h2>Vehículos</h2>
   <div class='auction-list'>
     <div class="auction-item">
-      <img src="/static/img/subastas/lamborcito.jpg" alt="Vehículos Deportivos">
+      <img src="{% static 'img/subastas/lamborcito.jpg' %}" alt="Vehículos Deportivos">
       <div class="auction-details">
         <h3>Vehículos Deportivos</h3>
         <p class="description">Descubre autos potentes, aerodinámicos y de alto rendimiento para los amantes de la velocidad.</p>
@@ -52,16 +23,15 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/motocicleta.jpg" alt="Motocicletas Urbanas">
+      <img src="{% static 'img/subastas/motocicleta.jpg' %}" alt="Motocicletas Urbanas">
       <div class="auction-details">
         <h3>Motocicletas Urbanas</h3>
         <p class="description">Motocicletas ideales para ciudad, eficientes y fáciles de maniobrar.</p>
         <a href="{% url 'tienda:lista_categoria' 'Motocicletas Urbanas' %}" class="btn">Ver productos</a>
-
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/ford.jpg" alt="Camionetas y SUV">
+      <img src="{% static 'img/subastas/ford.jpg' %}" alt="Camionetas y SUV">
       <div class="auction-details">
         <h3>Camionetas y SUV</h3>
         <p class="description">Vehículos espaciosos y robustos, ideales para familias y terrenos difíciles.</p>
@@ -69,21 +39,20 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/bici.jpg" alt="Movilidad Ecológica">
+      <img src="{% static 'img/subastas/bici.jpg' %}" alt="Movilidad Ecológica">
       <div class="auction-details">
         <h3>Movilidad Ecológica</h3>
         <p class="description">Opciones eléctricas como bicicletas o scooters para una vida más verde.</p>
         <a href="#" class="btn">Ver productos</a>
       </div>
     </div>
-    
   </div>
 
   <!-- Categoría: Tecnología -->
   <h2>Tecnología</h2>
   <div class='auction-list'>
     <div class="auction-item">
-      <img src="/static/img/subastas/laptop.jpeg" alt="Laptops y Portátiles">
+      <img src="{% static 'img/subastas/laptop.jpeg' %}" alt="Laptops y Portátiles">
       <div class="auction-details">
         <h3>Laptops y Portátiles</h3>
         <p class="description">Computadoras ligeras y potentes para trabajo, estudio o entretenimiento.</p>
@@ -91,7 +60,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/iphone.jpg" alt="Smartphones">
+      <img src="{% static 'img/subastas/iphone.jpg' %}" alt="Smartphones">
       <div class="auction-details">
         <h3>Smartphones</h3>
         <p class="description">Dispositivos móviles de última generación con tecnología avanzada.</p>
@@ -99,7 +68,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/tablet.png" alt="Tablets y Lectores">
+      <img src="{% static 'img/subastas/tablet.png' %}" alt="Tablets y Lectores">
       <div class="auction-details">
         <h3>Tablets y Lectores</h3>
         <p class="description">Ideales para leer, ver contenido multimedia y navegar.</p>
@@ -107,7 +76,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/periferico.jpg" alt="Periféricos">
+      <img src="{% static 'img/subastas/periferico.jpg' %}" alt="Periféricos">
       <div class="auction-details">
         <h3>Periféricos</h3>
         <p class="description">Monitores, teclados y otros accesorios para tu setup.</p>
@@ -120,7 +89,7 @@
   <h2>Juegos</h2>
   <div class='auction-list'>
     <div class="auction-item">
-      <img src="/static/img/subastas/nintendo.jpg" alt="Consolas de Videojuegos">
+      <img src="{% static 'img/subastas/nintendo.jpg' %}" alt="Consolas de Videojuegos">
       <div class="auction-details">
         <h3>Consolas de Videojuegos</h3>
         <p class="description">PlayStation, Xbox y más para una experiencia de juego inolvidable.</p>
@@ -128,7 +97,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/nvidia.jpg" alt="Consolas de Alta Gama">
+      <img src="{% static 'img/subastas/nvidia.jpg' %}" alt="Consolas de Alta Gama">
       <div class="auction-details">
         <h3>Consolas de Alta Gama</h3>
         <p class="description">Máximo rendimiento y gráficos impresionantes en cada juego.</p>
@@ -136,7 +105,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/csgo.jpg" alt="Videojuegos Populares">
+      <img src="{% static 'img/subastas/csgo.jpg' %}" alt="Videojuegos Populares">
       <div class="auction-details">
         <h3>Videojuegos Populares</h3>
         <p class="description">Los títulos más buscados del mercado: FIFA, Call of Duty y más.</p>
@@ -144,7 +113,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/accesorio.png" alt="Accesorios Gamer">
+      <img src="{% static 'img/subastas/accesorio.png' %}" alt="Accesorios Gamer">
       <div class="auction-details">
         <h3>Accesorios Gamer</h3>
         <p class="description">Sillas, audífonos y otros complementos para tus sesiones de juego.</p>
@@ -157,7 +126,7 @@
   <h2>Casas</h2>
   <div class='auction-list'>
     <div class="auction-item">
-      <img src="/static/img/subastas/campo.jpg" alt="Casas de Campo">
+      <img src="{% static 'img/subastas/campo.jpg' %}" alt="Casas de Campo">
       <div class="auction-details">
         <h3>Casas de Campo</h3>
         <p class="description">Viviendas alejadas de la ciudad, rodeadas de naturaleza y tranquilidad.</p>
@@ -165,7 +134,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/urbano.jpeg" alt="Departamentos Urbanos">
+      <img src="{% static 'img/subastas/urbano.jpeg' %}" alt="Departamentos Urbanos">
       <div class="auction-details">
         <h3>Departamentos Urbanos</h3>
         <p class="description">Ubicaciones céntricas para una vida activa en la ciudad.</p>
@@ -173,7 +142,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/playa.jpeg" alt="Casas en la Playa">
+      <img src="{% static 'img/subastas/playa.jpeg' %}" alt="Casas en la Playa">
       <div class="auction-details">
         <h3>Casas en la Playa</h3>
         <p class="description">Vistas al mar y ambiente relajado para vivir o vacacionar.</p>
@@ -181,7 +150,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/mansion.jpg" alt="Casas Modernas">
+      <img src="{% static 'img/subastas/mansion.jpg' %}" alt="Casas Modernas">
       <div class="auction-details">
         <h3>Casas Modernas</h3>
         <p class="description">Diseños minimalistas y funcionales con tecnología integrada.</p>
@@ -194,7 +163,7 @@
   <h2>Marcas</h2>
   <div class='auction-list'>
     <div class="auction-item">
-      <img src="/static/img/subastas/watch.jpg" alt="Tecnología Apple">
+      <img src="{% static 'img/subastas/watch.jpg' %}" alt="Tecnología Apple">
       <div class="auction-details">
         <h3>Tecnología Apple</h3>
         <p class="description">Smartwatches, iPhones y más con diseño e innovación premium.</p>
@@ -202,7 +171,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/nike.jpg" alt="Ropa Deportiva Nike">
+      <img src="{% static 'img/subastas/nike.jpg' %}" alt="Ropa Deportiva Nike">
       <div class="auction-details">
         <h3>Ropa Deportiva Nike</h3>
         <p class="description">Zapatillas, ropa y accesorios con estilo y confort.</p>
@@ -210,7 +179,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/gucci.png" alt="Moda de Lujo">
+      <img src="{% static 'img/subastas/gucci.png' %}" alt="Moda de Lujo">
       <div class="auction-details">
         <h3>Moda de Lujo</h3>
         <p class="description">Accesorios exclusivos de marcas como Louis Vuitton, Gucci y más.</p>
@@ -218,7 +187,7 @@
       </div>
     </div>
     <div class="auction-item">
-      <img src="/static/img/subastas/perfume.jpg" alt="Perfumería de Marca">
+      <img src="{% static 'img/subastas/perfume.jpg' %}" alt="Perfumería de Marca">
       <div class="auction-details">
         <h3>Perfumería de Marca</h3>
         <p class="description">Fragancias elegantes y originales para cada ocasión.</p>
@@ -228,53 +197,4 @@
   </div>
 
 </main>
-
-<!-- FOOTER COMPLETO -->
-<footer class="main-footer">
-  <div class="footer-top">
-    <div class="footer-logo">
-      <h3>BLACK PANTHER</h3>
-      <p>Subastas exclusivas, tecnología, vehículos y lujo al alcance de todos.</p>
-      <p><strong>Visítanos</strong> en nuestras oficinas o contáctanos por nuestras redes.</p>
-    </div>
-
-    <div class="footer-columns">
-      <div class="footer-col">
-        <h4>Oficina Quito</h4>
-        <p>La Magdalena, Quito - Ecuador</p>
-        <p>pmsalazare@puce.edu.ec</p>
-        <p>+593 97 971 0437</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>BLACK PANTHER</h4>
-        <ul>
-          <li><a href="{% url 'tienda:inicio' %}">Inicio</a></li>
-          <li><a href="#">Subastas</a></li>
-          <li><a href="#">Mis Subastas</a></li>
-          <li><a href="{% url 'tienda:contacto' %}">Contacto</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>¿Quiénes Somos?</h4>
-        <p>Unimos innovación y oportunidad para crear la mejor experiencia en subastas digitales.</p>
-        <h4>Idiomas Sitio</h4>
-        <p>🌐 🇪🇸 🇺🇸 🇫🇷</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>Conéctate con nosotros: 
-      <a href="#">FACEBOOK</a> - 
-      <a href="https://www.instagram.com/matezepam">INSTAGRAM</a> - 
-      <a href="#">TIKTOK</a> - 
-      <a href="https://wa.me/+5930979710437">WHATSAPP</a>
-    </p>
-    <p>© BLACK PANTHER | Todos los derechos reservados | 2025</p>
-  </div>
-</footer>
-
-</body>
-</html>
+{% endblock %}
