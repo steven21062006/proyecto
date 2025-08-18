@@ -2,7 +2,98 @@
 {% load static %}
 
 {% block extra_css %}
+
 <style>
+.comentarios-section {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin: 20px 0; /* Eliminamos el margen automático lateral */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+/* Título de la sección */
+.comentarios-section h3 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Formulario de comentarios */
+.comentarios-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.comentarios-section form input,
+.comentarios-section form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1em;
+    resize: vertical;
+}
+
+.comentarios-section form button {
+    width: 150px;
+    padding: 10px;
+    background-color: #000; /* Botón negro */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comentarios-section form button:hover {
+    background-color: #333; /* Negro un poco más claro al pasar el mouse */
+}
+
+.comentarios-section form button:active {
+    background-color: #666; /* Gris cuando se presiona */
+}
+
+/* Lista de comentarios */
+.comentarios-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comentarios-section ul li {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.comentarios-section ul li:last-child {
+    border-bottom: none;
+}
+
+/* Usuario y fecha */
+.comentarios-section ul li strong {
+    color: #333;
+    margin-right: 10px;
+}
+
+.comentarios-section ul li small {
+    color: #999;
+    font-size: 0.85em;
+}
+
+/* Texto del comentario */
+.comentarios-section ul li p {
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
 .product-detail-container {
   display: flex;
   gap: 2rem;
@@ -265,6 +356,8 @@
   cursor: pointer;
   object-fit: cover; 
 }
+
+
 }
 </style>
 {% endblock %}
@@ -331,26 +424,30 @@
 </div>
 
 <div class="comentarios-section">
-    <h3>Comentarios</h3>
-    
-    {% for comentario in comentarios %}
-        <div class="comentario">
-            <span class="autor">{{ comentario.usuario.username }}</span>
-            <span class="fecha">{{ comentario.fecha|date:"d/m/Y H:i" }}</span>
-            <div class="texto">{{ comentario.texto }}</div>
-        </div>
-    {% empty %}
-        <p>No hay comentarios todavía. ¡Sé el primero!</p>
-    {% endfor %}
-    
-    <div class="comentarios-form">
-        <form method="post">
-            {% csrf_token %}
-            {{ comentario_form.as_p }}
-            <button type="submit">Enviar comentario</button>
-        </form>
-    </div>
-</div>
+  <h3>Comentarios</h3>
+
+  {% if user.is_authenticated %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Agregar comentario</button>
+  </form>
+{% else %}
+  <p><a href="{% url 'tienda:login' %}?next={{ request.path }}">Inicia sesión</a> para comentar.</p>
+{% endif %}
+
+<ul>
+  {% for comentario in comentarios %}
+    <li>
+      <strong>{{ comentario.usuario.username }}</strong> 
+      <small>{{ comentario.fecha|date:"d/m/Y H:i" }}</small>
+      <p>{{ comentario.texto }}</p>
+    </li>
+  {% empty %}
+    <li>No hay comentarios aún.</li>
+  {% endfor %}
+</ul>
+
 
 
 {% endblock %}
@@ -358,7 +455,7 @@
 {% block extra_js %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // --- Contador regresivo ---
+  
   const countdownElem = document.querySelector('.countdown');
   const endDateStr = countdownElem?.dataset.end;
   if (endDateStr) {
@@ -428,6 +525,22 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error(err);
         alert("Error al conectar con el servidor");
       });
+    });
+  }
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleBtn = document.getElementById('toggle-comentario');
+  const formComentario = document.getElementById('form-comentario');
+
+  if(toggleBtn && formComentario){
+    toggleBtn.addEventListener('click', function() {
+      if(formComentario.style.display === 'none'){
+        formComentario.style.display = 'block';
+        toggleBtn.textContent = 'Ocultar formulario';
+      } else {
+        formComentario.style.display = 'none';
+        toggleBtn.textContent = 'Agregar un comentario';
+      }
     });
   }
 });
