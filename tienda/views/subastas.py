@@ -5,8 +5,8 @@ from django.contrib import messages
 from django.http import JsonResponse
 import json
 
-from tienda.models import Producto, Puja, Subasta
-from tienda.forms import SubastaForm, PujaForm, MultipleImagenSubastaForm
+from tienda.models import Producto, Puja, Subasta,ComentarioSubasta
+from tienda.forms import SubastaForm, PujaForm, MultipleImagenSubastaForm, ComentarioForm
 
 from django.http import JsonResponse
 from django.utils.timezone import now
@@ -58,8 +58,9 @@ def lista_subastas(request):
 def detalle_subasta(request, slug):
     subasta = get_object_or_404(Subasta, slug=slug)
     pujas = subasta.pujas.all().order_by('-fecha')
+    comentarios = subasta.comentarios.all().order_by('-fecha')  # gracias a related_name
 
-    # Manejo de AJAX para registrar puja
+    # --- Manejo de pujas AJAX ---
     if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
         puja_form = PujaForm(request.POST, subasta=subasta)
         if puja_form.is_valid():
@@ -73,7 +74,6 @@ def detalle_subasta(request, slug):
             puja.usuario = request.user
             puja.save()
 
-            # Actualiza precio actual
             subasta.precio_actual = puja.monto
             subasta.save()
 
@@ -86,7 +86,23 @@ def detalle_subasta(request, slug):
         else:
             return JsonResponse({'success': False, 'message': 'Datos inválidos'}, status=400)
 
-    # Vista normal para renderizado HTML
+    # --- Manejo de formulario de comentarios ---
+    if request.method == 'POST' and not request.headers.get('x-requested-with'):
+        if request.user.is_authenticated:
+            comentario_form = ComentarioForm(request.POST)
+            if comentario_form.is_valid():
+                comentario = comentario_form.save(commit=False)
+                comentario.subasta = subasta
+                comentario.usuario = request.user
+                comentario.save()
+                return redirect('tienda:detalle_subasta', slug=subasta.slug)
+        else:
+            return redirect('tienda:login')
+
+    else:
+        comentario_form = ComentarioForm()
+
+    # --- Vista normal ---
     puja_form = PujaForm(subasta=subasta) if subasta.estado == 'ACTIVA' and subasta.usuario != request.user else None
 
     return render(request, 'tienda/subastas/detalle_subasta.html', {
@@ -95,6 +111,8 @@ def detalle_subasta(request, slug):
         'puja_form': puja_form,
         'puja_actual': subasta.precio_actual,
         'usuario_autenticado': request.user.is_authenticated,
+        'comentarios': comentarios,
+        'form': comentario_form,
     })
 
 

@@ -11564,3 +11564,214 @@ Watching for file changes with StatReloader
 "GET /favicon.ico/ HTTP/1.1" 200 2802
 "GET / HTTP/1.1" 200 10427
 "GET /favicon.ico/ HTTP/1.1" 200 2802
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/ HTTP/1.1" 200 3949
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/play-5/ HTTP/1.1" 200 12320
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"POST /subastas/play-5/ HTTP/1.1" 200 81
+"GET /subastas/play-5/ HTTP/1.1" 200 12523
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 10489
+"GET /static/css/style.css HTTP/1.1" 304 0
+"GET /static/css/auth.css HTTP/1.1" 304 0
+"GET /static/css/contacto.css HTTP/1.1" 304 0
+"GET /static/img/subastas/anonimo.png HTTP/1.1" 304 0
+"GET /static/img/subastas/lamborcito.jpg HTTP/1.1" 304 0
+"GET /static/css/subastas.css HTTP/1.1" 304 0
+"GET /static/img/subastas/motocicleta.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/ford.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/bici.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/laptop.jpeg HTTP/1.1" 304 0
+"GET /static/img/subastas/iphone.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/tablet.png HTTP/1.1" 304 0
+"GET /static/img/subastas/periferico.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/nintendo.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/nvidia.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/csgo.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/accesorio.png HTTP/1.1" 304 0
+"GET /static/img/subastas/campo.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/urbano.jpeg HTTP/1.1" 304 0
+"GET /static/img/subastas/playa.jpeg HTTP/1.1" 304 0
+"GET /static/img/subastas/mansion.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/watch.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/nike.jpg HTTP/1.1" 304 0
+"GET /static/img/subastas/gucci.png HTTP/1.1" 304 0
+"GET /static/img/subastas/perfume.jpg HTTP/1.1" 304 0
+"GET /static/js/main.js HTTP/1.1" 200 2967
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /Motocicletas%20Urbanas/ HTTP/1.1" 200 2820
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/ HTTP/1.1" 200 3949
+"GET /media/productos/accesorio_Cwu3oUM.png HTTP/1.1" 304 0
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/play-5/ HTTP/1.1" 200 13027
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+Internal Server Error: /subastas/play-5/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\subastas.py", line 98, in detalle_subasta
+    return redirect('detalle_subasta', slug=subasta.slug)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detalle_subasta' not found. 'detalle_subasta' is not a valid view function or pattern name.
+"POST /subastas/play-5/ HTTP/1.1" 500 92119
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Internal Server Error: /subastas/play-5/
+Traceback (most recent call last):
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\subastas.py", line 98, in detalle_subasta
+    return redirect('detalle_subasta', slug=subasta.slug)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ricar\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detalle_subasta' not found. 'detalle_subasta' is not a valid view function or pattern name.
+"POST /subastas/play-5/ HTTP/1.1" 500 92178
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+C:\Users\ricar\OneDrive\Imágenes\poyecto_miercoles\proyecto\tienda\views\subastas.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/play-5/ HTTP/1.1" 200 13208
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"POST /subastas/play-5/ HTTP/1.1" 302 0
+"GET /subastas/play-5/ HTTP/1.1" 200 13317
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/play-5/ HTTP/1.1" 200 15620
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"POST /subastas/play-5/ HTTP/1.1" 200 15620
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /contacto/ HTTP/1.1" 200 3522
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /Motocicletas%20Urbanas/ HTTP/1.1" 200 2820
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/ HTTP/1.1" 200 3949
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/play-5/ HTTP/1.1" 200 15620
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/play-5/ HTTP/1.1" 200 13504
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/play-5/ HTTP/1.1" 200 13504
+"GET /favicon.ico/ HTTP/1.1" 200 3555
+"GET /subastas/play-5/ HTTP/1.1" 200 13504
+"GET /favicon.ico/ HTTP/1.1" 200 4424
+"GET /subastas/play-5/ HTTP/1.1" 200 13504
+"GET /favicon.ico/ HTTP/1.1" 200 4442
+"GET /subastas/play-5/ HTTP/1.1" 200 13501
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /admin/ HTTP/1.1" 200 10862
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"POST /admin/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 10207
+"GET /favicon.ico/ HTTP/1.1" 200 2520
+"GET /login/ HTTP/1.1" 200 3215
+"GET /favicon.ico/ HTTP/1.1" 200 2520
+"POST /login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /mis-subastas/ HTTP/1.1" 200 2691
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/ HTTP/1.1" 200 3949
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/play-5/ HTTP/1.1" 200 13501
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 3757
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 10862
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"POST /admin/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 10207
+"GET /favicon.ico/ HTTP/1.1" 200 2520
+"GET /login/ HTTP/1.1" 200 3215
+"GET /favicon.ico/ HTTP/1.1" 200 2520
+"POST /login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/ HTTP/1.1" 200 3949
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/play-5/ HTTP/1.1" 200 13501
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/ HTTP/1.1" 200 3949
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 3757
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 10862
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"POST /admin/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 10207
+"GET /favicon.ico/ HTTP/1.1" 200 2520
+"GET /subastas/ HTTP/1.1" 200 3667
+"GET /favicon.ico/ HTTP/1.1" 200 2520
+"GET /subastas/play-5/ HTTP/1.1" 200 12778
+"GET /favicon.ico/ HTTP/1.1" 200 2520
+"GET /subastas/ HTTP/1.1" 200 3667
+"GET /favicon.ico/ HTTP/1.1" 200 2520
+"GET /subastas/play-5/ HTTP/1.1" 200 12778
+"GET /favicon.ico/ HTTP/1.1" 200 2520
+"GET /login/?next=/subastas/play-5/ HTTP/1.1" 200 3215
+"GET /favicon.ico/ HTTP/1.1" 200 2520
+"POST /login/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 10489
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /mis-subastas/ HTTP/1.1" 200 2995
+"GET /favicon.ico/ HTTP/1.1" 200 2802
+"GET /subastas/play-5/ HTTP/1.1" 200 13501
+"GET /favicon.ico/ HTTP/1.1" 200 2802

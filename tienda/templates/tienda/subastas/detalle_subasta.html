@@ -329,6 +329,30 @@
     </ul>
   </div>
 </div>
+
+<div class="comentarios-section">
+    <h3>Comentarios</h3>
+    
+    {% for comentario in comentarios %}
+        <div class="comentario">
+            <span class="autor">{{ comentario.usuario.username }}</span>
+            <span class="fecha">{{ comentario.fecha|date:"d/m/Y H:i" }}</span>
+            <div class="texto">{{ comentario.texto }}</div>
+        </div>
+    {% empty %}
+        <p>No hay comentarios todavía. ¡Sé el primero!</p>
+    {% endfor %}
+    
+    <div class="comentarios-form">
+        <form method="post">
+            {% csrf_token %}
+            {{ comentario_form.as_p }}
+            <button type="submit">Enviar comentario</button>
+        </form>
+    </div>
+</div>
+
+
 {% endblock %}
 
 {% block extra_js %}
